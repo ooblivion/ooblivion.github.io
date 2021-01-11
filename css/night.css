@@ -1,0 +1,194 @@
+.v .vlist .vcard .vh .vmeta .vat {
+  color: #fff;
+}
+.v .vlist .vcard .vcontent.expand:before {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(37,41,54,0)), to(#252936));
+  background: linear-gradient(180deg, rgba(37,41,54,0), #252936);
+}
+.v .vlist .vcard .vcontent.expand:after {
+  background: #252936;
+}
+.v .vlist .vcard .vh,
+.v .vlist .vcard .vquote {
+  border-color: dark-primary-color-hover;
+}
+body,
+strong,
+time,
+.title,
+.footer,
+.card,
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6,
+.navbar-item,
+.navbar-item.is-active,
+.navbar-link,
+.menu-list a,
+.menu-label,
+.level-item,
+.input,
+.textarea,
+.button.is-white,
+.button.is-transparent,
+.article-licensing,
+.v * {
+  color: dark-font-color;
+}
+.media-content,
+.has-text-grey,
+.link-muted {
+  color: dark-font-color !important;
+}
+a {
+  color: #5299e0;
+}
+a:hover {
+  color: #fff;
+}
+.content blockquote,
+.article-licensing {
+  background-color: dark-primary-color;
+  border-color: dark-primary-color-hover;
+}
+.post-copyright {
+  background-color: dark-primary-color;
+  border-color: dark-primary-color-hover;
+}
+.content table thead td,
+.content table thead th {
+  color: dark-font-color;
+}
+.content table td,
+.content table th {
+  border-color: dark-primary-color-hover;
+}
+hr {
+  background-color: dark-primary-color-hover;
+}
+article.article .title:hover a,
+article.media .title:hover a {
+  color: dark-font-color !important;
+}
+.tag:not(body) {
+  color: dark-font-color;
+  background-color: dark-primary-color;
+}
+.tag.is-grey {
+  background-color: dark-primary-color-hover;
+}
+.menu-list a:hover {
+  background-color: dark-primary-color;
+}
+.menu-list a.is-active {
+  background-color: dark-primary-color-hover;
+}
+.menu-list li ul {
+  border-color: dark-primary-color;
+}
+.timeline .media:last-child:after {
+  background-color: #252936;
+}
+.timeline {
+  border-color: dark-primary-color-hover;
+}
+.timeline .media:before {
+  background-color: dark-primary-color-hover;
+}
+.searchbox .searchbox-container,
+.searchbox .searchbox-header,
+.searchbox .searchbox-header .searchbox-input,
+.searchbox .searchbox-header .searchbox-close,
+.searchbox .searchbox-body,
+.searchbox .searchbox-result-section,
+.searchbox .searchbox-result-item {
+  color: dark-font-color;
+  background-color: dark-primary-color;
+  border-color: dark-primary-color-hover;
+}
+.searchbox .searchbox-container .searchbox-result-section .searchbox-result-item:hover,
+.searchbox .searchbox-container .searchbox-result-section .searchbox-result-item.active,
+.searchbox .searchbox-container .searchbox-header .searchbox-close:hover {
+  color: #fff;
+  background-color: dark-primary-color-hover;
+}
+::selection {
+  color: #fff;
+  background-color: rgba(52,109,167,0.8);
+}
+::-moz-selection {
+  color: #fff;
+  background-color: rgba(52,109,167,0.8);
+}
+input:-webkit-autofill {
+  -webkit-text-fill-color: dark-font-color !important;
+  box-shadow: 0 0 0px 1000px dark-primary-color inset;
+}
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #abb2bf;
+  background: #282c34;
+}
+.hljs-comment,
+.hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #c678dd;
+}
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e06c75;
+}
+.hljs-literal {
+  color: #56b6c2;
+}
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string {
+  color: #98c379;
+}
+.hljs-built_in,
+.hljs-class .hljs-title {
+  color: #e6c07b;
+}
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #d19a66;
+}
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #61aeee;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}
+.hljs-link {
+  text-decoration: underline;
+}
