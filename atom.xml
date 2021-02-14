@@ -38,26 +38,12 @@
     <link href="http://example.com/2021/01/19/To-do-list/"/>
     <id>http://example.com/2021/01/19/To-do-list/</id>
     <published>2021-01-19T00:54:09.000Z</published>
-    <updated>2021-01-19T13:41:26.966Z</updated>
+    <updated>2021-02-14T13:04:59.141Z</updated>
     
-    <content type="html"><![CDATA[<p>1-19</p><ul><li>学习类别<ul><li>计算机网络</li><li>操作系统</li><li>数据库</li></ul></li><li>书籍<ul><li>CSAPP 深入了解计算机系统</li><li>经典<ul><li>《编译原理》</li><li>《深入理解计算机系统》</li><li>《数据结构与算法分析》</li><li>《C++ 编程思想》</li><li>《Windows 核心编程》</li><li>《深度探索 C++ 对象模型》</li><li>《More Effective C++》</li><li>《Effective C++》</li><li>《编程珠玑》</li><li>《C++  沉思录》</li><li>《Unix 网络编程》</li><li>《代码大全》</li><li>《STL 源码剖析》</li><li>有英文阅读能力，Java编程思想已经出到第五版on java8，这本书有一群大佬翻译开源在github上。第五版翻译的台湾作者也是很资深java专家。</li></ul></li></ul></li><li>网课<ul><li>哈佛 CS50</li></ul></li><li>软件学习</li><li>其他<ul><li>多刷刷leedcode,以后找工作有帮助</li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>可能是学习清单<a id="more"></a></p><ul><li>学习类别<ul><li>计算机网络</li><li>操作系统</li><li>数据库</li></ul></li><li>书籍<ul><li>CSAPP 深入了解计算机系统</li><li>经典<ul><li>《编译原理》</li><li>《深入理解计算机系统》</li><li>《数据结构与算法分析》</li><li>《C++ 编程思想》</li><li>《Windows 核心编程》</li><li>《深度探索 C++ 对象模型》</li><li>《More Effective C++》</li><li>《Effective C++》</li><li>《编程珠玑》</li><li>《C++  沉思录》</li><li>《Unix 网络编程》</li><li>《代码大全》</li><li>《STL 源码剖析》</li><li>有英文阅读能力，Java编程思想已经出到第五版on java8，这本书有一群大佬翻译开源在github上。第五版翻译的台湾作者也是很资深java专家。</li></ul></li></ul></li><li>网课<ul><li>哈佛 CS50</li></ul></li><li>软件学习</li><li>其他<ul><li>多刷leedcode</li></ul></li></ul>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;1-19&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;学习类别&lt;ul&gt;
-&lt;li&gt;计算机网络&lt;/li&gt;
-&lt;li&gt;操作系统&lt;/li&gt;
-&lt;li&gt;数据库&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;书籍&lt;ul&gt;
-&lt;li&gt;CSAPP 深入了解计算机系统&lt;/li&gt;
-&lt;li&gt;经典&lt;ul&gt;
-&lt;li&gt;《编译原理</summary>
-      
+    <summary type="html">&lt;p&gt;可能是学习清单</summary>
     
     
     
