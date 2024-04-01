@@ -18,8 +18,8 @@
   
   <entry>
     <title>TODO List</title>
-    <link href="http://example.com/TODO%20List/"/>
-    <id>http://example.com/TODO%20List/</id>
+    <link href="http://example.com/todo-list/"/>
+    <id>http://example.com/todo-list/</id>
     <published>2024-03-31T15:48:58.000Z</published>
     <updated>2024-03-31T15:48:58.000Z</updated>
     
@@ -35,8 +35,8 @@
     <title>基本設計記事</title>
     <link href="http://example.com/base-design/"/>
     <id>http://example.com/base-design/</id>
-    <published>2024-03-31T15:39:55.000Z</published>
-    <updated>2024-03-31T15:39:55.000Z</updated>
+    <published>2023-12-31T15:39:55.000Z</published>
+    <updated>2024-04-01T11:43:28.451Z</updated>
     
     
     <summary type="html">この記事は...</summary>
