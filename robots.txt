@@ -9,4 +9,4 @@ Allow: /archives/
 Allow: /categories/
 Allow: /tags/
 Allow: /about/
-Sitemap: http://example.com/sitemap.xml
+Sitemap: https://ooblivion.github.io/sitemap.xml
