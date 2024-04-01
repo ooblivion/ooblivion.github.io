@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-03-31T15:48:58.000Z</updated>
+  <updated>2024-04-01T13:05:47.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,28 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>TODO List</title>
-    <link href="http://example.com/todo-list/"/>
-    <id>http://example.com/todo-list/</id>
-    <published>2024-03-31T15:48:58.000Z</published>
-    <updated>2024-03-31T15:48:58.000Z</updated>
+    <title>日本のIT職記録</title>
+    <link href="http://example.com/japan-it-working-memo/"/>
+    <id>http://example.com/japan-it-working-memo/</id>
+    <published>2024-04-01T13:05:47.000Z</published>
+    <updated>2024-04-01T13:05:47.000Z</updated>
+    
+    
+    <summary type="html">日本でプログラマーとして働く外国人の生活記録。</summary>
+    
+    
+    
+    
+    <category term="work" scheme="http://example.com/tags/work/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基本設計記事</title>
+    <link href="http://example.com/base-design/"/>
+    <id>http://example.com/base-design/</id>
+    <published>2023-12-31T15:39:55.000Z</published>
+    <updated>2024-04-01T13:11:53.499Z</updated>
     
     
     <summary type="html">この記事は...</summary>
@@ -32,17 +49,44 @@
   </entry>
   
   <entry>
-    <title>基本設計記事</title>
-    <link href="http://example.com/base-design/"/>
-    <id>http://example.com/base-design/</id>
-    <published>2023-12-31T15:39:55.000Z</published>
-    <updated>2024-04-01T11:43:28.451Z</updated>
+    <title>バージョン管理ツール</title>
+    <link href="http://example.com/version-control-toll/"/>
+    <id>http://example.com/version-control-toll/</id>
+    <published>2022-06-01T12:58:22.000Z</published>
+    <updated>2024-04-01T13:01:03.824Z</updated>
     
     
     <summary type="html">この記事は...</summary>
     
     
     
+    
+    <category term="Git" scheme="http://example.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HexoのIcarusテーマを使ってブログを構築</title>
+    <link href="http://example.com/hexo-create-blog/"/>
+    <id>http://example.com/hexo-create-blog/</id>
+    <published>2022-04-01T12:10:23.000Z</published>
+    <updated>2024-01-01T12:10:23.000Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    <category term="作業" scheme="http://example.com/categories/%E4%BD%9C%E6%A5%AD/"/>
+    
+    <category term="作業メモ" scheme="http://example.com/categories/%E4%BD%9C%E6%A5%AD/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/"/>
+    
+    
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
+    
+    <category term="markdown" scheme="http://example.com/tags/markdown/"/>
+    
+    <category term="blog" scheme="http://example.com/tags/blog/"/>
     
   </entry>
   
