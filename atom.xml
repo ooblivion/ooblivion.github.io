@@ -6,7 +6,7 @@
   <link href="https://ooblivion.github.io/atom.xml" rel="self"/>
   
   <link href="https://ooblivion.github.io/"/>
-  <updated>2024-04-02T14:41:53.196Z</updated>
+  <updated>2024-04-02T14:59:49.674Z</updated>
   <id>https://ooblivion.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>SQL优化技巧</title>
-    <link href="https://ooblivion.github.io/sql-optimization-tips/"/>
-    <id>https://ooblivion.github.io/sql-optimization-tips/</id>
-    <published>2024-04-02T14:40:47.000Z</published>
-    <updated>2024-04-02T14:41:53.196Z</updated>
+    <title>基本設計記事</title>
+    <link href="https://ooblivion.github.io/base-design/"/>
+    <id>https://ooblivion.github.io/base-design/</id>
+    <published>2023-12-31T15:39:55.000Z</published>
+    <updated>2024-04-02T14:59:49.674Z</updated>
     
     
     <summary type="html">この記事は...</summary>
@@ -29,7 +29,7 @@
     
     
     
-    <category term="sql" scheme="https://ooblivion.github.io/tags/sql/"/>
+    <category term="設計" scheme="https://ooblivion.github.io/tags/%E8%A8%AD%E8%A8%88/"/>
     
   </entry>
   
@@ -37,35 +37,14 @@
     <title>開発によく使われるツールやwebサイト</title>
     <link href="https://ooblivion.github.io/development-usually-use-websites-and-tool/"/>
     <id>https://ooblivion.github.io/development-usually-use-websites-and-tool/</id>
-    <published>2024-04-02T14:37:43.000Z</published>
-    <updated>2024-04-02T14:40:22.033Z</updated>
+    <published>2023-12-16T14:16:19.000Z</published>
+    <updated>2024-04-02T14:59:36.496Z</updated>
     
     
     <summary type="html">この記事は...</summary>
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>Springでクロスドメインアクセスを実現する方法</title>
-    <link href="https://ooblivion.github.io/spring-cross-domain-achive/"/>
-    <id>https://ooblivion.github.io/spring-cross-domain-achive/</id>
-    <published>2024-02-11T14:42:03.000Z</published>
-    <updated>2024-04-01T15:17:28.037Z</updated>
-    
-    
-    <summary type="html">この記事は...</summary>
-    
-    
-    
-    
-    <category term="spring" scheme="https://ooblivion.github.io/tags/spring/"/>
-    
-    <category term="java" scheme="https://ooblivion.github.io/tags/java/"/>
-    
-    <category term="back-end" scheme="https://ooblivion.github.io/tags/back-end/"/>
     
   </entry>
   
@@ -73,8 +52,8 @@
     <title>CI/CD ハンズオン</title>
     <link href="https://ooblivion.github.io/cicd-handon/"/>
     <id>https://ooblivion.github.io/cicd-handon/</id>
-    <published>2024-01-03T13:20:12.000Z</published>
-    <updated>2024-04-01T15:51:45.076Z</updated>
+    <published>2023-12-06T18:33:36.000Z</published>
+    <updated>2024-04-02T15:01:15.767Z</updated>
     
     
     <summary type="html">何かが暗号化されています。閲覧するにはパスワードを入力してください。</summary>
@@ -85,11 +64,11 @@
   </entry>
   
   <entry>
-    <title>日本語の句読点をざっとチェック</title>
-    <link href="https://ooblivion.github.io/japanese-punctuation-check/"/>
-    <id>https://ooblivion.github.io/japanese-punctuation-check/</id>
-    <published>2024-01-01T14:16:19.000Z</published>
-    <updated>2024-01-01T14:16:19.000Z</updated>
+    <title>自分でやりたいプロジェクト</title>
+    <link href="https://ooblivion.github.io/todo-project/"/>
+    <id>https://ooblivion.github.io/todo-project/</id>
+    <published>2023-11-14T09:52:46.000Z</published>
+    <updated>2024-04-02T15:01:39.069Z</updated>
     
     
     <summary type="html">この記事は...</summary>
@@ -100,11 +79,11 @@
   </entry>
   
   <entry>
-    <title>基本設計記事</title>
-    <link href="https://ooblivion.github.io/base-design/"/>
-    <id>https://ooblivion.github.io/base-design/</id>
-    <published>2023-12-31T15:39:55.000Z</published>
-    <updated>2024-04-01T15:18:56.522Z</updated>
+    <title>日本語の句読点をざっとチェック</title>
+    <link href="https://ooblivion.github.io/japanese-punctuation-check/"/>
+    <id>https://ooblivion.github.io/japanese-punctuation-check/</id>
+    <published>2023-06-02T05:48:42.000Z</published>
+    <updated>2024-04-02T15:05:24.178Z</updated>
     
     
     <summary type="html">この記事は...</summary>
@@ -112,7 +91,41 @@
     
     
     
-    <category term="設計" scheme="https://ooblivion.github.io/tags/%E8%A8%AD%E8%A8%88/"/>
+  </entry>
+  
+  <entry>
+    <title>AWSラーニングノート</title>
+    <link href="https://ooblivion.github.io/aws-learning-note/"/>
+    <id>https://ooblivion.github.io/aws-learning-note/</id>
+    <published>2023-05-23T19:52:55.000Z</published>
+    <updated>2024-04-02T15:03:10.000Z</updated>
+    
+    
+    <summary type="html">AWSは日本のITの現場でも使われるようになってきており、この技術を学ぶ必要性がある！</summary>
+    
+    
+    
+    
+    <category term="aws" scheme="https://ooblivion.github.io/tags/aws/"/>
+    
+    <category term="cloud" scheme="https://ooblivion.github.io/tags/cloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQL最適化のヒント</title>
+    <link href="https://ooblivion.github.io/sql-optimization-tips/"/>
+    <id>https://ooblivion.github.io/sql-optimization-tips/</id>
+    <published>2022-11-24T22:12:22.000Z</published>
+    <updated>2024-04-02T14:59:54.061Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    
+    <category term="sql" scheme="https://ooblivion.github.io/tags/sql/"/>
     
   </entry>
   
@@ -134,6 +147,21 @@
   </entry>
   
   <entry>
+    <title>仕事用日本語ノート</title>
+    <link href="https://ooblivion.github.io/working-japanese-notes/"/>
+    <id>https://ooblivion.github.io/working-japanese-notes/</id>
+    <published>2022-07-27T19:24:42.000Z</published>
+    <updated>2024-04-02T15:37:47.238Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>バージョン管理ツール</title>
     <link href="https://ooblivion.github.io/version-control-toll/"/>
     <id>https://ooblivion.github.io/version-control-toll/</id>
@@ -151,10 +179,46 @@
   </entry>
   
   <entry>
+    <title>Springでクロスドメインアクセスを実現する方法</title>
+    <link href="https://ooblivion.github.io/spring-cross-domain-achive/"/>
+    <id>https://ooblivion.github.io/spring-cross-domain-achive/</id>
+    <published>2021-11-03T22:53:36.000Z</published>
+    <updated>2024-04-02T15:00:33.144Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    
+    <category term="spring" scheme="https://ooblivion.github.io/tags/spring/"/>
+    
+    <category term="java" scheme="https://ooblivion.github.io/tags/java/"/>
+    
+    <category term="back-end" scheme="https://ooblivion.github.io/tags/back-end/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试&amp;自我介绍</title>
+    <link href="https://ooblivion.github.io/%E9%9D%A2%E8%AF%95&amp;%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://ooblivion.github.io/%E9%9D%A2%E8%AF%95&amp;%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</id>
+    <published>2021-10-11T14:30:13.000Z</published>
+    <updated>2024-04-02T15:35:27.869Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>HexoのIcarusテーマを使ってブログを構築</title>
     <link href="https://ooblivion.github.io/hexo-create-blog/"/>
     <id>https://ooblivion.github.io/hexo-create-blog/</id>
-    <published>2022-01-01T12:10:23.000Z</published>
+    <published>2021-07-11T18:44:46.000Z</published>
     <updated>2024-01-01T12:10:23.000Z</updated>
     
     
