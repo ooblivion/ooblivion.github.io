@@ -6,7 +6,7 @@
   <link href="https://ooblivion.github.io/atom.xml" rel="self"/>
   
   <link href="https://ooblivion.github.io/"/>
-  <updated>2024-04-01T15:17:28.037Z</updated>
+  <updated>2024-04-02T14:41:53.196Z</updated>
   <id>https://ooblivion.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL优化技巧</title>
+    <link href="https://ooblivion.github.io/sql-optimization-tips/"/>
+    <id>https://ooblivion.github.io/sql-optimization-tips/</id>
+    <published>2024-04-02T14:40:47.000Z</published>
+    <updated>2024-04-02T14:41:53.196Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    
+    <category term="sql" scheme="https://ooblivion.github.io/tags/sql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>開発によく使われるツールやwebサイト</title>
+    <link href="https://ooblivion.github.io/development-usually-use-websites-and-tool/"/>
+    <id>https://ooblivion.github.io/development-usually-use-websites-and-tool/</id>
+    <published>2024-04-02T14:37:43.000Z</published>
+    <updated>2024-04-02T14:40:22.033Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Springでクロスドメインアクセスを実現する方法</title>
