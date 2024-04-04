@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="jp"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>SQL最適化のヒント - OrangeNoteBlog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="OrangeNoteBlog"><meta name="msapplication-TileImage" content="/img/orange-facicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="OrangeNoteBlog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="この記事は..."><meta property="og:type" content="blog"><meta property="og:title" content="SQL最適化のヒント"><meta property="og:url" content="https://ooblivion.github.io/sql-optimization-tips/"><meta property="og:site_name" content="OrangeNoteBlog"><meta property="og:description" content="この記事は..."><meta property="og:locale" content="jp"><meta property="og:image" content="https://ooblivion.github.io/img/og_image.png"><meta property="article:published_time" content="2022-11-24T22:12:22.000Z"><meta property="article:modified_time" content="2024-04-02T14:59:54.061Z"><meta property="article:author" content="orange"><meta property="article:tag" content="sql"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://ooblivion.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://ooblivion.github.io/sql-optimization-tips/"},"headline":"SQL最適化のヒント","image":["https://ooblivion.github.io/img/og_image.png"],"datePublished":"2022-11-24T22:12:22.000Z","dateModified":"2024-04-02T14:59:54.061Z","author":{"@type":"Person","name":"orange"},"publisher":{"@type":"Organization","name":"OrangeNoteBlog","logo":{"@type":"ImageObject","url":"https://ooblivion.github.io/img/orange.png"}},"description":"この記事は..."}</script><link rel="canonical" href="https://ooblivion.github.io/sql-optimization-tips/"><link rel="icon" href="/img/orange-facicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+<html lang="jp"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>SQL最適化のヒント - OrangeNoteBlog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="OrangeNoteBlog"><meta name="msapplication-TileImage" content="/img/orange-facicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="OrangeNoteBlog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="この記事は..."><meta property="og:type" content="blog"><meta property="og:title" content="SQL最適化のヒント"><meta property="og:url" content="https://ooblivion.github.io/sql-optimization-tips/"><meta property="og:site_name" content="OrangeNoteBlog"><meta property="og:description" content="この記事は..."><meta property="og:locale" content="jp"><meta property="og:image" content="https://ooblivion.github.io/img/og_image.png"><meta property="article:published_time" content="2022-11-24T22:12:22.000Z"><meta property="article:modified_time" content="2024-04-04T15:00:21.112Z"><meta property="article:author" content="orange"><meta property="article:tag" content="sql"><meta property="article:tag" content="クイックチェック"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://ooblivion.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://ooblivion.github.io/sql-optimization-tips/"},"headline":"SQL最適化のヒント","image":["https://ooblivion.github.io/img/og_image.png"],"datePublished":"2022-11-24T22:12:22.000Z","dateModified":"2024-04-04T15:00:21.112Z","author":{"@type":"Person","name":"orange"},"publisher":{"@type":"Organization","name":"OrangeNoteBlog","logo":{"@type":"ImageObject","url":"https://ooblivion.github.io/img/orange.png"}},"description":"この記事は..."}</script><link rel="canonical" href="https://ooblivion.github.io/sql-optimization-tips/"><link rel="icon" href="/img/orange-facicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
         (function() {
             var hm = document.createElement("script");
             hm.src = "//hm.baidu.com/hm.js?G-TQZ0DMPY0S";
@@ -36,100 +36,133 @@
       window.addEventListener('hashchange', switchTab, false);
   })();
   </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="OrangeNoteBlog" type="application/atom+xml">
-</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/orange.png" alt="OrangeNoteBlog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">ホームページ</a><a class="navbar-item" href="/archives">アーカイブ</a><a class="navbar-item" href="/categories">カテゴリー</a><a class="navbar-item" href="/tags">タグ</a><a class="navbar-item" href="/about">個人概要</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-lightbulb" id="night-icon"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ooblivion"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目次" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="検索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-11-24T22:12:22.000Z" title="2022/11/25 7:12:22">2022-11-25</time>に投稿</span><span class="level-item"><time dateTime="2024-04-02T14:59:54.061Z" title="2024/4/2 23:59:54">2024-04-02</time>に更新</span><span class="level-item">39 minutesで読む (約5801語)</span></div></div><h1 class="title is-3 is-size-4-mobile">SQL最適化のヒント</h1><div class="content"><!-- more -->
-
-<h2 id="–-JP-–"><a href="#–-JP-–" class="headerlink" title="– JP –"></a>– JP –</h2><h2 id="–-CN-–"><a href="#–-CN-–" class="headerlink" title="– CN –"></a>– CN –</h2><p>SQL优化方面的一些技巧和方法<br>SQLの最適化に関するいくつかのヒントとトリック。</p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>SQL 优化在提升系统性能中是：成本最低和优化效果最明显的途径。</p>
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/orange.png" alt="OrangeNoteBlog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">ホームページ</a><a class="navbar-item" href="/archives">アーカイブ</a><a class="navbar-item" href="/categories">カテゴリー</a><a class="navbar-item" href="/tags">タグ</a><a class="navbar-item" href="/about">個人概要</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-lightbulb" id="night-icon"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ooblivion"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目次" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="検索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-11-24T22:12:22.000Z" title="2022/11/25 7:12:22">2022-11-25</time>に投稿</span><span class="level-item"><time dateTime="2024-04-04T15:00:21.112Z" title="2024/4/5 0:00:21">2024-04-05</time>に更新</span><span class="level-item"><a class="link-muted" href="/categories/%E4%BD%9C%E6%A5%AD/">作業</a><span> / </span><a class="link-muted" href="/categories/%E4%BD%9C%E6%A5%AD/%E5%8B%89%E5%BC%B7%E3%83%8E%E3%83%BC%E3%83%88/">勉強ノート</a></span><span class="level-item">39 minutesで読む (約5801語)</span></div></div><h1 class="title is-3 is-size-4-mobile">SQL最適化のヒント</h1><div class="content"><!-- more -->
+<h2 id="–-JP-–">– JP –</h2>
+<h2 id="–-CN-–">– CN –</h2>
+<p>SQL优化方面的一些技巧和方法<br>
+SQLの最適化に関するいくつかのヒントとトリック。</p>
+<h2 id="介绍">介绍</h2>
+<p>SQL 优化在提升系统性能中是：成本最低和优化效果最明显的途径。</p>
 <p>如果你的团队在 SQL 优化这方面做得很优秀，对你们整个大型系统可用性方面无疑是一个质的跨越。</p>
 <p>优化成本：硬件&gt;系统配置&gt;数据库表结构&gt;SQL 及索引。</p>
 <p>优化效果：硬件&lt;系统配置&lt;数据库表结构</p>
-<h2 id="SQL优化原则"><a href="#SQL优化原则" class="headerlink" title="SQL优化原则"></a>SQL优化原则</h2><p>首先，对于MySQL层优化我一般遵从五个原则：</p>
-<p>减少数据访问：设置合理的字段类型，启用压缩，通过索引访问等减少磁盘 IO。<br>返回更少的数据：只返回需要的字段和数据分页处理，减少磁盘 IO 及网络 IO。<br>减少交互次数：批量 DML 操作，函数存储等减少数据连接次数。<br>减少服务器 CPU 开销：尽量减少数据库排序操作以及全表查询，减少 CPU 内存占用。<br>利用更多资源：使用表分区，可以增加并行操作，更大限度利用 CPU 资源。<br>总结到 SQL 优化中，就如下三点：</p>
-<p>最大化利用索引。<br>尽可能避免全表扫描。<br>减少无效数据的查询。<br>理解 SQL 优化原理 ，首先要搞清楚 SQL 执行顺序。</p>
+<h2 id="SQL优化原则">SQL优化原则</h2>
+<p>首先，对于MySQL层优化我一般遵从五个原则：</p>
+<p>减少数据访问：设置合理的字段类型，启用压缩，通过索引访问等减少磁盘 IO。返回更少的数据：只返回需要的字段和数据分页处理，减少磁盘 IO 及网络 IO。减少交互次数：批量 DML 操作，函数存储等减少数据连接次数。减少服务器 CPU 开销：尽量减少数据库排序操作以及全表查询，减少 CPU 内存占用。利用更多资源：使用表分区，可以增加并行操作，更大限度利用 CPU 资源。总结到 SQL 优化中，就如下三点：</p>
+<p>最大化利用索引。尽可能避免全表扫描。减少无效数据的查询。理解 SQL 优化原理 ，首先要搞清楚 SQL 执行顺序。</p>
 <p>SELECT 语句，语法顺序如下：</p>
 <ol>
-<li>SELECT  </li>
-<li>DISTINCT <select_list> </li>
-<li>FROM <left_table> </li>
-<li><join_type> JOIN <right_table> </li>
-<li>ON <join_condition> </li>
-<li>WHERE <where_condition> </li>
-<li>GROUP BY <group_by_list> </li>
-<li>HAVING <having_condition> </li>
-<li>ORDER BY <order_by_condition><br>10.LIMIT <limit_number></li>
+<li class="lvl-3">
+<p>SELECT</p>
+</li>
+<li class="lvl-3">
+<p>DISTINCT &lt;select_list&gt;</p>
+</li>
+<li class="lvl-3">
+<p>FROM &lt;left_table&gt;</p>
+</li>
+<li class="lvl-3">
+<p>&lt;join_type&gt; JOIN &lt;right_table&gt;</p>
+</li>
+<li class="lvl-3">
+<p>ON &lt;join_condition&gt;</p>
+</li>
+<li class="lvl-3">
+<p>WHERE &lt;where_condition&gt;</p>
+</li>
+<li class="lvl-3">
+<p>GROUP BY &lt;group_by_list&gt;</p>
+</li>
+<li class="lvl-3">
+<p>HAVING &lt;having_condition&gt;</p>
+</li>
+<li class="lvl-3">
+<p>ORDER BY &lt;order_by_condition&gt;<br>
+10.LIMIT &lt;limit_number&gt;</p>
+</li>
 </ol>
 <p>SELECT 语句，执行顺序如下：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> </span><br><span class="line"><span class="operator">&lt;</span>表名<span class="operator">&gt;</span> # 选取表，将多个表数据通过笛卡尔积变成一个表。 </span><br><span class="line"><span class="keyword">ON</span> </span><br><span class="line"><span class="operator">&lt;</span>筛选条件<span class="operator">&gt;</span> # 对笛卡尔积的虚表进行筛选 </span><br><span class="line"><span class="keyword">JOIN</span> <span class="operator">&lt;</span><span class="keyword">join</span>, <span class="keyword">left</span> <span class="keyword">join</span>, <span class="keyword">right</span> join...<span class="operator">&gt;</span>  </span><br><span class="line"><span class="operator">&lt;</span><span class="keyword">join</span>表<span class="operator">&gt;</span> # 指定<span class="keyword">join</span>，用于添加数据到<span class="keyword">on</span>之后的虚表中，例如<span class="keyword">left</span> <span class="keyword">join</span>会将左表的剩余数据添加到虚表中 </span><br><span class="line"><span class="keyword">WHERE</span> </span><br><span class="line"><span class="operator">&lt;</span><span class="keyword">where</span>条件<span class="operator">&gt;</span> # 对上述虚表进行筛选 </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> </span><br><span class="line"><span class="operator">&lt;</span>分组条件<span class="operator">&gt;</span> # 分组 </span><br><span class="line"><span class="operator">&lt;</span><span class="built_in">SUM</span>()等聚合函数<span class="operator">&gt;</span> # 用于<span class="keyword">having</span>子句进行判断，在书写上这类聚合函数是写在<span class="keyword">having</span>判断里面的 </span><br><span class="line"><span class="keyword">HAVING</span> </span><br><span class="line"><span class="operator">&lt;</span>分组筛选<span class="operator">&gt;</span> # 对分组后的结果进行聚合筛选 </span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line"><span class="operator">&lt;</span>返回数据列表<span class="operator">&gt;</span> # 返回的单列必须在<span class="keyword">group</span> <span class="keyword">by</span>子句中，聚合函数除外 </span><br><span class="line"><span class="keyword">DISTINCT</span> </span><br><span class="line"># 数据除重 </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> </span><br><span class="line"><span class="operator">&lt;</span>排序条件<span class="operator">&gt;</span> # 排序 </span><br><span class="line">LIMIT </span><br><span class="line"><span class="operator">&lt;</span>行数限制<span class="operator">&gt;</span> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
 <p>以下 SQL 优化策略适用于数据量较大的场景下，如果数据量较小，没必要以此为准，以免画蛇添足。</p>
 <p>避免不走索引的场景</p>
 <p>①尽量避免在字段开头模糊查询，会导致数据库引擎放弃索引进行全表扫描</p>
 <p>如下：</p>
-<p>SELECT * FROM t WHERE username LIKE ‘%陈%’ </p>
+<p>SELECT * FROM t WHERE username LIKE ‘%陈%’</p>
 <p>优化方式：尽量在字段后面使用模糊查询。</p>
 <p>如下：</p>
-<p>SELECT * FROM t WHERE username LIKE ‘陈%’ </p>
+<p>SELECT * FROM t WHERE username LIKE ‘陈%’</p>
 <p>如果需求是要在前面使用模糊查询：</p>
-<p>使用 MySQL 内置函数 INSTR(str，substr)来匹配，作用类似于 Java 中的 indexOf()，查询字符串出现的角标位置。<br>使用 FullText 全文索引，用 match against 检索。<br>数据量较大的情况，建议引用 ElasticSearch、Solr，亿级数据量检索速度秒级。<br>当表数据量较少(几千条儿那种)，别整花里胡哨的，直接用 like ‘%xx%’。<br>②尽量避免使用 in 和 not in，会导致引擎走全表扫描</p>
+<p>使用 MySQL 内置函数 INSTR(str，substr)来匹配，作用类似于 Java 中的 indexOf()，查询字符串出现的角标位置。使用 FullText 全文索引，用 match against 检索。数据量较大的情况，建议引用 ElasticSearch、Solr，亿级数据量检索速度秒级。当表数据量较少(几千条儿那种)，别整花里胡哨的，直接用 like ‘%xx%’。<br>
+②尽量避免使用 in 和 not in，会导致引擎走全表扫描</p>
 <p>如下：</p>
-<p>SELECT * FROM t WHERE id IN (2,3) </p>
+<p>SELECT * FROM t WHERE id IN (2,3)</p>
 <p>优化方式：如果是连续数值，可以用 between 代替。</p>
 <p>如下：</p>
-<p>SELECT * FROM t WHERE id BETWEEN 2 AND 3 </p>
+<p>SELECT * FROM t WHERE id BETWEEN 2 AND 3</p>
 <p>如果是子查询，可以用 exists 代替。</p>
 <p>如下：</p>
-<p>– 不走索引<br>select * from A where A.id in (select id from B);<br>– 走索引<br>select * from A where exists (select * from B where B.id &#x3D; A.id); </p>
+<p>– 不走索引<br>
+select * from A where <a target="_blank" rel="noopener" href="http://A.id">A.id</a> in (select id from B);<br>
+– 走索引<br>
+select * from A where exists (select * from B where <a target="_blank" rel="noopener" href="http://B.id">B.id</a> = <a target="_blank" rel="noopener" href="http://A.id">A.id</a>);</p>
 <p>③尽量避免使用 or，会导致数据库引擎放弃索引进行全表扫描</p>
 <p>如下：</p>
-<p>SELECT * FROM t WHERE id &#x3D; 1 OR id &#x3D; 3 </p>
+<p>SELECT * FROM t WHERE id = 1 OR id = 3</p>
 <p>优化方式：可以用 union 代替 or。</p>
 <p>如下：</p>
-<p>SELECT * FROM t WHERE id &#x3D; 1<br>   UNION<br>SELECT * FROM t WHERE id &#x3D; 3 </p>
+<p>SELECT * FROM t WHERE id = 1<br>
+UNION<br>
+SELECT * FROM t WHERE id = 3</p>
 <p>④尽量避免进行 null 值的判断，会导致数据库引擎放弃索引进行全表扫描</p>
 <p>如下：</p>
-<p>SELECT * FROM t WHERE score IS NULL<br>优化方式：可以给字段添加默认值 0，对 0 值进行判断。</p>
+<p>SELECT * FROM t WHERE score IS NULL<br>
+优化方式：可以给字段添加默认值 0，对 0 值进行判断。</p>
 <p>如下：</p>
-<p>SELECT * FROM t WHERE score &#x3D; 0 </p>
+<p>SELECT * FROM t WHERE score = 0</p>
 <p>⑤尽量避免在 where 条件中等号的左侧进行表达式、函数操作，会导致数据库引擎放弃索引进行全表扫描</p>
 <p>可以将表达式、函数操作移动到等号右侧，如下：</p>
-<p>– 全表扫描<br>SELECT * FROM T WHERE score&#x2F;10 &#x3D; 9<br>– 走索引<br>SELECT * FROM T WHERE score &#x3D; 10*9 </p>
-<p>⑥当数据量大时，避免使用 where 1&#x3D;1 的条件</p>
+<p>– 全表扫描<br>
+SELECT * FROM T WHERE score/10 = 9<br>
+– 走索引<br>
+SELECT * FROM T WHERE score = 10*9</p>
+<p>⑥当数据量大时，避免使用 where 1=1 的条件</p>
 <p>通常为了方便拼装查询条件，我们会默认使用该条件，数据库引擎会放弃索引进行全表扫描。</p>
 <p>如下：</p>
-<p>SELECT username, age, sex FROM T WHERE 1&#x3D;1 </p>
+<p>SELECT username, age, sex FROM T WHERE 1=1</p>
 <p>优化方式：用代码拼装 SQL 时进行判断，没 where 条件就去掉 where，有 where 条件就加 and。</p>
-<p>⑦查询条件不能用 &lt;&gt; 或者 !&#x3D;</p>
-<p>使用索引列作为条件进行查询时，需要避免使用&lt;&gt;或者!&#x3D;等判断条件。</p>
+<p>⑦查询条件不能用 &lt;&gt; 或者 !=</p>
+<p>使用索引列作为条件进行查询时，需要避免使用&lt;&gt;或者!=等判断条件。</p>
 <p>如确实业务需要，使用到不等于符号，需要在重新评估索引建立，避免在此字段上建立索引，改由查询条件中其他索引字段代替。</p>
 <p>⑧where 条件仅包含复合索引非前置列</p>
-<p>如下：复合(联合)索引包含 key_part1，key_part2，key_part3 三列，但 SQL 语句没有包含索引前置列”key_part1”，按照 MySQL 联合索引的最左匹配原则，不会走联合索引。</p>
-<p>select col1 from table where key_part2&#x3D;1 and key_part3&#x3D;2 </p>
+<p>如下：复合(联合)索引包含 key_part1，key_part2，key_part3 三列，但 SQL 语句没有包含索引前置列&quot;key_part1&quot;，按照 MySQL 联合索引的最左匹配原则，不会走联合索引。</p>
+<p>select col1 from table where key_part2=1 and key_part3=2</p>
 <p>⑨隐式类型转换造成不使用索引</p>
 <p>如下 SQL 语句由于索引对列类型为 varchar，但给定的值为数值，涉及隐式类型转换，造成不能正确走索引。</p>
-<p>select col1 from table where col_varchar&#x3D;123;  </p>
+<p>select col1 from table where col_varchar=123;</p>
 <p>⑩order by 条件要与 where 中条件一致，否则 order by 不会利用索引进行排序</p>
 <p>如下：</p>
-<p>– 不走age索引<br>SELECT * FROM t order by age; </p>
-<p>– 走age索引<br>SELECT * FROM t where age &gt; 0 order by age; </p>
+<p>– 不走age索引<br>
+SELECT * FROM t order by age;</p>
+<p>– 走age索引<br>
+SELECT * FROM t where age &gt; 0 order by age;</p>
 <p>对于上面的语句，数据库的处理顺序是：</p>
-<p>第一步：根据 where 条件和统计信息生成执行计划，得到数据。<br>第二步：将得到的数据排序。当执行处理数据(order by)时，数据库会先查看第一步的执行计划，看 order by 的字段是否在执行计划中利用了索引。如果是，则可以利用索引顺序而直接取得已经排好序的数据。如果不是，则重新进行排序操作。<br>第三步：返回排序后的数据。<br>当 order by 中的字段出现在 where 条件中时，才会利用索引而不再二次排序，更准确的说，order by 中的字段在执行计划中利用了索引时，不用排序操作。</p>
+<p>第一步：根据 where 条件和统计信息生成执行计划，得到数据。第二步：将得到的数据排序。当执行处理数据(order by)时，数据库会先查看第一步的执行计划，看 order by 的字段是否在执行计划中利用了索引。如果是，则可以利用索引顺序而直接取得已经排好序的数据。如果不是，则重新进行排序操作。第三步：返回排序后的数据。当 order by 中的字段出现在 where 条件中时，才会利用索引而不再二次排序，更准确的说，order by 中的字段在执行计划中利用了索引时，不用排序操作。</p>
 <p>这个结论不仅对 order by 有效，对其他需要排序的操作也有效。比如 group by 、union 、distinct 等。</p>
 <p>⑪正确使用 hint 优化语句</p>
 <p>MySQL 中可以使用 hint 指定优化器在执行时选择或忽略特定的索引。</p>
 <p>一般而言，处于版本变更带来的表结构索引变化，更建议避免使用 hint，而是通过 Analyze table 多收集统计信息。</p>
 <p>但在特定场合下，指定 hint 可以排除其他索引干扰而指定更优的执行计划：</p>
-<p>USE INDEX 在你查询语句中表名的后面，添加 USE INDEX 来提供希望 MySQL 去参考的索引列表，就可以让 MySQL 不再考虑其他可用的索引。<br>例子: SELECT col1 FROM table USE INDEX (mod_time, name)…</p>
-<p>IGNORE INDEX 如果只是单纯的想让 MySQL 忽略一个或者多个索引，可以使用 IGNORE INDEX 作为 Hint。<br>例子: SELECT col1 FROM table IGNORE INDEX (priority) …</p>
-<p>FORCE INDEX 为强制 MySQL 使用一个特定的索引，可在查询中使用FORCE INDEX 作为 Hint。<br>例子: SELECT col1 FROM table FORCE INDEX (mod_time) …</p>
+<p>USE INDEX 在你查询语句中表名的后面，添加 USE INDEX 来提供希望 MySQL 去参考的索引列表，就可以让 MySQL 不再考虑其他可用的索引。例子: SELECT col1 FROM table USE INDEX (mod_time, name)…</p>
+<p>IGNORE INDEX 如果只是单纯的想让 MySQL 忽略一个或者多个索引，可以使用 IGNORE INDEX 作为 Hint。例子: SELECT col1 FROM table IGNORE INDEX (priority) …</p>
+<p>FORCE INDEX 为强制 MySQL 使用一个特定的索引，可在查询中使用FORCE INDEX 作为 Hint。例子: SELECT col1 FROM table FORCE INDEX (mod_time) …</p>
 <p>在查询的时候，数据库系统会自动分析查询语句，并选择一个最合适的索引。但是很多时候，数据库系统的查询优化器并不一定总是能使用最优索引。</p>
 <p>如果我们知道如何选择索引，可以使用 FORCE INDEX 强制查询使用指定的索引。</p>
 <p>例如：</p>
-<p>SELECT * FROM students FORCE INDEX (idx_class_id) WHERE class_id &#x3D; 1 ORDER BY id DESC; </p>
+<p>SELECT * FROM students FORCE INDEX (idx_class_id) WHERE class_id = 1 ORDER BY id DESC;</p>
 <p>SELECT 语句其他优化</p>
 <p>①避免出现 select *</p>
 <p>首先，select * 操作在任何类型数据库中都不是一个好的 SQL 编写习惯。</p>
-<p>使用 select * 取出全部列，会让优化器无法完成索引覆盖扫描这类优化，会影响优化器对执行计划的选择，也会增加网络带宽消耗，更会带来额外的 I&#x2F;O，内存和 CPU 消耗。</p>
+<p>使用 select * 取出全部列，会让优化器无法完成索引覆盖扫描这类优化，会影响优化器对执行计划的选择，也会增加网络带宽消耗，更会带来额外的 I/O，内存和 CPU 消耗。</p>
 <p>建议提出业务实际需要的列数，将指定列名以取代 select *。具体详情见《为什么大家都说SELECT * 效率低》</p>
 <p>②避免出现不确定结果的函数</p>
 <p>特定针对主从复制这类业务场景。由于原理上从库复制的是主库执行的语句，使用如 now()、rand()、sysdate()、current_user() 等不确定结果的函数很容易导致主库与从库相应的数据不一致。</p>
@@ -150,31 +183,37 @@
 <p>①大批量插入数据</p>
 <p>如果同时执行大量的插入，建议使用多个值的 INSERT 语句(方法二)。这比使用分开 INSERT 语句快(方法一)，一般情况下批量插入效率有几倍的差别。</p>
 <p>方法一：</p>
-<p>insert into T values(1,2);  </p>
-<p>insert into T values(1,3);  </p>
-<p>insert into T values(1,4); </p>
+<p>insert into T values(1,2);</p>
+<p>insert into T values(1,3);</p>
+<p>insert into T values(1,4);</p>
 <p>方法二：</p>
-<p>Insert into T values(1,2),(1,3),(1,4);  </p>
+<p>Insert into T values(1,2),(1,3),(1,4);</p>
 <p>选择后一种方法的原因有三：</p>
-<p>减少 SQL 语句解析的操作，MySQL 没有类似 Oracle 的 share pool，采用方法二，只需要解析一次就能进行数据的插入操作。<br>在特定场景可以减少对 DB 连接次数。<br>SQL 语句较短，可以减少网络传输的 IO。<br>②适当使用 commit</p>
+<p>减少 SQL 语句解析的操作，MySQL 没有类似 Oracle 的 share pool，采用方法二，只需要解析一次就能进行数据的插入操作。在特定场景可以减少对 DB 连接次数。<br>
+SQL 语句较短，可以减少网络传输的 IO。<br>
+②适当使用 commit</p>
 <p>适当使用 commit 可以释放事务占用的资源而减少消耗，commit 后能释放的资源如下：</p>
-<p>事务占用的 undo 数据块。<br>事务在 redo log 中记录的数据块。<br>释放事务施加的，减少锁争用影响性能。特别是在需要使用 delete 删除大量数据的时候，必须分解删除量并定期 commit。<br>③避免重复查询更新的数据</p>
+<p>事务占用的 undo 数据块。事务在 redo log 中记录的数据块。释放事务施加的，减少锁争用影响性能。特别是在需要使用 delete 删除大量数据的时候，必须分解删除量并定期 commit。<br>
+③避免重复查询更新的数据</p>
 <p>针对业务中经常出现的更新行同时又希望获得改行信息的需求，MySQL 并不支持 PostgreSQL 那样的 UPDATE RETURNING 语法，在 MySQL 中可以通过变量实现。</p>
 <p>例如，更新一行记录的时间戳，同时希望查询当前记录中存放的时间戳是什么?</p>
 <p>简单方法实现：</p>
-<p>Update t1 set time&#x3D;now() where col1&#x3D;1;  </p>
-<p>Select time from t1 where id &#x3D;1; </p>
+<p>Update t1 set time=now() where col1=1;</p>
+<p>Select time from t1 where id =1;</p>
 <p>使用变量，可以重写为以下方式：</p>
-<p>Update t1 set time&#x3D;now () where col1&#x3D;1 and @now: &#x3D; now ();  </p>
-<p>Select @now;  </p>
+<p>Update t1 set time=now () where col1=1 and @now: = now ();</p>
+<p>Select @now;</p>
 <p>前后二者都需要两次网络来回，但使用变量避免了再次访问数据表，特别是当 t1 表数据量较大时，后者比前者快很多。</p>
 <p>④查询优先还是更新(insert、update、delete)优先</p>
 <p>MySQL 还允许改变语句调度的优先级，它可以使来自多个客户端的查询更好地协作，这样单个客户端就不会由于锁定而等待很长时间。改变优先级还可以确保特定类型的查询被处理得更快。</p>
 <p>我们首先应该确定应用的类型，判断应用是以查询为主还是以更新为主的，是确保查询效率还是确保更新的效率，决定是查询优先还是更新优先。</p>
 <p>下面我们提到的改变调度策略的方法主要是针对只存在表锁的存储引擎，比如 MyISAM 、MEMROY、MERGE，对于 Innodb 存储引擎，语句的执行是由获得行锁的顺序决定的。</p>
 <p>MySQL 的默认的调度策略可用总结如下：</p>
-<p>写入操作优先于读取操作。<br>对某张数据表的写入操作某一时刻只能发生一次，写入请求按照它们到达的次序来处理。<br>对某张数据表的多个读取操作可以同时地进行。<br>MySQL 提供了几个语句调节符，允许你修改它的调度策略：</p>
-<p>LOW_PRIORITY 关键字应用于 DELETE、INSERT、LOAD DATA、REPLACE 和 UPDATE。<br>HIGH_PRIORITY 关键字应用于 SELECT 和 INSERT 语句。<br>DELAYED 关键字应用于 INSERT 和 REPLACE 语句。<br>如果写入操作是一个 LOW_PRIORITY(低优先级)请求，那么系统就不会认为它的优先级高于读取操作。</p>
+<p>写入操作优先于读取操作。对某张数据表的写入操作某一时刻只能发生一次，写入请求按照它们到达的次序来处理。对某张数据表的多个读取操作可以同时地进行。<br>
+MySQL 提供了几个语句调节符，允许你修改它的调度策略：</p>
+<p>LOW_PRIORITY 关键字应用于 DELETE、INSERT、LOAD DATA、REPLACE 和 UPDATE。<br>
+HIGH_PRIORITY 关键字应用于 SELECT 和 INSERT 语句。<br>
+DELAYED 关键字应用于 INSERT 和 REPLACE 语句。如果写入操作是一个 LOW_PRIORITY(低优先级)请求，那么系统就不会认为它的优先级高于读取操作。</p>
 <p>在这种情况下，如果写入者在等待的时候，第二个读取者到达了，那么就允许第二个读取者插到写入者之前。</p>
 <p>只有在没有其它的读取者的时候，才允许写入者开始操作。这种调度修改可能存在 LOW_PRIORITY 写入操作永远被阻塞的情况。</p>
 <p>SELECT 查询的 HIGH_PRIORITY(高优先级)关键字也类似。它允许 SELECT 插入正在等待的写入操作之前，即使在正常情况下写入操作的优先级更高。</p>
@@ -184,48 +223,55 @@
 <p>查询条件优化</p>
 <p>①对于复杂的查询，可以使用中间临时表暂存数据</p>
 <p>②优化 group by 语句</p>
-<p>默认情况下，MySQL 会对 GROUP BY 分组的所有值进行排序，如 “GROUP BY col1，col2，….;” 查询的方法如同在查询中指定 “ORDER BY col1，col2，…;” 。</p>
+<p>默认情况下，MySQL 会对 GROUP BY 分组的所有值进行排序，如 “GROUP BY col1，col2，…;” 查询的方法如同在查询中指定 “ORDER BY col1，col2，…;” 。</p>
 <p>如果显式包括一个包含相同的列的 ORDER BY 子句，MySQL 可以毫不减速地对它进行优化，尽管仍然进行排序。</p>
 <p>因此，如果查询包括 GROUP BY 但你并不想对分组的值进行排序，你可以指定 ORDER BY NULL 禁止排序。</p>
 <p>例如：</p>
-<p>SELECT col1, col2, COUNT(*) FROM table GROUP BY col1, col2 ORDER BY NULL ; </p>
+<p>SELECT col1, col2, COUNT(*) FROM table GROUP BY col1, col2 ORDER BY NULL ;</p>
 <p>③优化 join 语句</p>
 <p>MySQL 中可以通过子查询来使用 SELECT 语句来创建一个单列的查询结果，然后把这个结果作为过滤条件用在另一个查询中。</p>
-<p>使用子查询可以一次性的完成很多逻辑上需要多个步骤才能完成的 SQL 操作，同时也可以避免事务或者表锁死，并且写起来也很容易。但是，有些情况下，子查询可以被更有效率的连接(JOIN)..替代。</p>
+<p>使用子查询可以一次性的完成很多逻辑上需要多个步骤才能完成的 SQL 操作，同时也可以避免事务或者表锁死，并且写起来也很容易。但是，有些情况下，子查询可以被更有效率的连接(JOIN)…替代。</p>
 <p>例子：假设要将所有没有订单记录的用户取出来，可以用下面这个查询完成：</p>
-<p>ELECT col1 FROM customerinfo WHERE CustomerID NOT in (SELECT CustomerID FROM salesinfo ) </p>
-<p>如果使用连接(JOIN)..来完成这个查询工作，速度将会有所提升。</p>
+<p>ELECT col1 FROM customerinfo WHERE CustomerID NOT in (SELECT CustomerID FROM salesinfo )</p>
+<p>如果使用连接(JOIN)…来完成这个查询工作，速度将会有所提升。</p>
 <p>尤其是当 salesinfo 表中对 CustomerID 建有索引的话，性能将会更好，查询如下：</p>
-<p>SELECT col1 FROM customerinfo<br>   LEFT JOIN salesinfoON customerinfo.CustomerID&#x3D;salesinfo.CustomerID<br>      WHERE salesinfo.CustomerID IS NULL<br>连接(JOIN)..之所以更有效率一些，是因为 MySQL 不需要在内存中创建临时表来完成这个逻辑上的需要两个步骤的查询工作。</p>
+<p>SELECT col1 FROM customerinfo<br>
+LEFT JOIN salesinfoON customerinfo.CustomerID=salesinfo.CustomerID<br>
+WHERE salesinfo.CustomerID IS NULL<br>
+连接(JOIN)…之所以更有效率一些，是因为 MySQL 不需要在内存中创建临时表来完成这个逻辑上的需要两个步骤的查询工作。</p>
 <p>④优化 union 查询</p>
 <p>MySQL 通过创建并填充临时表的方式来执行 union 查询。除非确实要消除重复的行，否则建议使用 union all。</p>
 <p>原因在于如果没有 all 这个关键词，MySQL 会给临时表加上 distinct 选项，这会导致对整个临时表的数据做唯一性校验，这样做的消耗相当高。</p>
 <p>高效：</p>
-<p>SELECT COL1, COL2, COL3 FROM TABLE WHERE COL1 &#x3D; 10  </p>
-<p>UNION ALL  </p>
-<p>SELECT COL1, COL2, COL3 FROM TABLE WHERE COL3&#x3D; ‘TEST’; </p>
+<p>SELECT COL1, COL2, COL3 FROM TABLE WHERE COL1 = 10</p>
+<p>UNION ALL</p>
+<p>SELECT COL1, COL2, COL3 FROM TABLE WHERE COL3= ‘TEST’;</p>
 <p>低效：</p>
-<p>SELECT COL1, COL2, COL3 FROM TABLE WHERE COL1 &#x3D; 10  </p>
-<p>UNION  </p>
-<p>SELECT COL1, COL2, COL3 FROM TABLE WHERE COL3&#x3D; ‘TEST’; </p>
+<p>SELECT COL1, COL2, COL3 FROM TABLE WHERE COL1 = 10</p>
+<p>UNION</p>
+<p>SELECT COL1, COL2, COL3 FROM TABLE WHERE COL3= ‘TEST’;</p>
 <p>⑤拆分复杂 SQL 为多个小 SQL，避免大事务</p>
 <p>如下：</p>
-<p>简单的 SQL 容易使用到 MySQL 的 QUERY CACHE。<br>减少锁表时间特别是使用 MyISAM 存储引擎的表。<br>可以使用多核 CPU。<br>⑥使用 truncate 代替 delete</p>
+<p>简单的 SQL 容易使用到 MySQL 的 QUERY CACHE。减少锁表时间特别是使用 MyISAM 存储引擎的表。可以使用多核 CPU。<br>
+⑥使用 truncate 代替 delete</p>
 <p>当删除全表中记录时，使用 delete 语句的操作会被记录到 undo 块中，删除记录也记录 binlog。</p>
 <p>当确认需要删除全表时，会产生很大量的 binlog 并占用大量的 undo 数据块，此时既没有很好的效率也占用了大量的资源。</p>
 <p>使用 truncate 替代，不会记录可恢复的信息，数据不能被恢复。也因此使用 truncate 操作有其极少的资源占用与极快的时间。另外，使用 truncate 可以回收表的水位，使自增字段值归零。</p>
 <p>⑦使用合理的分页方式以提高分页效率</p>
 <p>使用合理的分页方式以提高分页效率 针对展现等分页需求，合适的分页方式能够提高分页的效率。</p>
 <p>案例 1：</p>
-<p>select * from t where thread_id &#x3D; 10000 and deleted &#x3D; 0<br>   order by gmt_create asc limit 0, 15; </p>
-<p>上述例子通过一次性根据过滤条件取出所有字段进行排序返回。数据访问开销&#x3D;索引 IO+索引全部记录结果对应的表数据 IO。</p>
+<p>select * from t where thread_id = 10000 and deleted = 0<br>
+order by gmt_create asc limit 0, 15;</p>
+<p>上述例子通过一次性根据过滤条件取出所有字段进行排序返回。数据访问开销=索引 IO+索引全部记录结果对应的表数据 IO。</p>
 <p>因此，该种写法越翻到后面执行效率越差，时间越长，尤其表数据量很大的时候。</p>
 <p>适用场景：当中间结果集很小(10000 行以下)或者查询条件复杂(指涉及多个不同查询字段或者多表连接)时适用。</p>
 <p>案例 2：</p>
-<p>select t.* from (select id from t where thread_id &#x3D; 10000 and deleted &#x3D; 0<br>   order by gmt_create asc limit 0, 15) a, t<br>      where a.id &#x3D; t.id; </p>
+<p>select t.* from (select id from t where thread_id = 10000 and deleted = 0<br>
+order by gmt_create asc limit 0, 15) a, t<br>
+where <a target="_blank" rel="noopener" href="http://a.id">a.id</a> = <a target="_blank" rel="noopener" href="http://t.id">t.id</a>;</p>
 <p>上述例子必须满足 t 表主键是 id 列，且有覆盖索引 secondary key：(thread_id, deleted, gmt_create)。</p>
 <p>通过先根据过滤条件利用覆盖索引取出主键 id 进行排序，再进行 join 操作取出其他字段。</p>
-<p>数据访问开销&#x3D;索引 IO+索引分页后结果(例子中是 15 行)对应的表数据 IO。因此，该写法每次翻页消耗的资源和时间都基本相同，就像翻第一页一样。</p>
+<p>数据访问开销=索引 IO+索引分页后结果(例子中是 15 行)对应的表数据 IO。因此，该写法每次翻页消耗的资源和时间都基本相同，就像翻第一页一样。</p>
 <p>适用场景：当查询和排序字段(即 where 子句和 order by 子句涉及的字段)有对应覆盖索引时，且中间结果集很大的情况时适用。</p>
 <p>建表优化</p>
 <p>①在表中建立索引，优先考虑 where、order by 使用到的字段。</p>
@@ -233,11 +279,12 @@
 <p>这是因为引擎在处理查询和连接时会 逐个比较字符串中每一个字符，而对于数字型而言只需要比较一次就够了。</p>
 <p>③查询数据量大的表 会造成查询缓慢。主要的原因是扫描行数过多。这个时候可以通过程序，分段分页进行查询，循环遍历，将结果合并处理进行展示。</p>
 <p>要查询 100000 到 100050 的数据，如下：</p>
-<p>SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY ID ASC) AS rowid,*<br>   FROM infoTab)t WHERE t.rowid &gt; 100000 AND t.rowid &lt;&#x3D; 100050 </p>
-<p>④用 varchar&#x2F;nvarchar 代替 char&#x2F;nchar。</p>
-<p>尽可能的使用 varchar&#x2F;nvarchar 代替 char&#x2F;nchar ，因为首先变长字段存储空间小，可以节省存储空间，其次对于查询来说，在一个相对较小的字段内搜索效率显然要高些。</p>
+<p>SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY ID ASC) AS rowid,*<br>
+FROM infoTab)t WHERE t.rowid &gt; 100000 AND t.rowid &lt;= 100050</p>
+<p>④用 varchar/nvarchar 代替 char/nchar。</p>
+<p>尽可能的使用 varchar/nvarchar 代替 char/nchar ，因为首先变长字段存储空间小，可以节省存储空间，其次对于查询来说，在一个相对较小的字段内搜索效率显然要高些。</p>
 <p>不要以为 NULL 不需要空间，比如：char(100) 型，在字段建立时，空间就固定了， 不管是否插入值(NULL 也包含在内)，都是占用 100 个字符的空间的，如果是 varchar 这样的变长字段， null 不占用空间。</p>
-</div><hr style="height:1px;margin:1rem 0"><div class="level is-mobile is-flex"><div class="article-tags is-size-7 is-uppercase"><i class="fas fa-tags has-text-grey"></i> <a class="link-muted" rel="tag" href="/tags/sql/">sql </a></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/aws-learning-note/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">AWSラーニングノート</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/japan-it-working-memo/"><span class="level-item">日本のIT職記録</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">コメント</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+</div><hr style="height:1px;margin:1rem 0"><div class="level is-mobile is-flex"><div class="article-tags is-size-7 is-uppercase"><i class="fas fa-tags has-text-grey"></i> <a class="link-muted" rel="tag" href="/tags/sql/">sql, </a><a class="link-muted" rel="tag" href="/tags/%E3%82%AF%E3%82%A4%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF/">クイックチェック </a></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/aws-learning-note/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">AWSラーニングノート</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/japan-it-working-memo/"><span class="level-item">日本のIT職記録</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">コメント</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
             id: "385b8875587c0a003575500cbd630ef3",
             repo: "gitakl-of-blog",
             owner: "ooblivion",
@@ -253,7 +300,7 @@
             enableHotKey: true,
             language: "en",
         })
-        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/doctor.png" alt="orange"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">orange</p><p class="is-size-6 is-block">必死に積み上げてきたものは決して裏切りません</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>北海道 札幌市</span></p></div></div></nav><nav class="level is-mobile"><a class="level-item has-text-centered is-marginless" href="/categories"><div><p class="heading">投稿</p><div><p class="title">13</p></div></div></a><div class="level-item has-text-centered is-marginless"><div><p class="heading">カテゴリ</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">タグ</p><a href="/tags"><p class="title">17</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ooblivion"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Qiita" href="https://qiita.com/ooblivion"><i class="fab fa-q"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Certificate" href="https://www.credly.com/users/wentao-wu.2fb450f4"><i class="fas fa-certificate"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Stackoverflow" href="https://stackoverflow.com/users/11994542/orange"><i class="fab fa-stack-overflow"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="E-mail" href="mailto:XXX@XXX.com"><i class="fa-solid fa-envelope"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目次</h3><ul class="menu-list"><li><a class="level is-mobile" href="#–-JP-–"><span class="level-left"><span class="level-item">1</span><span class="level-item">– JP –</span></span></a></li><li><a class="level is-mobile" href="#–-CN-–"><span class="level-left"><span class="level-item">2</span><span class="level-item">– CN –</span></span></a></li><li><a class="level is-mobile" href="#介绍"><span class="level-left"><span class="level-item">3</span><span class="level-item">介绍</span></span></a></li><li><a class="level is-mobile" href="#SQL优化原则"><span class="level-left"><span class="level-item">4</span><span class="level-item">SQL优化原则</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">カテゴリ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/%E4%BD%9C%E6%A5%AD/"><span class="level-start"><span class="level-item">作業</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E4%BD%9C%E6%A5%AD/%E4%BB%95%E4%BA%8B%E3%83%8E%E3%83%BC%E3%83%88/"><span class="level-start"><span class="level-item">仕事ノート</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E4%BD%9C%E6%A5%AD/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/"><span class="level-start"><span class="level-item">作業メモ</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最近の記事</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-12-31T15:39:55.000Z">2024-01-01</time></p><p class="title"><a href="/base-design">基本設計記事</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-12-16T14:16:19.000Z">2023-12-16</time></p><p class="title"><a href="/development-usually-use-websites-and-tool">開発によく使われるツールやwebサイト</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-12-06T18:33:36.000Z">2023-12-07</time></p><p class="title"><a href="/cicd-handson">CI/CD ハンズオン</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-11-14T09:52:46.000Z">2023-11-14</time></p><p class="title"><a href="/todo-project">自分でやりたいプロジェクト</a></p><p class="categories"><a href="/categories/%E4%BD%9C%E6%A5%AD/">作業</a> / <a href="/categories/%E4%BD%9C%E6%A5%AD/%E4%BB%95%E4%BA%8B%E3%83%8E%E3%83%BC%E3%83%88/">仕事ノート</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-02T05:48:42.000Z">2023-06-02</time></p><p class="title"><a href="/japanese-punctuation-check">日本語の句読点をざっとチェック</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">アーカイブ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">January 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">December 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">November 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">June 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/05/"><span class="level-start"><span class="level-item">May 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">November 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">September 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/11/"><span class="level-start"><span class="level-item">November 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/10/"><span class="level-start"><span class="level-item">October 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">July 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">タグ</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/CN/"><span class="tag">CN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Git/"><span class="tag">Git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JP/"><span class="tag">JP</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/TODO/"><span class="tag">TODO</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/aws/"><span class="tag">aws</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/back-end/"><span class="tag">back-end</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/blog/"><span class="tag">blog</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cloud/"><span class="tag">cloud</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/java/"><span class="tag">java</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/markdown/"><span class="tag">markdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/spring/"><span class="tag">spring</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/work/"><span class="tag">work</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%A4%96%E5%9B%BD%E4%BA%BA/"><span class="tag">外国人</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%A8%AD%E8%A8%88/"><span class="tag">設計</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%96%8B%E7%99%BA%E3%83%A1%E3%83%A2/"><span class="tag">開発メモ</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/orange.png" alt="OrangeNoteBlog" height="28"></a><p class="is-size-7"><span>&copy; 2024 orange</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2018</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-nc"></i> <i class="fab fa-creative-commons-sa"></i> </a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("jp");</script><script>var IcarusThemeSettings = {
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/doctor.png" alt="orange"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">orange</p><p class="is-size-6 is-block">必死に積み上げてきたものは決して裏切りません</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>北海道 札幌市</span></p></div></div></nav><nav class="level is-mobile"><a class="level-item has-text-centered is-marginless" href="/categories"><div><p class="heading">投稿</p><div><p class="title">13</p></div></div></a><div class="level-item has-text-centered is-marginless"><div><p class="heading">カテゴリ</p><a href="/categories"><p class="title">8</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">タグ</p><a href="/tags"><p class="title">25</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ooblivion"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Qiita" href="https://qiita.com/ooblivion"><i class="fab fa-q"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Certificate" href="https://www.credly.com/users/wentao-wu.2fb450f4"><i class="fas fa-certificate"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Stackoverflow" href="https://stackoverflow.com/users/11994542/orange"><i class="fab fa-stack-overflow"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="E-mail" href="mailto:XXX@XXX.com"><i class="fa-solid fa-envelope"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目次</h3><ul class="menu-list"><li><a class="level is-mobile" href="#–-JP-–"><span class="level-left"><span class="level-item">1</span><span class="level-item">– JP –</span></span></a></li><li><a class="level is-mobile" href="#–-CN-–"><span class="level-left"><span class="level-item">2</span><span class="level-item">– CN –</span></span></a></li><li><a class="level is-mobile" href="#介绍"><span class="level-left"><span class="level-item">3</span><span class="level-item">介绍</span></span></a></li><li><a class="level is-mobile" href="#SQL优化原则"><span class="level-left"><span class="level-item">4</span><span class="level-item">SQL优化原则</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">カテゴリ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/%E3%83%86%E3%82%AF%E3%83%8E%E3%83%AD%E3%82%B8%E3%83%BC/"><span class="level-start"><span class="level-item">テクノロジー</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E3%83%86%E3%82%AF%E3%83%8E%E3%83%AD%E3%82%B8%E3%83%BC/%E8%A8%AD%E8%A8%88/"><span class="level-start"><span class="level-item">設計</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB/"><span class="level-start"><span class="level-item">ライフスタイル</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%AD%A6%E7%BF%92/"><span class="level-start"><span class="level-item">日本語学習</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E4%BD%9C%E6%A5%AD/"><span class="level-start"><span class="level-item">作業</span></span><span class="level-end"><span class="level-item tag">11</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E4%BD%9C%E6%A5%AD/%E4%BB%95%E4%BA%8B%E3%83%8E%E3%83%BC%E3%83%88/"><span class="level-start"><span class="level-item">仕事ノート</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E4%BD%9C%E6%A5%AD/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/"><span class="level-start"><span class="level-item">作業メモ</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E4%BD%9C%E6%A5%AD/%E5%8B%89%E5%BC%B7%E3%83%8E%E3%83%BC%E3%83%88/"><span class="level-start"><span class="level-item">勉強ノート</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最近の記事</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-12-31T15:39:55.000Z">2024-01-01</time></p><p class="title"><a href="/base-design">基本設計記事</a></p><p class="categories"><a href="/categories/%E3%83%86%E3%82%AF%E3%83%8E%E3%83%AD%E3%82%B8%E3%83%BC/">テクノロジー</a> / <a href="/categories/%E3%83%86%E3%82%AF%E3%83%8E%E3%83%AD%E3%82%B8%E3%83%BC/%E8%A8%AD%E8%A8%88/">設計</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-12-16T14:16:19.000Z">2023-12-16</time></p><p class="title"><a href="/development-usually-use-websites-and-tool">開発によく使われるツールやwebサイト</a></p><p class="categories"><a href="/categories/%E4%BD%9C%E6%A5%AD/">作業</a> / <a href="/categories/%E4%BD%9C%E6%A5%AD/%E4%BB%95%E4%BA%8B%E3%83%8E%E3%83%BC%E3%83%88/">仕事ノート</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-12-06T18:33:36.000Z">2023-12-07</time></p><p class="title"><a href="/cicd-handson">CI/CD ハンズオン</a></p><p class="categories"><a href="/categories/%E4%BD%9C%E6%A5%AD/">作業</a> / <a href="/categories/%E4%BD%9C%E6%A5%AD/%E5%8B%89%E5%BC%B7%E3%83%8E%E3%83%BC%E3%83%88/">勉強ノート</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-11-14T09:52:46.000Z">2023-11-14</time></p><p class="title"><a href="/todo-project">自分でやりたいプロジェクト</a></p><p class="categories"><a href="/categories/%E4%BD%9C%E6%A5%AD/">作業</a> / <a href="/categories/%E4%BD%9C%E6%A5%AD/%E4%BB%95%E4%BA%8B%E3%83%8E%E3%83%BC%E3%83%88/">仕事ノート</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-02T05:48:42.000Z">2023-06-02</time></p><p class="title"><a href="/japanese-punctuation-check">日本語の句読点をざっとチェック</a></p><p class="categories"><a href="/categories/%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB/">ライフスタイル</a> / <a href="/categories/%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%AD%A6%E7%BF%92/">日本語学習</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">アーカイブ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">January 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">December 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">November 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">June 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/05/"><span class="level-start"><span class="level-item">May 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">November 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">September 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/11/"><span class="level-start"><span class="level-item">November 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/10/"><span class="level-start"><span class="level-item">October 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">July 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">タグ</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AWS/"><span class="tag">AWS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Backend/"><span class="tag">Backend</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CI-CD/"><span class="tag">CI-CD</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CN/"><span class="tag">CN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Git/"><span class="tag">Git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Infra/"><span class="tag">Infra</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JP/"><span class="tag">JP</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Java/"><span class="tag">Java</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Spring/"><span class="tag">Spring</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/TODO/"><span class="tag">TODO</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/blog/"><span class="tag">blog</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/markdown/"><span class="tag">markdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/work/"><span class="tag">work</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E7%9F%A5%E8%AD%98/"><span class="tag">エンジニア知識</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%82%AF%E3%82%A4%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF/"><span class="tag">クイックチェック</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%83%84%E3%83%BC%E3%83%AB/"><span class="tag">ツール</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/"><span class="tag">作業メモ</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8D%98%E8%AA%9E/"><span class="tag">単語</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%A4%96%E5%9B%BD%E4%BA%BA/"><span class="tag">外国人</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%83%A1%E3%83%A2/"><span class="tag">日本語メモ</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%A8%AD%E8%A8%88/"><span class="tag">設計</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%96%8B%E7%99%BA%E3%83%A1%E3%83%A2/"><span class="tag">開発メモ</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%9B%91%E8%A8%98/"><span class="tag">雑記</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/orange.png" alt="OrangeNoteBlog" height="28"></a><p class="is-size-7"><span>&copy; 2024 orange</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2018</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-nc"></i> <i class="fab fa-creative-commons-sa"></i> </a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("jp");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
