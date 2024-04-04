@@ -68,13 +68,21 @@
     <link href="https://ooblivion.github.io/todo-project/"/>
     <id>https://ooblivion.github.io/todo-project/</id>
     <published>2023-11-14T09:52:46.000Z</published>
-    <updated>2024-04-04T13:18:26.456Z</updated>
+    <updated>2024-04-04T13:48:46.627Z</updated>
     
     
     <summary type="html">この記事は個人開発について</summary>
     
     
     
+    <category term="作業" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/"/>
+    
+    <category term="仕事ノート" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/%E4%BB%95%E4%BA%8B%E3%83%8E%E3%83%BC%E3%83%88/"/>
+    
+    
+    <category term="TODO" scheme="https://ooblivion.github.io/tags/TODO/"/>
+    
+    <category term="開発メモ" scheme="https://ooblivion.github.io/tags/%E9%96%8B%E7%99%BA%E3%83%A1%E3%83%A2/"/>
     
   </entry>
   

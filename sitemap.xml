@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ooblivion.github.io/todo-project/</loc>
+    
+    <lastmod>2024-04-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://ooblivion.github.io/working-japanese-notes/</loc>
     
     <lastmod>2024-04-04</lastmod>
@@ -30,15 +39,6 @@
   
   <url>
     <loc>https://ooblivion.github.io/interview-and-self-introduction/</loc>
-    
-    <lastmod>2024-04-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://ooblivion.github.io/todo-project/</loc>
     
     <lastmod>2024-04-04</lastmod>
     
@@ -250,6 +250,20 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://ooblivion.github.io/tags/TODO/</loc>
+    <lastmod>2024-04-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ooblivion.github.io/tags/%E9%96%8B%E7%99%BA%E3%83%A1%E3%83%A2/</loc>
+    <lastmod>2024-04-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -261,6 +275,13 @@
   
   <url>
     <loc>https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/</loc>
+    <lastmod>2024-04-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/%E4%BB%95%E4%BA%8B%E3%83%8E%E3%83%BC%E3%83%88/</loc>
     <lastmod>2024-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
