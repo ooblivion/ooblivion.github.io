@@ -50,13 +50,13 @@
   
   <entry>
     <title>CI/CD ハンズオン</title>
-    <link href="https://ooblivion.github.io/cicd-handon/"/>
-    <id>https://ooblivion.github.io/cicd-handon/</id>
+    <link href="https://ooblivion.github.io/cicd-handson/"/>
+    <id>https://ooblivion.github.io/cicd-handson/</id>
     <published>2023-12-06T18:33:36.000Z</published>
-    <updated>2024-04-02T15:01:15.767Z</updated>
+    <updated>2024-04-03T15:03:56.435Z</updated>
     
     
-    <summary type="html">何かが暗号化されています。閲覧するにはパスワードを入力してください。</summary>
+    <summary type="html">この記事は...</summary>
     
     
     
@@ -68,10 +68,10 @@
     <link href="https://ooblivion.github.io/todo-project/"/>
     <id>https://ooblivion.github.io/todo-project/</id>
     <published>2023-11-14T09:52:46.000Z</published>
-    <updated>2024-04-02T15:34:53.369Z</updated>
+    <updated>2024-04-04T13:18:26.456Z</updated>
     
     
-    <summary type="html">この記事は...</summary>
+    <summary type="html">この記事は個人開発について</summary>
     
     
     
@@ -137,12 +137,14 @@
     <updated>2024-02-01T13:05:47.000Z</updated>
     
     
-    <summary type="html">日本でプログラマーとして働く外国人の記録。</summary>
+    <summary type="html">日本でプログラマーとして働く外国人の記事。</summary>
     
     
     
     
     <category term="work" scheme="https://ooblivion.github.io/tags/work/"/>
+    
+    <category term="外国人" scheme="https://ooblivion.github.io/tags/%E5%A4%96%E5%9B%BD%E4%BA%BA/"/>
     
   </entry>
   
@@ -151,7 +153,7 @@
     <link href="https://ooblivion.github.io/working-japanese-notes/"/>
     <id>https://ooblivion.github.io/working-japanese-notes/</id>
     <published>2022-07-27T19:24:42.000Z</published>
-    <updated>2024-04-02T15:37:47.238Z</updated>
+    <updated>2024-04-04T13:42:16.516Z</updated>
     
     
     <summary type="html">この記事は...</summary>
@@ -166,7 +168,7 @@
     <link href="https://ooblivion.github.io/version-control-toll/"/>
     <id>https://ooblivion.github.io/version-control-toll/</id>
     <published>2022-06-01T12:58:22.000Z</published>
-    <updated>2024-04-01T15:16:52.704Z</updated>
+    <updated>2024-04-04T13:40:42.129Z</updated>
     
     
     <summary type="html">バージョン管理ツール使用方法、よく使うコマンド</summary>
@@ -201,10 +203,10 @@
   
   <entry>
     <title>面试&amp;自我介绍</title>
-    <link href="https://ooblivion.github.io/%E9%9D%A2%E8%AF%95&amp;%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/"/>
-    <id>https://ooblivion.github.io/%E9%9D%A2%E8%AF%95&amp;%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</id>
+    <link href="https://ooblivion.github.io/interview-and-self-introduction/"/>
+    <id>https://ooblivion.github.io/interview-and-self-introduction/</id>
     <published>2021-10-11T14:30:13.000Z</published>
-    <updated>2024-04-02T15:35:27.869Z</updated>
+    <updated>2024-04-04T13:33:15.126Z</updated>
     
     
     <summary type="html">この記事は...</summary>
@@ -236,6 +238,10 @@
     <category term="markdown" scheme="https://ooblivion.github.io/tags/markdown/"/>
     
     <category term="blog" scheme="https://ooblivion.github.io/tags/blog/"/>
+    
+    <category term="CN" scheme="https://ooblivion.github.io/tags/CN/"/>
+    
+    <category term="JP" scheme="https://ooblivion.github.io/tags/JP/"/>
     
   </entry>
   
