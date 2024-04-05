@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="jp"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>ウォーターフォール開発 - OrangeNoteBlog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="OrangeNoteBlog"><meta name="msapplication-TileImage" content="/img/orange-facicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="OrangeNoteBlog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="この記事は..."><meta property="og:type" content="blog"><meta property="og:title" content="ウォーターフォール開発"><meta property="og:url" content="https://ooblivion.github.io/%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A9%E3%83%BC%E3%83%AB%E9%96%8B%E7%99%BA/"><meta property="og:site_name" content="OrangeNoteBlog"><meta property="og:description" content="この記事は..."><meta property="og:locale" content="jp"><meta property="og:image" content="https://ooblivion.github.io/img/og_image.png"><meta property="article:published_time" content="2024-04-05T15:36:04.000Z"><meta property="article:modified_time" content="2024-04-05T15:36:04.000Z"><meta property="article:author" content="orange"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://ooblivion.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://ooblivion.github.io/%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A9%E3%83%BC%E3%83%AB%E9%96%8B%E7%99%BA/"},"headline":"ウォーターフォール開発","image":["https://ooblivion.github.io/img/og_image.png"],"datePublished":"2024-04-05T15:36:04.000Z","dateModified":"2024-04-05T15:36:04.000Z","author":{"@type":"Person","name":"orange"},"publisher":{"@type":"Organization","name":"OrangeNoteBlog","logo":{"@type":"ImageObject","url":"https://ooblivion.github.io/img/orange.png"}},"description":"この記事は..."}</script><link rel="canonical" href="https://ooblivion.github.io/%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A9%E3%83%BC%E3%83%AB%E9%96%8B%E7%99%BA/"><link rel="icon" href="/img/orange-facicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?G-TQZ0DMPY0S";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="OrangeNoteBlog" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/orange.png" alt="OrangeNoteBlog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">ホームページ</a><a class="navbar-item" href="/archives">アーカイブ</a><a class="navbar-item" href="/categories">カテゴリー</a><a class="navbar-item" href="/tags">タグ</a><a class="navbar-item" href="/about">個人概要</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-lightbulb" id="night-icon"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ooblivion"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目次" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="検索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-04-05T15:36:04.000Z" title="2024/4/6 0:36:04">2024-04-06</time>に投稿</span><span class="level-item"><time dateTime="2024-04-05T15:36:04.000Z" title="2024/4/6 0:36:04">2024-04-06</time>に更新</span><span class="level-item">an hourで読む (約9624語)</span></div></div><h1 class="title is-3 is-size-4-mobile">ウォーターフォール開発</h1><div class="content"><!-- more -->
+<h2 id="本記事について">本記事について</h2>
+<h2 id="はじめに">はじめに</h2>
+<p><a target="_blank" rel="noopener" href="https://hnavi.co.jp/knowledge/blog/waterfall/">https://hnavi.co.jp/knowledge/blog/waterfall/</a></p>
+<p>ウォーターフォール開発は、伝統的で基本的な開発手法の1つです。この手法では、開発に必要な工程を段階的に区切って、順番に進行していきます。工程ごとに品質を管理できるため、最終的に高い品質が期待できるのが特徴です。</p>
+<p>品質が求められるような大規模なシステム開発や、複雑なソフトウェア開発に適しています。ウォーターフォール開発は、高い品質の製品を開発できる一方で、柔軟性の不足が弱点です。開発の途中で修正や仕様変更が発生すると、工数や納期に大きな影響が出てしまいます。開発手法はほかにも存在しますので、プロジェクトが始まる前に状況やニーズを把握して、どの手法で開発するか選択することが重要です。</p>
+<p>今回は、ウォーターフォール開発の流れや、開発におけるメリット・デメリットについて詳しく紹介します。</p>
+<p>目次<br>
+1.ウォーターフォール開発とは<br>
+2.ウォーターフォール開発の流れ<br>
+3.ウォーターフォール開発におけるメリット<br>
+4.ウォーターフォール開発におけるデメリット<br>
+5.ウォーターフォール開発に向いているプロジェクトとは<br>
+6.ウォーターフォール開発を行う際のポイント<br>
+7.ウォーターフォール型以外の開発方法はあるの？<br>
+8.外部へ委託することで効率的に進めよう</p>
+<p>ウォーターフォール開発とはウォーターフォール開発とは、システムやソフトウェア開発で用いられる開発手法の一種で、ウォーターフォール型開発とも呼ばれます。ウォーターフォールという名が示すとおり、「滝（Waterfall）のように落下するが如く開発が進む」ことから、その名が付けられています。ウォーターフォール開発は、主に大規模で複雑なプロジェクトに向いています。</p>
+<p>例えば、新しい製品やシステムの開発、インフラシステムの構築、大規模なソフトウェア開発などです。開発における各工程が細かく独立して区切られているため、工程ごとの進捗管理や品質管理がしやすいためです。</p>
+<p>ウォーターフォール開発の流れウォーターフォール開発は、大きく8つの工程に分かれているのが特徴です。以下の流れでプロジェクトを進行します。</p>
+<p>■ウォーターフォール型開発の流れ</p>
+<p>工程	詳細<br>
+➀要件定義	システムの機能や、開発に必要となる予算や人員を決める。<br>
+②外部設計	ユーザーインターフェース（外見的な見た目のこと）を設計する。<br>
+③内部設計	システム内部の動作や機能、物理データ部分を設計する。<br>
+④実装	外部と内部設計に基づき、実際にプログラムを作成・実装する。<br>
+⑤単体テスト	実装したプログラムが、正しく機能するかテストをする。<br>
+⑥統合テスト	複数のプログラムを組み合わせ、正しく機能するかテストをする。<br>
+⑦運用テスト	完成したシステムが、実際の業務に使用できるかテストをする。<br>
+⑧リリース	テストが完了したシステムをリリースする。</p>
+<p>ウォーターフォール開発では、このように上段から順を追って開発が進みます。</p>
+<p>●ウォーターフォール型の具体的な開発手順とはウォーターフォール開発は、「開発手順が極めてシンプルでわかりやすい」という特徴があります。上図のとおり、システムやソフトウェア開発には多くの工程（プロセス）が存在しますが、この工程を「上から順番に行う」のが、ウォーターフォール開発なのです。</p>
+<p>ウォーターフォール開発の大まかな手順としては、システムに搭載する機能や細かな仕様をすべて決めてから開発がスタートします。その後、1つひとつの工程をしっかりと完了させながら行う、という流れです。「前の工程には戻らないこと」を前提に開発が進行するのも、ウォーターフォール開発の特徴と言えるでしょう。すべての工程が完了した後、晴れてシステムやソフトウェアがリリースされる仕組みです。</p>
+<p>ここからは、各工程について順番に解説します。</p>
+<p>1.要件定義</p>
+<p>要件定義工程では、システムがどのような機能や性能を持つべきか、どのような制約条件があるかなどを明確に定義します。要件定義は、システムが成功するために必要不可欠な工程であり、その後の工程の進行方向やスケジュールに大きな影響を与える工程です。</p>
+<p>2.外部設計</p>
+<p>外部設計工程では、要件定義で定義された機能や性能を達成するために、どのようなシステム構成が必要かを定義する工程です。具体的には、システムアーキテクチャ、ユーザーインターフェース、データ入出力方法などが含まれます。</p>
+<p>3.内部設計</p>
+<p>内部設計工程は、外部設計で定義されたシステム構成を実現するために、具体的な実装方法を設計する工程です。具体的には、プログラムのモジュール化、データ構造、アルゴリズムなどが含まれます。</p>
+<p>4.実装</p>
+<p>実装工程では、内部設計で定義された設計に基づいて、プログラムを記述します。プログラミング言語やフレームワークを使用して、プログラムを実装する工程です。大規模なプロジェクトの場合は、大人数で作業を分担します。</p>
+<p>5.単体テスト</p>
+<p>単体テスト工程は、個々のプログラムモジュールが、要件定義で定義された機能や性能を満たしているかを確認・検証する工程です。プログラムモジュールごとにテストケースを用意し、正しく動作することを確認します。</p>
+<p>6.統合テスト</p>
+<p>統合テスト工程は、複数のプログラムモジュールを組み合わせた場合の動作を確認・検証する工程です。テストケースを用意し、全体的なシステムの動作を確認します。この工程においては、要件定義で定義された機能や性能を満たしているかを確認します。</p>
+<p>7.運用テスト</p>
+<p>運用テストでは、システムが正常に稼働することを確認するテストを実施します。ユーザーが利用する状況を想定しながらシステムを稼働させるフェーズです。実際にシステムを稼働させて、ユーザーが操作した場合に問題がないかどうかを確認・検証します。例えば、サイトのアクセス数が急増した際に、システムが安定して動作するかどうかなどを確認します。このテストで問題があった場合は、修正を加えてから再度テストが必要です。</p>
+<p>8.リリース</p>
+<p>すべての工程を終えた後、システムをリリースします。リリース後は、ユーザーによるシステム操作・閲覧が可能です。リリース前には、システム全体の品質を最終確認します。また、リリース後も適切に運用されるよう保守・運用についても考慮が必要です。リリース後は、システムの品質についてユーザーからのフィードバックを収集し、改善点を検討するフェーズに入ります。</p>
+<p>ウォーターフォール開発におけるメリットウォーターフォール開発におけるメリットは、大きく以下の3つです。メリットを理解して、自分のプロジェクトで活用できそうか検討してみましょう。</p>
+<p>品質を担保したシステム開発を行いやすい</p>
+<p>スケジュールや進捗管理がしやすい</p>
+<p>事例が多く、様々な開発に応用ができる</p>
+<p>●品質を担保したシステム開発を行いやすい先に挙げたとおり、ウォーターフォール開発は「何を作りたいか」を明確にしたうえで、事前に決められた手順どおりに開発が進みます。そのため、ウォーターフォール型のシステム開発は完成品の品質を担保しやすいというメリットがあります。仕様に沿った物が予定どおりに作られる分、クライアントに安心感を与えやすいのもウォーターフォール開発の利点と言えるでしょう。</p>
+<p>●スケジュールや進捗管理がしやすい計画的にシステム開発を進めやすいウォーターフォール開発は、開発にかかわるエンジニアやスタッフの管理がしやすいのもメリットです。開発のスタート段階で作業量がわかる分、必要な人員だけを確保できて、コスト面においても無駄がありません。</p>
+<p>また、各々の工程でいつまでに完了するのか、どのように仕上がるのかがわかりやすく、業務の引き継ぎも円滑に行いやすいという特徴があります。</p>
+<p>●事例が多く、様々な開発に応用ができるウォーターフォール開発は、伝統的かつ基本的なシステム開発手法です。基本的には要件が明確であればどんなプロジェクトにも対応できます。この手法は、プロジェクト全体を段階的に進めることで、工程ごとに目標を明確にして、綿密に計画することが可能です。そのため、プロジェクトの進捗管理や品質管理に優れています。</p>
+<p>ウォーターフォール開発におけるデメリットウォーターフォール開発におけるデメリットは、主に以下の3つが挙げられます。</p>
+<p>開発期間が長期化しやすい</p>
+<p>仕様や計画の変更がしにくい</p>
+<p>修正やアクシデントが発生した際に大幅に工数がかかる</p>
+<p>●開発期間が長期化しやすいウォーターフォール開発は、企画や要件定義をじっくりと行ってから開発を開始する分、開発期間が長期化しやすいという欠点があります。そのため、スタートアップのビジネスで使用するシステムやソフトウェアのように、スピードが重視されるに開発案件では不向きです。品質の高さや安定性と引き換えに、時間が犠牲になりやすい開発方法と言えるでしょう。</p>
+<p>●仕様や計画の変更がしにくいシステム開発に限った話ではありませんが、すべての業務が計画どおりに進行することは稀です。開発の途中で「どうも使いにくそうだ」、「やっぱりこの機能は要らない」と思っても、最初に全体像が完成している分、仕様や計画を簡単に変更できません。万が一、開発途中で仕様の変更をする場合は、甚大なコストと労力が発生してしまいます。コストや労力を捻出できず、「そのまま後戻りできずにシステムが完成する」というケースもあるほどです。</p>
+<p>●修正やアクシデントが発生した際に大幅に工数がかかるウォーターフォール開発では、システム修正やアクシデントが発生すると、工数が大幅に増加します。例えば、実装段階に入った状態で「機能の追加」や「データ連携先の変更」などが決まると、上流工程に戻らなければなりません。終わった工程を再度実行するため、工数が追加で必要になります。また、上流工程からやり直すため、全体の計画が後ろ倒しになることにもつながります。</p>
+<p>連携先のシステムの不具合で、当初想定していたシステムを構築できない、といった状況は考えられます。ただ、工数が増えると、最初に企画した段階よりも開発コストが膨らんでしまいます。ビジネスにおいてコストは利益に影響するため、重要な要素です。最初の要件定義の段階で、修正やアクシデントのリスクは可能な限り取り除いておきましょう。</p>
+<p>ウォーターフォール開発に向いているプロジェクトとはウォーターフォール開発でシステムを作る際は、メリットとデメリットをしっかり把握したうえで、「ウォーターフォールに適したシステム開発」をしましょう。品質の安定性に定評のあるウォーターフォール開発は、「仕様変更を前提としないシステム」を開発するのに適しています。</p>
+<p>続いて、ウォーターフォール開発に向いているプロジェクトの例を3つ紹介します。</p>
+<p>家電や自動車に搭載する組み込みソフトウェア</p>
+<p>携帯キャリアの通信システム</p>
+<p>コンピューターのOSなどの規模の大きい開発</p>
+<p>上記の3つは、どれも障害の発生で甚大な被害が発生するシステムです。仕様変更を前提としないかつ高品質なシステムが求められるプロジェクトでは、ウォーターフォール型での開発を検討してみましょう。</p>
+<p>ウォーターフォール開発を行う際のポイントここではウォーターフォール開発を成功させるためのポイントを5つ紹介します。</p>
+<p>ウォーターフォール開発は、各工程が滝のように流れるため、前の工程に戻るのが困難です。そのため、最初の要件定義を徹底したり、現実的な計画を作成したり、ドキュメントを作成するなど、意識するポイントがあります。順番に解説しますので、チェックしてみましょう。</p>
+<p>●スケジューリングを綿密に行うウォーターフォール開発では、各工程が順番に進んでいくため、綿密なスケジュール管理が必要です。1つの工程で遅れが発生すると、後ろの工程での対応時間が短くなってしまいます。プロジェクトの全体スケジュールから各工程のスケジュールを算出し、それぞれの期限を守りながら進行させましょう。</p>
+<p>●要件定義を明確にする開発の前段階である要件定義は、プロジェクトが成功するか否かを左右する重要な工程です。顧客からの要求やシステムが必要とする機能を正確に把握し、それを明確に文書化することが求められます。あいまいな要望は、ヒアリングと提案によって「要件」に落とし込むようにしましょう。この工程で仕様や機能を細かく定義できれば、下流工程での修正リスクを抑えられます。</p>
+<p>●各工程でのドキュメント作成ウォーターフォール開発では、各工程でのドキュメント作成が欠かせません。特殊な仕様や注意点は必ずドキュメントに残しておきましょう。各工程を別の作業者が担当する場合、工程をまたいだ質問・確認が難しいためです。外部設計、内部設計、実装といった作業においても、文書化によって、エラーや不備を事前に発見し、回避することができます。</p>
+<p>●工程ごとのテスト実施ウォーターフォール開発では、各工程でのテストが重要な意味を持ちます。単体テスト、統合テスト、運用テストといった工程で、機能や品質に問題がないかを確認して、次の下流工程での修正を防ぐ役割があるためです。工程ごとのテストを欠かさず実施することで、開発中の問題を早期に発見し、修正することができます。早期に問題点を発見できれば、リリース遅延のリスクを最小限に抑えられます。</p>
+<p>●作業者・顧客とのコミュニケーションウォーターフォール開発では、作業者と顧客のコミュニケーションが重要です。顧客が求めるものを正確に把握するために、顧客との意見交換を行い、共通認識を持ちましょう。</p>
+<p>また、作業者同士のコミュニケーションも必要です。プロジェクト発足時に、コミュニケーションを取りやすい環境を作っておくことをおすすめします。話しやすい環境を作っておけば、問題や修正が発生した際に、すぐに把握できるためです。ウォーターフォール開発では、スケジュール遅延を起こさないためにも早めの報告・修正が重要になります。</p>
+<p>ウォーターフォール型以外の開発方法はあるの？開発手法には、ウォーターフォール開発以外にも様々な方法が存在します。ここでは、現在使われている手法を4つピックアップしました。</p>
+<p>アジャイル型開発</p>
+<p>スパイラル型開発</p>
+<p>ハイブリッド開発</p>
+<p>プロトタイプ開発</p>
+<p>各開発手法について順番に解説します。</p>
+<p>●アジャイル型開発<br>
+■アジャイル型開発の流れ</p>
+<p>工程	詳細<br>
+➀企画	「どんなシステムやソフトウェアを作りたいのか」を具体的に決める。<br>
+➁イテレーション	計画、設計、実装、テストのサイクルを回す。<br>
+③リリース	完成したシステムをリリースする。<br>
+※以下、②～③の工程を繰り返し行う。</p>
+<p>俊敏(agile)の名を冠したアジャイル型開発は、文字どおり「素早いシステム開発」を可能とした開発方法です。作りたいシステムを大まかに決めた後は「計画、設計、実装、テストの反復（イテレーション）」を繰り返し、一気に開発を完了させます。システムのリリース後は、ユーザーやクライアントからのフィードバックをもとに、システムの改良を繰り返して行う流れです。</p>
+<p>ウォーターフォール型とは反対に、「前の工程に戻ること」を前提に開発を行うのが、アジャイル型の特徴と言えるでしょう。短期間でシステム開発ができるうえ、臨機応変に計画を変更ができる分、「柔軟にシステム開発が行いやすい」という点も、ウォーターフォール型とは真逆のメリットです。「仕様変更を前提としたWebサービス」や「速度の求められるスタートアップのシステム開発」においては、アジャイル型開発に向いています。</p>
+<p>ただし、ウォーターフォールと真逆の特性を備えているのは、デメリットについても同じです。ことアジャイル型開発は、工程を分けずに細かなサイクルを繰り返す分、スケジュールや進捗管理が難しいという欠点があります。そのため、アジャイル型開発を円滑に進めるには、管理能力に長けたプロジェクトマネージャーの存在が不可欠となるでしょう。</p>
+<p>アジャイル型開発についてさらに詳しく知りたい方はこちらをご確認ください。</p>
+<p>▷アジャイル開発とは？今さら聞けない開発手法のメリット・デメリット</p>
+<p>●スパイラル型開発<br>
+■スパイラル型開発の流れ</p>
+<p>工程	詳細<br>
+➀企画	「どんなシステムやソフトウェアを作りたいのか」を具体的に決める。<br>
+➁イテレーション	計画、設計、実装、テストのサイクルを回す。<br>
+③評価・レビュー	完成したプロトタイプ（試作機）の評価やレビューを受ける。<br>
+※以下、②～③の工程を繰り返し行う。<br>
+④リリース	完成したシステムをリリースする。</p>
+<p>スパイラル型開発とは、先に挙げたアジャイル型開発とよく似た開発方法です。アジャイル型と異なる点として、システムのプロトタイプ（試作機）を完成させたうえで、ユーザーやクライアントからのフィードバックを受けるという違いが挙げられます。フィードバックによって、改善すべき点を明らかにしてから、段階的にシステムの完成に近づけていくという流れです。晴れてシステムが完成した後に、リリースが行われます。</p>
+<p>同じ手順をぐるぐると繰り返しつつ完成を目指すことから、スパイラル（螺旋）型開発の名が付けられているのです。</p>
+<p>スパイラル型開発は、臨機応変に仕様変更がしやすいうえ、品質重視の案件にも対応しやすいことから、ウォーターフォールとアジャイル型の「良いとこ取り」の開発方法と言えるでしょう。ですが、プロトタイプを完成させる分「開発コストが高騰しがち」という大きな欠点を抱えており、システム開発で採用されることは少なくなっています。</p>
+<p>●ハイブリッド開発<br>
+■ハイブリッド開発の流れ</p>
+<p>工程	詳細<br>
+➀要件定義	「どんなシステムやソフトウェアを作りたいのか」を具体的に決める。<br>
+②基本設計	要件定義を実現するための機能や実装方法を決める。<br>
+③イテレーション	計画、設計、実装、単体テストのサイクルを回す。必要に応じてこれらの作業を繰り返す。<br>
+④統合テスト	全体的なシステムの動作を確認<br>
+⑤運用テスト	システムが正常に稼働することを確認するテストを実施<br>
+⑥リリース	完成したシステムをリリースする。</p>
+<p>ハイブリッド型開発とは、ウォーターフォール開発とアジャイル開発を組み合わせた手法です。この手法では、ウォーターフォール開発のようにフェーズを分けて進めながら、アジャイル開発のように柔軟に対応しながら進めます。</p>
+<p>この手法を採用することで、ウォーターフォール開発のように綿密な計画を立ててから開発を進め、アジャイル開発のように顧客のフィードバックを取り入れながら、柔軟にプロジェクトを進行できます。具体的には、ウォーターフォール開発の最初のフェーズである要件定義から開始し、基本設計、イテレーション、統合テスト、運用テスト、リリースという工程を順に進めます。基本設計までをウォーターフォール型のようにしっかり固め、実装・単体テストのフェーズでアジャイル開発の手法を取り入ることで、顧客のニーズに柔軟に対応しながら開発を進められることが特徴です。</p>
+<p>ハイブリッド型開発では、ウォーターフォール開発とアジャイル開発の両方のメリットを取り入れた開発が可能です。ウォーターフォール開発のように計画的に開発を進めながら、アジャイル開発のように顧客ニーズに応えることができるため、開発プロセス全体を改善することができます。</p>
+<p>ハイブリッド型開発は、最近ではより多くの企業や開発者に採用されるようになってきており、柔軟性と綿密性の両方を兼ね備えるため、開発プロセスを改善するうえで重要な手法の1つです。</p>
+<p>●プロトタイプ開発<br>
+■プロトタイプ開発の流れ</p>
+<p>工程	詳細<br>
+➀要件定義	「どんなシステムやソフトウェアを作りたいのか」を具体的に決める。<br>
+➁プロトタイプモデルの設計	要件定義を実現するための機能や実装方法を決める。<br>
+③プロトタイプモデルの制作	プロトタイプ（試作品）を制作する。<br>
+④プロトタイプモデルへのフィードバック	クライアントからプロトタイプへのフィードバックを受ける。<br>
+※以下、②～④を繰り返し行う。<br>
+⑤設計	プロトタイプを製品として実装するための手法や仕様を決める。<br>
+⑥コーディング	要件定義や設計に沿って製品を制作する。<br>
+⑦テスト	単体・統合・運用テストを実施する。<br>
+⑧リリース	完成したシステムをリリースする。</p>
+<p>プロトタイプ型開発とは、上流工程時に開発するソフトウェアをプロトタイプ（試作品）として作成して、そのプロトタイプを基に顧客やステークホルダーとのコミュニケーションを深め、仕様を洗練させていく開発手法です。プロトタイプ型開発は、要件定義時の不備を補完することができるため、顧客の要望を具体化しやすく、ソフトウェアの品質を向上させることができます。また、顧客にとっては完成品を早い段階でイメージできるため、プロジェクト後半での修正発生リスクが低く、結果として開発コストの抑制が期待できます。</p>
+<p>プロトタイプ開発には、大きく分けて2つのタイプがあります。1つは「進化型プロトタイプ開発」で、開発したプロトタイプを繰り返し改良していく手法です。もう1つは「使い捨て型プロトタイプ開発」で、仕様が決まったらプロトタイプは捨てられる、画面遷移やデザイン上の見た目を確認するためにプロトタイプを開発する手法です。</p>
+<p>プロトタイプ型開発のメリットは、顧客とのコミュニケーションを深め、不具合を早期に発見できることが挙げられます。また、ウォーターフォール開発と比べると、要件定義後に使用を確認できるため、顧客との認識齟齬を避けられるのが特徴です。さらに、プロトタイプの作成によって、開発工程がシンプル化されるため、開発期間の短縮が期待できます。</p>
+<p>それぞれの開発手法についてさらに詳しく知りたい方はこちらをご確認ください。</p>
+<p>▷システム開発にはどんな手法がある？それぞれのメリット・デメリットを紹介</p>
+<p>外部へ委託することで効率的に進めようここまで紹介したとおり、ウォーターフォール開発は各フェーズが直線的に進むため、リソースやスケジュールの管理がとても重要です。外部の開発会社に委託することで、適切なリソースを割り当て、予算やスケジュールを最適化することが可能です。また、内部のチームは本業に集中できるため、生産性の向上も期待できます。</p>
+<p>さらに、ウォーターフォール開発のプロセスに精通した外部の開発会社は、豊富な専門知識と経験を持っています。プロジェクトの要件定義、設計、開発、テストなどの各フェーズにおいて、高品質な成果物を提供することも期待できるのです。</p>
+<p>システム開発を外注する場合は、複数の開発会社を比較検討する必要があります。</p>
+<p>しかし、複数の会社とのやりとりは、時間も手間もかかる作業です。日々の業務と並行して、比較検討をするには時間が足りないかもしれません。そんな時はシステム開発会社向けのマッチングサービスへの相談がおすすめです。</p>
+<p>発注ナビでは、開発の外注を依頼したい企業と受託したい企業のマッチングサービスを展開しています。ITに特化した知識豊富なスタッフが丁寧なヒアリングを行い、4,000社以上の開発会社データベースの中から、お客様のニーズに合った開発会社をご提案しています。</p>
+<p>システム開発の最適な発注先をスムーズに見つける方法システム開発会社選びでお困りではありませんか？日本最大級のシステム開発会社ポータルサイト「発注ナビ」は、実績豊富なエキスパートが貴社に寄り添った最適な開発会社選びを徹底的にサポートいたします。ご紹介実績：18,000件（2023年12月現在）</p>
+<p>外注先探しはビジネスの今後を左右する重要な任務です。しかし、</p>
+<p>「なにを基準に探せば良いのか分からない…。」「自社にあった外注先ってどこだろう…？」「費用感が不安…。」</p>
+<p>などなど、疑問や悩みが尽きない事が多いです。発注ナビは、貴社の悩みに寄り添い、最適な外注探し選びのベストパートナーです。本記事に掲載するシステム会社以外にも、最適な開発会社がご紹介可能です！ご相談からご紹介までは完全無料。まずはお気軽に、ご相談ください。 →詳しくはこちら</p>
+</div><hr style="height:1px;margin:1rem 0"><div class="level is-mobile is-flex"></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/%E3%80%90%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%8C%E7%9F%A5%E3%82%89%E3%81%AA%E3%81%84%E3%81%A8%E3%83%A4%E3%83%90%E3%82%A4%E3%80%91SES%E3%81%AE%E5%AE%A2%E5%B8%AD%E9%9D%A2%E8%AB%87%E3%81%A7%E5%8F%97%E3%81%8B%E3%82%8B%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88/"><span class="level-item">【エンジニアが知らないとヤバイ】SESの客席面談で受かるポイント</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">コメント</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "5e141917656ba0374a6c3ce901f22fad",
+            repo: "gitakl-of-blog",
+            owner: "ooblivion",
+            clientID: "6bea2c6278330432d92a",
+            clientSecret: "73368b02db64f5a4bb7fcd96bfc584a0dc7e20c7",
+            admin: ["ooblivion"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 20,
+            pagerDirection: "last",
+            
+            
+            enableHotKey: true,
+            language: "en",
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/doctor.png" alt="orange"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">orange</p><p class="is-size-6 is-block">必死に積み上げてきたものは決して裏切りません</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>北海道 札幌市</span></p></div></div></nav><nav class="level is-mobile"><a class="level-item has-text-centered is-marginless" href="/categories"><div><p class="heading">投稿</p><div><p class="title">27</p></div></div></a><div class="level-item has-text-centered is-marginless"><div><p class="heading">カテゴリ</p><a href="/categories"><p class="title">12</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">タグ</p><a href="/tags"><p class="title">29</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ooblivion"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Qiita" href="https://qiita.com/ooblivion"><i class="fab fa-q"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Certificate" href="https://www.credly.com/users/wentao-wu.2fb450f4"><i class="fas fa-certificate"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Stackoverflow" href="https://stackoverflow.com/users/11994542/orange"><i class="fab fa-stack-overflow"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="E-mail" href="mailto:XXX@XXX.com"><i class="fa-solid fa-envelope"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目次</h3><ul class="menu-list"><li><a class="level is-mobile" href="#本記事について"><span class="level-left"><span class="level-item">1</span><span class="level-item">本記事について</span></span></a></li><li><a class="level is-mobile" href="#はじめに"><span class="level-left"><span class="level-item">2</span><span class="level-item">はじめに</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">カテゴリ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/YouTube%E5%AD%A6%E7%BF%92/"><span class="level-start"><span class="level-item">YouTube学習</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/YouTube%E5%AD%A6%E7%BF%92/%E9%9D%A2%E6%8E%A5%E7%9F%A5%E8%AD%98/"><span class="level-start"><span class="level-item">面接知識</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E3%83%86%E3%82%AF%E3%83%8E%E3%83%AD%E3%82%B8%E3%83%BC/"><span class="level-start"><span class="level-item">テクノロジー</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E3%83%86%E3%82%AF%E3%83%8E%E3%83%AD%E3%82%B8%E3%83%BC/%E8%A8%AD%E8%A8%88/"><span class="level-start"><span class="level-item">設計</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/"><span class="level-start"><span class="level-item">プログラミング</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB/"><span class="level-start"><span class="level-item">ライフスタイル</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%AD%A6%E7%BF%92/"><span class="level-start"><span class="level-item">日本語学習</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E4%BD%9C%E6%A5%AD/"><span class="level-start"><span class="level-item">作業</span></span><span class="level-end"><span class="level-item tag">11</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E4%BD%9C%E6%A5%AD/%E4%BB%95%E4%BA%8B%E3%83%8E%E3%83%BC%E3%83%88/"><span class="level-start"><span class="level-item">仕事ノート</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E4%BD%9C%E6%A5%AD/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/"><span class="level-start"><span class="level-item">作業メモ</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E4%BD%9C%E6%A5%AD/%E5%8B%89%E5%BC%B7%E3%83%8E%E3%83%BC%E3%83%88/"><span class="level-start"><span class="level-item">勉強ノート</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最近の記事</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-04-05T15:36:04.000Z">2024-04-06</time></p><p class="title"><a href="/%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A9%E3%83%BC%E3%83%AB%E9%96%8B%E7%99%BA">ウォーターフォール開発</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-04-05T15:27:30.000Z">2024-04-06</time></p><p class="title"><a href="/%E3%80%90%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%8C%E7%9F%A5%E3%82%89%E3%81%AA%E3%81%84%E3%81%A8%E3%83%A4%E3%83%90%E3%82%A4%E3%80%91SES%E3%81%AE%E5%AE%A2%E5%B8%AD%E9%9D%A2%E8%AB%87%E3%81%A7%E5%8F%97%E3%81%8B%E3%82%8B%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88">【エンジニアが知らないとヤバイ】SESの客席面談で受かるポイント</a></p><p class="categories"><a href="/categories/YouTube%E5%AD%A6%E7%BF%92/">YouTube学習</a> / <a href="/categories/YouTube%E5%AD%A6%E7%BF%92/%E9%9D%A2%E6%8E%A5%E7%9F%A5%E8%AD%98/">面接知識</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-04-05T15:27:19.000Z">2024-04-06</time></p><p class="title"><a href="/%E3%80%90%E5%8D%B3%E5%90%88%E6%A0%BC%E3%80%91%E6%9C%AA%E7%B5%8C%E9%A8%93%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%92%E7%8F%BE%E5%BD%B9CTO%E3%81%8C%E3%82%AC%E3%83%81%E9%9D%A2%E8%AB%87%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F">【即合格】未経験エンジニアを現役CTOがガチ面談してみた</a></p><p class="categories"><a href="/categories/YouTube%E5%AD%A6%E7%BF%92/">YouTube学習</a> / <a href="/categories/YouTube%E5%AD%A6%E7%BF%92/%E9%9D%A2%E6%8E%A5%E7%9F%A5%E8%AD%98/">面接知識</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-04-05T15:27:09.000Z">2024-04-06</time></p><p class="title"><a href="/%E6%9C%AA%E7%B5%8C%E9%A8%93%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%92%E9%9D%A2%E6%8E%A5%E3%81%97%E3%81%9F%E3%82%89%E5%84%AA%E7%A7%80%E3%81%99%E3%81%8E%E3%81%A6%E5%BC%95%E3%81%84%E3%81%A6%E3%81%97%E3%81%BE%E3%81%A3%E3%81%9F%E4%BB%B6">未経験エンジニアを面接したら優秀すぎて引いてしまった件</a></p><p class="categories"><a href="/categories/YouTube%E5%AD%A6%E7%BF%92/">YouTube学習</a> / <a href="/categories/YouTube%E5%AD%A6%E7%BF%92/%E9%9D%A2%E6%8E%A5%E7%9F%A5%E8%AD%98/">面接知識</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-04-05T15:10:26.000Z">2024-04-06</time></p><p class="title"><a href="/%E3%81%8A%E5%AE%A2%E3%81%95%E3%82%93%E6%89%93%E3%81%A1%E5%90%88%E3%82%8F%E3%81%9B">お客さん打ち合わせ</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">アーカイブ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/04/"><span class="level-start"><span class="level-item">April 2024</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">February 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">January 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">December 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">November 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">June 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/05/"><span class="level-start"><span class="level-item">May 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">November 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">September 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/11/"><span class="level-start"><span class="level-item">November 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/10/"><span class="level-start"><span class="level-item">October 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">July 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">タグ</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AWS/"><span class="tag">AWS</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Backend/"><span class="tag">Backend</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CI-CD/"><span class="tag">CI-CD</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CN/"><span class="tag">CN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Git/"><span class="tag">Git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Infra/"><span class="tag">Infra</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JP/"><span class="tag">JP</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Java/"><span class="tag">Java</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Mockito/"><span class="tag">Mockito</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Spring/"><span class="tag">Spring</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/TODO/"><span class="tag">TODO</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/YouTube/"><span class="tag">YouTube</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/blog/"><span class="tag">blog</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/markdown/"><span class="tag">markdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/work/"><span class="tag">work</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E7%9F%A5%E8%AD%98/"><span class="tag">エンジニア知識</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%82%AF%E3%82%A4%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF/"><span class="tag">クイックチェック</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%83%84%E3%83%BC%E3%83%AB/"><span class="tag">ツール</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%83%86%E3%82%B9%E3%83%88/"><span class="tag">テスト</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/"><span class="tag">作業メモ</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8D%98%E8%AA%9E/"><span class="tag">単語</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%A4%96%E5%9B%BD%E4%BA%BA/"><span class="tag">外国人</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%83%A1%E3%83%A2/"><span class="tag">日本語メモ</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%A8%AD%E8%A8%88/"><span class="tag">設計</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%96%8B%E7%99%BA%E3%83%A1%E3%83%A2/"><span class="tag">開発メモ</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%9B%91%E8%A8%98/"><span class="tag">雑記</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%9D%A2%E6%8E%A5/"><span class="tag">面接</span><span class="tag">3</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/orange.png" alt="OrangeNoteBlog" height="28"></a><p class="is-size-7"><span>&copy; 2024 orange</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2018</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-nc"></i> <i class="fab fa-creative-commons-sa"></i> </a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("jp");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="トップに戻る" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "このウェブサイトはあなたの経験を改善するためにCookieを使用しています。",
+          dismiss: "了解しました",
+          allow: "Cookiesを許可する",
+          deny: "拒否する",
+          link: "もっと詳しく知る",
+          policy: "Cookieポリシー",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/night.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="何かを入力してください..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"何かを入力してください...","untitled":"(無題)","posts":"投稿","pages":"ページ","categories":"カテゴリ","tags":"タグ"});
+        });</script></body></html>

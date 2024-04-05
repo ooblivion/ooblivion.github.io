@@ -6,7 +6,7 @@
   <link href="https://ooblivion.github.io/atom.xml" rel="self"/>
   
   <link href="https://ooblivion.github.io/"/>
-  <updated>2024-04-04T16:26:39.000Z</updated>
+  <updated>2024-04-05T15:36:04.000Z</updated>
   <id>https://ooblivion.github.io/</id>
   
   <author>
@@ -15,6 +15,130 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ウォーターフォール開発</title>
+    <link href="https://ooblivion.github.io/%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A9%E3%83%BC%E3%83%AB%E9%96%8B%E7%99%BA/"/>
+    <id>https://ooblivion.github.io/%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A9%E3%83%BC%E3%83%AB%E9%96%8B%E7%99%BA/</id>
+    <published>2024-04-05T15:36:04.000Z</published>
+    <updated>2024-04-05T15:36:04.000Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【エンジニアが知らないとヤバイ】SESの客席面談で受かるポイント</title>
+    <link href="https://ooblivion.github.io/%E3%80%90%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%8C%E7%9F%A5%E3%82%89%E3%81%AA%E3%81%84%E3%81%A8%E3%83%A4%E3%83%90%E3%82%A4%E3%80%91SES%E3%81%AE%E5%AE%A2%E5%B8%AD%E9%9D%A2%E8%AB%87%E3%81%A7%E5%8F%97%E3%81%8B%E3%82%8B%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88/"/>
+    <id>https://ooblivion.github.io/%E3%80%90%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%8C%E7%9F%A5%E3%82%89%E3%81%AA%E3%81%84%E3%81%A8%E3%83%A4%E3%83%90%E3%82%A4%E3%80%91SES%E3%81%AE%E5%AE%A2%E5%B8%AD%E9%9D%A2%E8%AB%87%E3%81%A7%E5%8F%97%E3%81%8B%E3%82%8B%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88/</id>
+    <published>2024-04-05T15:27:30.000Z</published>
+    <updated>2024-04-05T15:27:30.000Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    <category term="YouTube学習" scheme="https://ooblivion.github.io/categories/YouTube%E5%AD%A6%E7%BF%92/"/>
+    
+    <category term="面接知識" scheme="https://ooblivion.github.io/categories/YouTube%E5%AD%A6%E7%BF%92/%E9%9D%A2%E6%8E%A5%E7%9F%A5%E8%AD%98/"/>
+    
+    
+    <category term="YouTube" scheme="https://ooblivion.github.io/tags/YouTube/"/>
+    
+    <category term="面接" scheme="https://ooblivion.github.io/tags/%E9%9D%A2%E6%8E%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【即合格】未経験エンジニアを現役CTOがガチ面談してみた</title>
+    <link href="https://ooblivion.github.io/%E3%80%90%E5%8D%B3%E5%90%88%E6%A0%BC%E3%80%91%E6%9C%AA%E7%B5%8C%E9%A8%93%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%92%E7%8F%BE%E5%BD%B9CTO%E3%81%8C%E3%82%AC%E3%83%81%E9%9D%A2%E8%AB%87%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/"/>
+    <id>https://ooblivion.github.io/%E3%80%90%E5%8D%B3%E5%90%88%E6%A0%BC%E3%80%91%E6%9C%AA%E7%B5%8C%E9%A8%93%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%92%E7%8F%BE%E5%BD%B9CTO%E3%81%8C%E3%82%AC%E3%83%81%E9%9D%A2%E8%AB%87%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</id>
+    <published>2024-04-05T15:27:19.000Z</published>
+    <updated>2024-04-05T15:27:19.000Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    <category term="YouTube学習" scheme="https://ooblivion.github.io/categories/YouTube%E5%AD%A6%E7%BF%92/"/>
+    
+    <category term="面接知識" scheme="https://ooblivion.github.io/categories/YouTube%E5%AD%A6%E7%BF%92/%E9%9D%A2%E6%8E%A5%E7%9F%A5%E8%AD%98/"/>
+    
+    
+    <category term="YouTube" scheme="https://ooblivion.github.io/tags/YouTube/"/>
+    
+    <category term="面接" scheme="https://ooblivion.github.io/tags/%E9%9D%A2%E6%8E%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>未経験エンジニアを面接したら優秀すぎて引いてしまった件</title>
+    <link href="https://ooblivion.github.io/%E6%9C%AA%E7%B5%8C%E9%A8%93%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%92%E9%9D%A2%E6%8E%A5%E3%81%97%E3%81%9F%E3%82%89%E5%84%AA%E7%A7%80%E3%81%99%E3%81%8E%E3%81%A6%E5%BC%95%E3%81%84%E3%81%A6%E3%81%97%E3%81%BE%E3%81%A3%E3%81%9F%E4%BB%B6/"/>
+    <id>https://ooblivion.github.io/%E6%9C%AA%E7%B5%8C%E9%A8%93%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%92%E9%9D%A2%E6%8E%A5%E3%81%97%E3%81%9F%E3%82%89%E5%84%AA%E7%A7%80%E3%81%99%E3%81%8E%E3%81%A6%E5%BC%95%E3%81%84%E3%81%A6%E3%81%97%E3%81%BE%E3%81%A3%E3%81%9F%E4%BB%B6/</id>
+    <published>2024-04-05T15:27:09.000Z</published>
+    <updated>2024-04-05T15:27:09.000Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    <category term="YouTube学習" scheme="https://ooblivion.github.io/categories/YouTube%E5%AD%A6%E7%BF%92/"/>
+    
+    <category term="面接知識" scheme="https://ooblivion.github.io/categories/YouTube%E5%AD%A6%E7%BF%92/%E9%9D%A2%E6%8E%A5%E7%9F%A5%E8%AD%98/"/>
+    
+    
+    <category term="YouTube" scheme="https://ooblivion.github.io/tags/YouTube/"/>
+    
+    <category term="面接" scheme="https://ooblivion.github.io/tags/%E9%9D%A2%E6%8E%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>お客さん打ち合わせ</title>
+    <link href="https://ooblivion.github.io/%E3%81%8A%E5%AE%A2%E3%81%95%E3%82%93%E6%89%93%E3%81%A1%E5%90%88%E3%82%8F%E3%81%9B/"/>
+    <id>https://ooblivion.github.io/%E3%81%8A%E5%AE%A2%E3%81%95%E3%82%93%E6%89%93%E3%81%A1%E5%90%88%E3%82%8F%E3%81%9B/</id>
+    <published>2024-04-05T15:10:26.000Z</published>
+    <updated>2024-04-05T15:10:26.000Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>内部クラスのモッキング・ソリューション</title>
+    <link href="https://ooblivion.github.io/internal-class-mocking-solution/"/>
+    <id>https://ooblivion.github.io/internal-class-mocking-solution/</id>
+    <published>2024-04-05T15:01:16.422Z</published>
+    <updated>2024-04-05T15:24:52.976Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    <category term="プログラミング" scheme="https://ooblivion.github.io/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/"/>
+    
+    <category term="Java" scheme="https://ooblivion.github.io/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/Java/"/>
+    
+    
+    <category term="Java" scheme="https://ooblivion.github.io/tags/Java/"/>
+    
+    <category term="Mockito" scheme="https://ooblivion.github.io/tags/Mockito/"/>
+    
+    <category term="テスト" scheme="https://ooblivion.github.io/tags/%E3%83%86%E3%82%B9%E3%83%88/"/>
+    
+  </entry>
   
   <entry>
     <title>プロジェクトマネジメントの仕事割り振り方法</title>
@@ -122,6 +246,31 @@
   </entry>
   
   <entry>
+    <title>Spring BootでAmazon S3にファイルをアップロードする方法</title>
+    <link href="https://ooblivion.github.io/How-to-upload-files-to-Amazon-S3-in-SpringBoot/"/>
+    <id>https://ooblivion.github.io/How-to-upload-files-to-Amazon-S3-in-SpringBoot/</id>
+    <published>2024-02-05T15:11:29.000Z</published>
+    <updated>2024-04-05T15:26:23.991Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    <category term="プログラミング" scheme="https://ooblivion.github.io/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/"/>
+    
+    <category term="Java" scheme="https://ooblivion.github.io/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/Java/"/>
+    
+    
+    <category term="AWS" scheme="https://ooblivion.github.io/tags/AWS/"/>
+    
+    <category term="Spring" scheme="https://ooblivion.github.io/tags/Spring/"/>
+    
+    <category term="Java" scheme="https://ooblivion.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>基本設計記事</title>
     <link href="https://ooblivion.github.io/base-design/"/>
     <id>https://ooblivion.github.io/base-design/</id>
@@ -151,7 +300,7 @@
     <link href="https://ooblivion.github.io/development-usually-use-websites-and-tool/"/>
     <id>https://ooblivion.github.io/development-usually-use-websites-and-tool/</id>
     <published>2023-12-16T14:16:19.000Z</published>
-    <updated>2024-04-04T15:23:47.507Z</updated>
+    <updated>2024-04-05T15:08:45.338Z</updated>
     
     
     <summary type="html">この記事は...</summary>
@@ -188,9 +337,9 @@
     <category term="勉強ノート" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/%E5%8B%89%E5%BC%B7%E3%83%8E%E3%83%BC%E3%83%88/"/>
     
     
-    <category term="CI-CD" scheme="https://ooblivion.github.io/tags/CI-CD/"/>
-    
     <category term="クイックチェック" scheme="https://ooblivion.github.io/tags/%E3%82%AF%E3%82%A4%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF/"/>
+    
+    <category term="CI-CD" scheme="https://ooblivion.github.io/tags/CI-CD/"/>
     
   </entry>
   
@@ -211,9 +360,9 @@
     <category term="仕事ノート" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/%E4%BB%95%E4%BA%8B%E3%83%8E%E3%83%BC%E3%83%88/"/>
     
     
-    <category term="開発メモ" scheme="https://ooblivion.github.io/tags/%E9%96%8B%E7%99%BA%E3%83%A1%E3%83%A2/"/>
-    
     <category term="TODO" scheme="https://ooblivion.github.io/tags/TODO/"/>
+    
+    <category term="開発メモ" scheme="https://ooblivion.github.io/tags/%E9%96%8B%E7%99%BA%E3%83%A1%E3%83%A2/"/>
     
   </entry>
   
@@ -222,7 +371,7 @@
     <link href="https://ooblivion.github.io/japanese-punctuation-check/"/>
     <id>https://ooblivion.github.io/japanese-punctuation-check/</id>
     <published>2023-06-02T05:48:42.000Z</published>
-    <updated>2024-04-04T16:12:14.423Z</updated>
+    <updated>2024-04-05T15:29:39.611Z</updated>
     
     
     <summary type="html">この記事は...</summary>
@@ -260,181 +409,6 @@
     <category term="AWS" scheme="https://ooblivion.github.io/tags/AWS/"/>
     
     <category term="Infra" scheme="https://ooblivion.github.io/tags/Infra/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SQL最適化のヒント</title>
-    <link href="https://ooblivion.github.io/sql-optimization-tips/"/>
-    <id>https://ooblivion.github.io/sql-optimization-tips/</id>
-    <published>2022-11-24T22:12:22.000Z</published>
-    <updated>2024-04-04T16:11:49.871Z</updated>
-    
-    
-    <summary type="html">この記事は...</summary>
-    
-    
-    
-    <category term="作業" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/"/>
-    
-    <category term="勉強ノート" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/%E5%8B%89%E5%BC%B7%E3%83%8E%E3%83%BC%E3%83%88/"/>
-    
-    
-    <category term="クイックチェック" scheme="https://ooblivion.github.io/tags/%E3%82%AF%E3%82%A4%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF/"/>
-    
-    <category term="sql" scheme="https://ooblivion.github.io/tags/sql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>日本のIT職記録</title>
-    <link href="https://ooblivion.github.io/japan-it-working-memo/"/>
-    <id>https://ooblivion.github.io/japan-it-working-memo/</id>
-    <published>2022-09-01T13:05:47.000Z</published>
-    <updated>2024-02-01T13:05:47.000Z</updated>
-    
-    
-    <summary type="html">日本でプログラマーとして働く外国人の記事。</summary>
-    
-    
-    
-    <category term="作業" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/"/>
-    
-    <category term="仕事ノート" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/%E4%BB%95%E4%BA%8B%E3%83%8E%E3%83%BC%E3%83%88/"/>
-    
-    
-    <category term="work" scheme="https://ooblivion.github.io/tags/work/"/>
-    
-    <category term="外国人" scheme="https://ooblivion.github.io/tags/%E5%A4%96%E5%9B%BD%E4%BA%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>仕事用日本語ノート</title>
-    <link href="https://ooblivion.github.io/working-japanese-notes/"/>
-    <id>https://ooblivion.github.io/working-japanese-notes/</id>
-    <published>2022-07-27T19:24:42.000Z</published>
-    <updated>2024-04-04T16:10:56.164Z</updated>
-    
-    
-    <summary type="html">この記事は...</summary>
-    
-    
-    
-    <category term="作業" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/"/>
-    
-    <category term="勉強ノート" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/%E5%8B%89%E5%BC%B7%E3%83%8E%E3%83%BC%E3%83%88/"/>
-    
-    
-    <category term="日本語メモ" scheme="https://ooblivion.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%83%A1%E3%83%A2/"/>
-    
-    <category term="作業メモ" scheme="https://ooblivion.github.io/tags/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/"/>
-    
-    <category term="単語" scheme="https://ooblivion.github.io/tags/%E5%8D%98%E8%AA%9E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>バージョン管理ツール</title>
-    <link href="https://ooblivion.github.io/version-control-toll/"/>
-    <id>https://ooblivion.github.io/version-control-toll/</id>
-    <published>2022-06-01T12:58:22.000Z</published>
-    <updated>2024-04-04T16:12:36.414Z</updated>
-    
-    
-    <summary type="html">バージョン管理ツール使用方法、よく使うコマンド</summary>
-    
-    
-    
-    <category term="作業" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/"/>
-    
-    <category term="仕事ノート" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/%E4%BB%95%E4%BA%8B%E3%83%8E%E3%83%BC%E3%83%88/"/>
-    
-    
-    <category term="クイックチェック" scheme="https://ooblivion.github.io/tags/%E3%82%AF%E3%82%A4%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF/"/>
-    
-    <category term="ツール" scheme="https://ooblivion.github.io/tags/%E3%83%84%E3%83%BC%E3%83%AB/"/>
-    
-    <category term="Git" scheme="https://ooblivion.github.io/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Springでクロスドメインアクセスを実現する方法</title>
-    <link href="https://ooblivion.github.io/spring-cross-domain-achive/"/>
-    <id>https://ooblivion.github.io/spring-cross-domain-achive/</id>
-    <published>2021-11-03T22:53:36.000Z</published>
-    <updated>2024-04-04T16:11:46.669Z</updated>
-    
-    
-    <summary type="html">この記事は...</summary>
-    
-    
-    
-    <category term="作業" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/"/>
-    
-    <category term="勉強ノート" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/%E5%8B%89%E5%BC%B7%E3%83%8E%E3%83%BC%E3%83%88/"/>
-    
-    
-    <category term="Spring" scheme="https://ooblivion.github.io/tags/Spring/"/>
-    
-    <category term="Java" scheme="https://ooblivion.github.io/tags/Java/"/>
-    
-    <category term="Backend" scheme="https://ooblivion.github.io/tags/Backend/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试&amp;自我介绍</title>
-    <link href="https://ooblivion.github.io/interview-and-self-introduction/"/>
-    <id>https://ooblivion.github.io/interview-and-self-introduction/</id>
-    <published>2021-10-11T14:30:13.000Z</published>
-    <updated>2024-04-04T16:12:27.264Z</updated>
-    
-    
-    <summary type="html">何かが暗号化されています。閲覧するにはパスワードを入力してください。</summary>
-    
-    
-    
-    <category term="作業" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/"/>
-    
-    <category term="仕事ノート" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/%E4%BB%95%E4%BA%8B%E3%83%8E%E3%83%BC%E3%83%88/"/>
-    
-    
-    <category term="日本語メモ" scheme="https://ooblivion.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%83%A1%E3%83%A2/"/>
-    
-    <category term="work" scheme="https://ooblivion.github.io/tags/work/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HexoのIcarusテーマを使ってブログを構築</title>
-    <link href="https://ooblivion.github.io/hexo-create-blog/"/>
-    <id>https://ooblivion.github.io/hexo-create-blog/</id>
-    <published>2021-07-11T18:44:46.000Z</published>
-    <updated>2024-01-01T12:10:23.000Z</updated>
-    
-    
-    <summary type="html">xxx</summary>
-    
-    
-    
-    <category term="作業" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/"/>
-    
-    <category term="作業メモ" scheme="https://ooblivion.github.io/categories/%E4%BD%9C%E6%A5%AD/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/"/>
-    
-    
-    <category term="クイックチェック" scheme="https://ooblivion.github.io/tags/%E3%82%AF%E3%82%A4%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF/"/>
-    
-    <category term="hexo" scheme="https://ooblivion.github.io/tags/hexo/"/>
-    
-    <category term="markdown" scheme="https://ooblivion.github.io/tags/markdown/"/>
-    
-    <category term="blog" scheme="https://ooblivion.github.io/tags/blog/"/>
-    
-    <category term="CN" scheme="https://ooblivion.github.io/tags/CN/"/>
-    
-    <category term="JP" scheme="https://ooblivion.github.io/tags/JP/"/>
     
   </entry>
   
