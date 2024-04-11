@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ooblivion.github.io/about/index.html</loc>
+    
+    <lastmod>2024-04-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://ooblivion.github.io/interview-and-self-introduction/</loc>
     
     <lastmod>2024-04-11</lastmod>
@@ -48,15 +57,6 @@
   
   <url>
     <loc>https://ooblivion.github.io/review-point/</loc>
-    
-    <lastmod>2024-04-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://ooblivion.github.io/about/index.html</loc>
     
     <lastmod>2024-04-07</lastmod>
     
