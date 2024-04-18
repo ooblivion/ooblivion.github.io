@@ -2,7 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ooblivion.github.io/How-does-Spring-address-circular-dependencies/</loc>
+    
+    <lastmod>2024-04-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://ooblivion.github.io/draft/</loc>
+    
+    <lastmod>2024-04-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ooblivion.github.io/What-technology-has-replaced-JSP/</loc>
+    
+    <lastmod>2024-04-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ooblivion.github.io/MVCh%E5%92%8CMVVM%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
+    
+    <lastmod>2024-04-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ooblivion.github.io/Ho-do-the-frontend-and-backend-communicate/</loc>
     
     <lastmod>2024-04-18</lastmod>
     
@@ -30,15 +66,6 @@
   
   <url>
     <loc>https://ooblivion.github.io/How-to-use-AWS-services-in-Java-project/</loc>
-    
-    <lastmod>2024-04-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://ooblivion.github.io/MVCh%E5%92%8CMVVM%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
     
     <lastmod>2024-04-18</lastmod>
     
@@ -761,6 +788,20 @@
   
   <url>
     <loc>https://ooblivion.github.io/tags/SpringMVC/</loc>
+    <lastmod>2024-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ooblivion.github.io/tags/React/</loc>
+    <lastmod>2024-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ooblivion.github.io/tags/Vue/</loc>
     <lastmod>2024-04-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
