@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="jp"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>如何在Java项目中使用AWS-S3 - OrangeNoteBlog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="OrangeNoteBlog"><meta name="msapplication-TileImage" content="/img/orange-facicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="OrangeNoteBlog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="この記事は..."><meta property="og:type" content="blog"><meta property="og:title" content="如何在Java项目中使用AWS-S3"><meta property="og:url" content="https://ooblivion.github.io/%E5%A6%82%E4%BD%95%E5%9C%A8Java%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8AWS-S3/"><meta property="og:site_name" content="OrangeNoteBlog"><meta property="og:description" content="この記事は..."><meta property="og:locale" content="jp"><meta property="og:image" content="https://ooblivion.github.io/img/og_image.png"><meta property="article:published_time" content="2024-04-08T10:47:21.000Z"><meta property="article:modified_time" content="2024-04-18T10:54:55.628Z"><meta property="article:author" content="orange"><meta property="article:tag" content="AWS"><meta property="article:tag" content="Spring"><meta property="article:tag" content="Java"><meta property="article:tag" content="S3"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://ooblivion.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://ooblivion.github.io/%E5%A6%82%E4%BD%95%E5%9C%A8Java%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8AWS-S3/"},"headline":"如何在Java项目中使用AWS-S3","image":["https://ooblivion.github.io/img/og_image.png"],"datePublished":"2024-04-08T10:47:21.000Z","dateModified":"2024-04-18T10:54:55.628Z","author":{"@type":"Person","name":"orange"},"publisher":{"@type":"Organization","name":"OrangeNoteBlog","logo":{"@type":"ImageObject","url":"https://ooblivion.github.io/img/orange.png"}},"description":"この記事は..."}</script><link rel="canonical" href="https://ooblivion.github.io/%E5%A6%82%E4%BD%95%E5%9C%A8Java%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8AWS-S3/"><link rel="icon" href="/img/orange-facicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?G-TQZ0DMPY0S";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="OrangeNoteBlog" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/orange.png" alt="OrangeNoteBlog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-lightbulb" id="night-icon"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ooblivion"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目次" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="検索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-04-08T10:47:21.000Z" title="2024/4/8 19:47:21">2024-04-08</time>に投稿</span><span class="level-item"><time dateTime="2024-04-18T10:54:55.628Z" title="2024/4/18 19:54:55">2024-04-18</time>に更新</span><span class="level-item">32 minutesで読む (約4843語)</span></div></div><h1 class="title is-3 is-size-4-mobile">如何在Java项目中使用AWS-S3</h1><div class="content"><!-- more -->
+<h2 id="本記事について">本記事について</h2>
+<p>记录一些AWS的S3存储筒在实际开发中的使用，比如存储图片，音频，文字之类的</p>
+<p>还有就是在使用的时候遇到了问题该如何解决</p>
+<h2 id="S3">S3</h2>
+<h3 id="如何配合Java项目使用？比如存储图片，音频，文字之类的需求">如何配合Java项目使用？比如存储图片，音频，文字之类的需求</h3>
+<p>在AWS中，Amazon S3（Simple Storage Service）是一种高度可扩展的对象存储服务，可用于存储各种类型的数据，包括图片、音频、文本等。以下是如何在实际开发中使用Amazon S3以及如何将其与Java项目配合使用的一般步骤：</p>
+<ol>
+<li class="lvl-3">
+<p><strong>创建S3存储桶</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">登录AWS控制台，进入S3服务。</li>
+<li class="lvl-5">创建一个存储桶，用于存储您的数据。存储桶名称在全局必须唯一。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>上传文件</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">使用AWS SDK for Java，您可以上传文件到S3存储桶。以下是一个示例代码：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> software.amazon.awssdk.services.s3.S3Client;</span><br><span class="line"><span class="keyword">import</span> software.amazon.awssdk.services.s3.model.PutObjectRequest;</span><br><span class="line"><span class="keyword">import</span> software.amazon.awssdk.services.s3.model.PutObjectResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">S3Uploader</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">bucketName</span> <span class="operator">=</span> <span class="string">&quot;your-bucket-name&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> <span class="string">&quot;example.jpg&quot;</span>; <span class="comment">// 文件名</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">filePath</span> <span class="operator">=</span> <span class="string">&quot;path/to/your/file/example.jpg&quot;</span>; <span class="comment">// 本地文件路径</span></span><br><span class="line"></span><br><span class="line">        <span class="type">S3Client</span> <span class="variable">s3Client</span> <span class="operator">=</span> S3Client.builder().build();</span><br><span class="line">        <span class="type">PutObjectRequest</span> <span class="variable">request</span> <span class="operator">=</span> PutObjectRequest.builder()</span><br><span class="line">                .bucket(bucketName)</span><br><span class="line">                .key(key)</span><br><span class="line">                .build();</span><br><span class="line">        <span class="type">PutObjectResponse</span> <span class="variable">response</span> <span class="operator">=</span> s3Client.putObject(request, Paths.get(filePath));</span><br><span class="line">        System.out.println(<span class="string">&quot;File uploaded successfully: &quot;</span> + response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><strong>下载文件</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">使用AWS SDK for Java，您可以下载S3存储桶中的文件。以下是一个示例代码：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> software.amazon.awssdk.services.s3.model.S3Object;</span><br><span class="line"><span class="keyword">import</span> software.amazon.awssdk.services.s3.model.GetObjectRequest;</span><br><span class="line"><span class="keyword">import</span> software.amazon.awssdk.core.ResponseBytes;</span><br><span class="line"><span class="keyword">import</span> software.amazon.awssdk.services.s3.S3Client;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">S3Downloader</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">bucketName</span> <span class="operator">=</span> <span class="string">&quot;your-bucket-name&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> <span class="string">&quot;example.jpg&quot;</span>; <span class="comment">// 要下载的文件名</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">downloadPath</span> <span class="operator">=</span> <span class="string">&quot;path/to/your/local/downloaded/file.jpg&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">S3Client</span> <span class="variable">s3Client</span> <span class="operator">=</span> S3Client.builder().build();</span><br><span class="line">        <span class="type">GetObjectRequest</span> <span class="variable">request</span> <span class="operator">=</span> GetObjectRequest.builder()</span><br><span class="line">                .bucket(bucketName)</span><br><span class="line">                .key(key)</span><br><span class="line">                .build();</span><br><span class="line">        ResponseBytes&lt;S3Object&gt; objectBytes = s3Client.getObjectAsBytes(request);</span><br><span class="line">        <span class="type">byte</span>[] data = objectBytes.asByteArray();</span><br><span class="line">        Files.write(Paths.get(downloadPath), data);</span><br><span class="line">        System.out.println(<span class="string">&quot;File downloaded successfully to: &quot;</span> + downloadPath);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><strong>管理对象</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">使用AWS SDK，您可以列出、删除和管理存储桶中的对象，以及设置对象的访问控制权限。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>安全性和权限管理</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">配置适当的IAM角色和权限，以确保只有授权的实体可以访问S3存储桶中的对象。</li>
+<li class="lvl-5">使用S3存储桶策略和ACL（Access Control List）来管理对象的访问控制。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>存储类别和生命周期管理</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">根据数据的访问模式和成本要求，选择适当的S3存储类别。</li>
+<li class="lvl-5">使用生命周期规则来自动迁移或删除对象。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>监控和日志</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">配置CloudWatch监控和S3存储桶日志，以监视和跟踪S3存储桶的活动。</li>
+</ul>
+</li>
+</ol>
+<p>以上是使用Amazon S3的一般步骤。您可以根据您的具体需求和项目，进一步扩展和优化这些步骤。确保您在开发过程中参考AWS文档和最佳实践，以确保数据的安全和可用性。</p>
+<p>当在Java项目中使用AWS S3存储服务时，下面是一些具体的示例代码和步骤，以便更清晰地理解如何存储图片、音频和文本等数据。</p>
+<ol>
+<li class="lvl-3">
+<p><strong>导入必要的库</strong>：</p>
+<p>在Java项目中，您需要使用AWS SDK for Java，通常是AWS SDK的S3客户端库。确保在项目中添加以下依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>software.amazon.awssdk<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aws-sdk-java-s3<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.x.x<span class="tag">&lt;/<span class="name">version</span>&gt;</span> <span class="comment">&lt;!-- 使用最新版本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><strong>初始化S3客户端</strong>：</p>
+<p>在项目中初始化S3客户端以连接到S3服务。您需要提供您的AWS凭证（例如，Access Key和Secret Key）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">S3Client</span> <span class="variable">s3Client</span> <span class="operator">=</span> S3Client.builder()</span><br><span class="line">    .region(Region.US_EAST_1) <span class="comment">// 根据您的区域配置</span></span><br><span class="line">    .credentialsProvider(DefaultCredentialsProvider.create())</span><br><span class="line">    .build();</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><strong>上传文件到S3</strong>：</p>
+<p>下面是如何上传一个本地文件到S3存储桶的示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">bucketName</span> <span class="operator">=</span> <span class="string">&quot;your-bucket-name&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> <span class="string">&quot;example.jpg&quot;</span>; <span class="comment">// S3对象的键（文件名）</span></span><br><span class="line"><span class="type">String</span> <span class="variable">filePath</span> <span class="operator">=</span> <span class="string">&quot;path/to/your/local/file/example.jpg&quot;</span>; <span class="comment">// 本地文件路径</span></span><br><span class="line"></span><br><span class="line">s3Client.putObject(PutObjectRequest.builder()</span><br><span class="line">    .bucket(bucketName)</span><br><span class="line">    .key(key)</span><br><span class="line">    .build(),</span><br><span class="line">    RequestBody.fromFile(Paths.get(filePath))</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><strong>从S3下载文件</strong>：</p>
+<p>以下是如何从S3存储桶下载文件并将其保存在本地的示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">bucketName</span> <span class="operator">=</span> <span class="string">&quot;your-bucket-name&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> <span class="string">&quot;example.jpg&quot;</span>; <span class="comment">// 要下载的S3对象的键</span></span><br><span class="line"><span class="type">String</span> <span class="variable">downloadPath</span> <span class="operator">=</span> <span class="string">&quot;path/to/your/local/downloaded/file.jpg&quot;</span>; <span class="comment">// 本地下载路径</span></span><br><span class="line"></span><br><span class="line">s3Client.getObject(GetObjectRequest.builder()</span><br><span class="line">    .bucket(bucketName)</span><br><span class="line">    .key(key)</span><br><span class="line">    .build(),</span><br><span class="line">    ResponseTransformer.toFile(Paths.get(downloadPath))</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><strong>列出S3存储桶中的对象</strong>：</p>
+<p>您可以使用以下代码来列出存储桶中的对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ListObjectsRequest</span> <span class="variable">listObjectsRequest</span> <span class="operator">=</span> ListObjectsRequest.builder()</span><br><span class="line">    .bucket(bucketName)</span><br><span class="line">    .build();</span><br><span class="line"><span class="type">ListObjectsResponse</span> <span class="variable">listResponse</span> <span class="operator">=</span> s3Client.listObjects(listObjectsRequest);</span><br><span class="line"></span><br><span class="line">listResponse.contents().forEach(object -&gt; &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Object Key: &quot;</span> + object.key());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><strong>删除S3对象</strong>：</p>
+<p>删除S3存储桶中的对象可以使用以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">keyToDelete</span> <span class="operator">=</span> <span class="string">&quot;example.jpg&quot;</span>; <span class="comment">// 要删除的对象的键</span></span><br><span class="line"></span><br><span class="line">s3Client.deleteObject(DeleteObjectRequest.builder()</span><br><span class="line">    .bucket(bucketName)</span><br><span class="line">    .key(keyToDelete)</span><br><span class="line">    .build()</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><strong>访问控制和权限管理</strong>：</p>
+<p>在AWS控制台中，您可以配置存储桶策略和ACL来管理S3对象的访问控制。确保为您的存储桶和对象设置适当的权限以确保数据安全。</p>
+</li>
+</ol>
+<p>这些示例代码提供了一个基本的起点，可以帮助您开始在Java项目中使用AWS S3来存储和管理不同类型的数据。确保根据项目的需求和安全性要求来进一步配置和扩展这些示例。同样，AWS文档和最佳实践也是您深入学习的好资源。</p>
+<p>理解您的需求，以下是更具有实际经验的示例代码和建议，以便在面试时展示您在项目中实际使用AWS S3的三年以上经验：</p>
+<ol>
+<li class="lvl-3">
+<p><strong>模块化代码</strong>：</p>
+<p>在实际项目中，通常会采用模块化的方式组织代码，以提高可维护性。确保您的代码模块化，将S3相关操作封装到独立的类或方法中，以便复用和维护。例如，创建一个名为<code>S3Service</code>的类，包含以下方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">S3Service</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> S3Client s3Client;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">S3Service</span><span class="params">(S3Client s3Client)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.s3Client = s3Client;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">uploadFile</span><span class="params">(String bucketName, String key, String filePath)</span> &#123;</span><br><span class="line">        <span class="comment">// 实际的上传逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">downloadFile</span><span class="params">(String bucketName, String key, String downloadPath)</span> &#123;</span><br><span class="line">        <span class="comment">// 实际的下载逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 其他S3操作方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><strong>错误处理和异常处理</strong>：</p>
+<p>在实际项目中，要处理各种可能发生的错误和异常情况。使用适当的错误处理机制，如try-catch块，以确保代码在面对问题时能够优雅地处理异常情况，并记录错误日志。</p>
+</li>
+<li class="lvl-3">
+<p><strong>配置管理</strong>：</p>
+<p>将S3存储桶名称、区域、凭证等配置参数从代码中分离出来，放入配置文件或环境变量中。这有助于灵活管理不同环境的配置，如开发、测试和生产环境。</p>
+</li>
+<li class="lvl-3">
+<p><strong>多区域复制</strong>：</p>
+<p>如果您的项目需要跨多个AWS区域进行数据复制，展示您的多区域复制经验。您可以配置存储桶复制规则以确保数据冗余和高可用性。</p>
+</li>
+<li class="lvl-3">
+<p><strong>存储桶策略</strong>：</p>
+<p>展示您如何使用AWS存储桶策略来定义细粒度的访问控制规则。例如，限制特定IP或IAM用户的访问。</p>
+</li>
+<li class="lvl-3">
+<p><strong>事件通知</strong>：</p>
+<p>如果您有经验，描述您如何使用S3事件通知来触发自动化任务，如在对象上传时触发Lambda函数。</p>
+</li>
+<li class="lvl-3">
+<p><strong>S3版本控制</strong>：</p>
+<p>介绍您如何启用S3版本控制，以保护数据免受意外覆盖或删除。</p>
+</li>
+<li class="lvl-3">
+<p><strong>对象元数据</strong>：</p>
+<p>说明您如何使用对象元数据来存储与对象相关的附加信息，如创建日期、文件类型等。</p>
+</li>
+<li class="lvl-3">
+<p><strong>并发和性能优化</strong>：</p>
+<p>提到您如何优化大规模文件上传和下载的性能，如并行处理和流式传输。</p>
+</li>
+<li class="lvl-4">
+<p><strong>生命周期管理</strong>：</p>
+<p>讨论如何配置对象生命周期规则以自动迁移、归档或删除不再需要的数据。</p>
+</li>
+</ol>
+<p>在面试中，不仅仅要提到技术方面的经验，还要强调您在项目中如何解决挑战、处理大规模数据和确保安全性。这些实际经验将有助于您在面试中展示您的专业知识和技能。</p>
+<h3 id="S3在对象上传时触发Lambda函数。应该如何设置">S3在对象上传时触发Lambda函数。应该如何设置</h3>
+<p>在AWS S3中，您可以配置S3事件通知来触发AWS Lambda函数，以便在对象上传、修改或删除时自动执行某些操作。以下是如何设置S3触发Lambda函数并使用Java编写Lambda函数的一般步骤：</p>
+<p><strong>步骤1：创建Lambda函数</strong></p>
+<p>首先，您需要创建一个AWS Lambda函数，该函数将处理S3事件。以下是一个示例Java Lambda函数，用于处理S3事件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.amazonaws.services.lambda.runtime.Context;</span><br><span class="line"><span class="keyword">import</span> com.amazonaws.services.lambda.runtime.RequestHandler;</span><br><span class="line"><span class="keyword">import</span> com.amazonaws.services.lambda.runtime.events.S3Event;</span><br><span class="line"><span class="keyword">import</span> com.amazonaws.services.s3.event.S3EventNotification;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">S3EventProcessor</span> <span class="keyword">implements</span> <span class="title class_">RequestHandler</span>&lt;S3Event, String&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">handleRequest</span><span class="params">(S3Event s3Event, Context context)</span> &#123;</span><br><span class="line">        <span class="comment">// 处理S3事件的逻辑</span></span><br><span class="line">        <span class="keyword">for</span> (S3EventNotification.S3EventNotificationRecord record : s3Event.getRecords()) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">bucketName</span> <span class="operator">=</span> record.getS3().getBucket().getName();</span><br><span class="line">            <span class="type">String</span> <span class="variable">objectKey</span> <span class="operator">=</span> record.getS3().getObject().getKey();</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 这里可以添加您的业务逻辑，例如处理上传的对象</span></span><br><span class="line">            System.out.println(<span class="string">&quot;Object uploaded: &quot;</span> + objectKey + <span class="string">&quot; in bucket: &quot;</span> + bucketName);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Lambda function executed successfully.&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>步骤2：部署Lambda函数</strong></p>
+<p>将Java Lambda函数打包成JAR文件，并部署到AWS Lambda。您可以使用AWS CLI或AWS控制台来完成此步骤。确保为Lambda函数分配适当的IAM角色，以允许它执行S3操作。</p>
+<p><strong>步骤3：配置S3事件触发器</strong></p>
+<p>接下来，您需要配置S3存储桶以触发Lambda函数。请按照以下步骤进行：</p>
+<ol>
+<li class="lvl-3">
+<p>登录AWS控制台，进入S3服务。</p>
+</li>
+<li class="lvl-3">
+<p>选择要配置事件触发的S3存储桶。</p>
+</li>
+<li class="lvl-3">
+<p>转到“属性”选项卡，然后单击“事件”。</p>
+</li>
+<li class="lvl-3">
+<p>单击“创建事件”。</p>
+</li>
+<li class="lvl-3">
+<p>配置事件触发器，选择事件类型（例如，“All object create events” 或 “Put”），并选择目标为&quot;Lambda function&quot;。</p>
+</li>
+<li class="lvl-3">
+<p>选择您在步骤2中创建的Lambda函数。</p>
+</li>
+<li class="lvl-3">
+<p>单击“保存”。</p>
+</li>
+</ol>
+<p><strong>步骤4：测试触发器</strong></p>
+<p>上传一个对象到S3存储桶，Lambda函数将自动触发并执行相应的操作。检查Lambda函数的日志以确保它成功处理S3事件。</p>
+<p>这些步骤可以帮助您在S3对象上传时触发Lambda函数。您可以根据具体的业务需求进一步扩展Lambda函数来处理S3事件中的对象。请确保在配置Lambda函数时考虑安全性和权限，以允许Lambda函数访问S3存储桶和执行所需的操作。</p>
+<p>当处理实际开发中的S3事件触发器时，通常需要处理更多的细节和复杂性，例如：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>验证事件来源。</p>
+</li>
+<li class="lvl-2">
+<p>执行更复杂的业务逻辑。</p>
+</li>
+<li class="lvl-2">
+<p>处理各种S3事件类型。</p>
+</li>
+<li class="lvl-2">
+<p>记录详细的日志信息。</p>
+</li>
+</ul>
+<p>下面是一个更复杂的示例，展示了如何在Lambda函数中处理S3事件触发器，并检查事件的来源，根据不同事件类型执行不同的操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.amazonaws.services.lambda.runtime.Context;</span><br><span class="line"><span class="keyword">import</span> com.amazonaws.services.lambda.runtime.RequestHandler;</span><br><span class="line"><span class="keyword">import</span> com.amazonaws.services.lambda.runtime.events.S3Event;</span><br><span class="line"><span class="keyword">import</span> com.amazonaws.services.s3.event.S3EventNotification;</span><br><span class="line"><span class="keyword">import</span> com.amazonaws.services.s3.event.S3EventNotification.S3EventNotificationRecord;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">S3EventProcessor</span> <span class="keyword">implements</span> <span class="title class_">RequestHandler</span>&lt;S3Event, String&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">handleRequest</span><span class="params">(S3Event s3Event, Context context)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (S3EventNotificationRecord record : s3Event.getRecords()) &#123;</span><br><span class="line">            S3EventNotification.<span class="type">S3Entity</span> <span class="variable">s3Entity</span> <span class="operator">=</span> record.getS3();</span><br><span class="line">            <span class="type">String</span> <span class="variable">bucketName</span> <span class="operator">=</span> s3Entity.getBucket().getName();</span><br><span class="line">            <span class="type">String</span> <span class="variable">objectKey</span> <span class="operator">=</span> s3Entity.getObject().getKey();</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 验证事件来源</span></span><br><span class="line">            <span class="keyword">if</span> (record.getEventSource().equals(<span class="string">&quot;aws:s3&quot;</span>)) &#123;</span><br><span class="line">                <span class="comment">// 根据事件类型执行操作</span></span><br><span class="line">                <span class="keyword">if</span> (record.getEventName().startsWith(<span class="string">&quot;ObjectCreated:&quot;</span>)) &#123;</span><br><span class="line">                    <span class="comment">// 处理对象创建事件</span></span><br><span class="line">                    handleObjectCreatedEvent(bucketName, objectKey);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (record.getEventName().startsWith(<span class="string">&quot;ObjectRemoved:&quot;</span>)) &#123;</span><br><span class="line">                    <span class="comment">// 处理对象删除事件</span></span><br><span class="line">                    handleObjectRemovedEvent(bucketName, objectKey);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 非S3事件，记录警告</span></span><br><span class="line">                System.out.println(<span class="string">&quot;Received event from non-S3 source.&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Lambda function executed successfully.&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">handleObjectCreatedEvent</span><span class="params">(String bucketName, String objectKey)</span> &#123;</span><br><span class="line">        <span class="comment">// 处理对象创建事件的逻辑</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Object created: &quot;</span> + objectKey + <span class="string">&quot; in bucket: &quot;</span> + bucketName);</span><br><span class="line">        <span class="comment">// 进行其他操作，例如文件处理、数据分析等</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">handleObjectRemovedEvent</span><span class="params">(String bucketName, String objectKey)</span> &#123;</span><br><span class="line">        <span class="comment">// 处理对象删除事件的逻辑</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Object removed: &quot;</span> + objectKey + <span class="string">&quot; from bucket: &quot;</span> + bucketName);</span><br><span class="line">        <span class="comment">// 可能需要清理相关资源或记录日志</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个示例演示了如何在Lambda函数中验证事件来源，根据事件类型执行不同的操作，并记录详细的日志信息。这是一个更复杂的示例，可根据项目需求进行进一步扩展。在实际开发中，您还可以添加错误处理、异常处理和更复杂的业务逻辑以满足特定的用例。</p>
+<p><code>RequestHandler&lt;S3Event, String&gt;</code> 是 AWS Lambda 函数处理程序的一种通用签名。在这个签名中，<code>S3Event</code> 表示输入参数的类型，它指定了Lambda函数将接收的事件类型，而 <code>String</code> 表示函数的返回类型。这是 AWS Lambda 的通用处理程序模型，允许您定义输入和输出类型，以及Lambda函数如何处理它们。</p>
+<p>具体来说：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>RequestHandler</code> 是 AWS Lambda 函数处理程序的接口，它定义了 <code>handleRequest</code> 方法，该方法接受一个输入参数（在这种情况下是 <code>S3Event</code> 类型的事件）并返回一个输出参数（在这种情况下是 <code>String</code> 类型的返回值）。</p>
+</li>
+<li class="lvl-2">
+<p><code>S3Event</code> 是 AWS Lambda 事件输入的类型，它表示包含 S3 事件信息的数据结构。AWS S3 触发器可以向 Lambda 函数提供 S3 事件信息，该事件信息包括对象的创建、修改或删除等操作。Lambda 函数通过 <code>S3Event</code> 类型来解析和处理这些事件。</p>
+</li>
+<li class="lvl-2">
+<p><code>String</code> 表示 Lambda 函数的返回类型。在 <code>handleRequest</code> 方法中，Lambda 函数可以执行操作并返回一个字符串作为结果。这个结果可以用于记录日志、返回状态信息或其他需要的操作。</p>
+</li>
+</ul>
+<p>在实际开发中，您可以根据您的Lambda函数的需求来自定义输入参数类型和返回类型，以便适应特定的用例。例如，如果Lambda函数需要处理S3事件并返回某种自定义响应，您可以自定义输入和输出类型，只要您的函数实现 <code>RequestHandler</code> 接口并正确处理输入和输出即可。</p>
+<h3 id=""></h3>
+<h2 id="ECS">ECS</h2>
+<h2 id="CLB">CLB</h2>
+<h2 id="CloudFormation">CloudFormation</h2>
+<h2 id="Lambda">Lambda</h2>
+<p>Lambda好像都是和Python一起用的</p>
+<h2 id="早わかりAWS-Lambda-2022-9-3-C-7"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EGdjQIWxnkg">早わかりAWS Lambda 2022-9-3 C-7</a></h2>
+<h2 id="HSM">HSM</h2>
+<h3 id="AWS中的HSM在实际开发的时候如何使用">AWS中的HSM在实际开发的时候如何使用</h3>
+<p>在AWS（Amazon Web Services）中，HSM（Hardware Security Module）是一种硬件安全模块，用于保护敏感数据的加密和密钥管理。您可以使用AWS CloudHSM服务来管理和使用HSM。以下是在实际开发中如何使用AWS CloudHSM的一般步骤：</p>
+<ol>
+<li class="lvl-3">
+<p><strong>创建CloudHSM集群</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">登录AWS控制台，进入CloudHSM服务。</li>
+<li class="lvl-5">创建一个HSM集群。您可以选择单用户或多用户集群，视您的需求而定。</li>
+<li class="lvl-5">设置集群的规模（HSM的数量）和其他配置选项。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>初始化HSM</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">初始化HSM集群，以便开始使用。</li>
+<li class="lvl-5">在初始化期间，您将生成主密钥对，这些密钥将用于对其他密钥进行签名和加密。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>生成和管理密钥</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">使用CloudHSM来生成和管理密钥，这些密钥可以用于加密、解密和签名操作。</li>
+<li class="lvl-5">可以使用AWS Key Management Service（KMS）与CloudHSM集成，以便更轻松地管理密钥并进行密钥轮换。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>访问CloudHSM</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">在您的应用程序中，使用AWS SDK或API来访问CloudHSM服务。</li>
+<li class="lvl-5">这通常涉及到使用CloudHSM密钥来加密、解密和签名数据。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>集成应用程序</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">针对您的应用程序，确保它可以与CloudHSM集成。这可能需要一些应用程序级别的更改，以便使用CloudHSM生成的密钥。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>安全性和权限管理</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">配置适当的IAM（Identity and Access Management）角色和权限，以确保只有授权的实体可以访问CloudHSM和相关资源。</li>
+<li class="lvl-5">遵循AWS的最佳安全实践，如VPC端点、安全组等，以增加安全性。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>监控和日志</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">配置CloudWatch监控和CloudTrail审计日志，以便监视和跟踪CloudHSM活动。</li>
+<li class="lvl-5">还可以使用云安全工具来进一步增强安全性。</li>
+</ul>
+</li>
+</ol>
+<p>请注意，CloudHSM是高度安全的硬件安全模块，适用于需要极高安全性要求的应用程序，如金融服务、医疗保健和合规性需求。在使用CloudHSM之前，您应该了解其成本和复杂性，并确保它适用于您的特定用例。此外，建议在实际部署之前参考AWS文档和最佳实践，以确保正确配置和使用CloudHSM。</p>
+<h2 id="如何配合Java项目使用？">如何配合Java项目使用？</h2>
+<p>要在Java项目中使用AWS CloudHSM，您需要使用AWS SDK for Java（通常使用AWS SDK的核心库）来访问CloudHSM服务。以下是一个简单的Java示例，展示如何创建一个CloudHSM密钥并使用它来加密和解密数据。</p>
+<p>首先，确保您已经配置了AWS SDK for Java，并拥有适当的IAM权限来访问CloudHSM。然后，您可以按照以下步骤操作：</p>
+<ol>
+<li class="lvl-3">
+<p>导入必要的库：</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.amazonaws.services.cloudhsmv2.AWSCloudHSMV2;</span><br><span class="line"><span class="keyword">import</span> com.amazonaws.services.cloudhsmv2.AWSCloudHSMV2ClientBuilder;</span><br><span class="line"><span class="keyword">import</span> com.amazonaws.services.cloudhsmv2.model.*;</span><br><span class="line"><span class="keyword">import</span> com.amazonaws.services.cloudhsmv2.model.KeyUsage;</span><br><span class="line"><span class="keyword">import</span> com.amazonaws.services.cloudhsmv2.model.CreateKeyRequest;</span><br><span class="line"><span class="keyword">import</span> com.amazonaws.services.cloudhsmv2.model.CreateKeyResult;</span><br><span class="line"><span class="keyword">import</span> com.amazonaws.services.cloudhsmv2.model.DataKey;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.nio.ByteBuffer;</span><br><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br></pre></td></tr></table></figure>
+<ol>
+<li class="lvl-3">
+<p>创建CloudHSM客户端：</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AWSCloudHSMV2</span> <span class="variable">cloudHSMClient</span> <span class="operator">=</span> AWSCloudHSMV2ClientBuilder.defaultClient();</span><br></pre></td></tr></table></figure>
+<ol>
+<li class="lvl-3">
+<p>创建CloudHSM密钥：</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">CreateKeyRequest</span> <span class="variable">createKeyRequest</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CreateKeyRequest</span>()</span><br><span class="line">    .withDescription(<span class="string">&quot;MyCloudHSMKey&quot;</span>)</span><br><span class="line">    .withKeyUsage(KeyUsage.ENCRYPT_DECRYPT); <span class="comment">// 指定密钥用途</span></span><br><span class="line"><span class="type">CreateKeyResult</span> <span class="variable">createKeyResult</span> <span class="operator">=</span> cloudHSMClient.createKey(createKeyRequest);</span><br><span class="line"><span class="type">String</span> <span class="variable">keyId</span> <span class="operator">=</span> createKeyResult.keyId();</span><br></pre></td></tr></table></figure>
+<ol>
+<li class="lvl-3">
+<p>使用CloudHSM密钥来加密和解密数据：</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">plaintext</span> <span class="operator">=</span> <span class="string">&quot;Hello, CloudHSM!&quot;</span>;</span><br><span class="line"><span class="type">ByteBuffer</span> <span class="variable">plaintextBuffer</span> <span class="operator">=</span> ByteBuffer.wrap(plaintext.getBytes());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加密数据</span></span><br><span class="line"><span class="type">DataKey</span> <span class="variable">encryptKey</span> <span class="operator">=</span> cloudHSMClient.generateDataKey(<span class="keyword">new</span> <span class="title class_">GenerateDataKeyRequest</span>()</span><br><span class="line">    .withKeyId(keyId)</span><br><span class="line">    .withKeySpec(DataKeySpec.AES_256));</span><br><span class="line"><span class="type">ByteBuffer</span> <span class="variable">ciphertextBuffer</span> <span class="operator">=</span> encryptKey.getCiphertextBlob();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解密数据</span></span><br><span class="line"><span class="type">DataKey</span> <span class="variable">decryptKey</span> <span class="operator">=</span> cloudHSMClient.decrypt(<span class="keyword">new</span> <span class="title class_">DecryptRequest</span>()</span><br><span class="line">    .withKeyId(keyId)</span><br><span class="line">    .withCiphertextBlob(ciphertextBuffer));</span><br><span class="line"><span class="type">ByteBuffer</span> <span class="variable">decryptedPlaintextBuffer</span> <span class="operator">=</span> decryptKey.getPlaintext();</span><br><span class="line"><span class="type">String</span> <span class="variable">decryptedPlaintext</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(decryptedPlaintextBuffer.array());</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;Original Data: &quot;</span> + plaintext);</span><br><span class="line">System.out.println(<span class="string">&quot;Encrypted Data: &quot;</span> + Base64.getEncoder().encodeToString(ciphertextBuffer.array()));</span><br><span class="line">System.out.println(<span class="string">&quot;Decrypted Data: &quot;</span> + decryptedPlaintext);</span><br></pre></td></tr></table></figure>
+<p>请注意，上述代码示例是一个非常基本的示例，用于演示如何在Java项目中使用CloudHSM。在实际应用中，您需要更多的错误处理、密钥管理和安全性措施。还要确保在部署前配置正确的IAM角色和权限，以允许Java应用程序访问CloudHSM服务。</p>
+</div><hr style="height:1px;margin:1rem 0"><div class="level is-mobile is-flex"><div class="article-tags is-size-7 is-uppercase"><i class="fas fa-tags has-text-grey"></i> <a class="link-muted" rel="tag" href="/tags/AWS/">AWS, </a><a class="link-muted" rel="tag" href="/tags/Spring/">Spring, </a><a class="link-muted" rel="tag" href="/tags/Java/">Java, </a><a class="link-muted" rel="tag" href="/tags/S3/">S3 </a></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/MyBatis/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">MyBatis</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/RestFul-API%E8%A8%AD%E8%A8%88%E8%A8%98%E4%BA%8B/"><span class="level-item">RestFul-API設計記事</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">コメント</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "f363ef1cf2d2416b2c1623b8d59b7bbb",
+            repo: "gitakl-of-blog",
+            owner: "ooblivion",
+            clientID: "6bea2c6278330432d92a",
+            clientSecret: "73368b02db64f5a4bb7fcd96bfc584a0dc7e20c7",
+            admin: ["ooblivion"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 20,
+            pagerDirection: "last",
+            
+            
+            enableHotKey: true,
+            language: "en",
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/doctor.png" alt="orange"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">orange</p><p class="is-size-6 is-block">必死に積み上げてきたものは決して裏切りません</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>北海道 札幌市</span></p></div></div></nav><nav class="level is-mobile"><a class="level-item has-text-centered is-marginless" href="/categories"><div><p class="heading">投稿</p><div><p class="title">47</p></div></div></a><div class="level-item has-text-centered is-marginless"><div><p class="heading">カテゴリ</p><a href="/categories"><p class="title">14</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">タグ</p><a href="/tags"><p class="title">45</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ooblivion"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Qiita" href="https://qiita.com/ooblivion"><i class="fab fa-q"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Certificate" href="https://www.credly.com/users/wentao-wu.2fb450f4"><i class="fas fa-certificate"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Stackoverflow" href="https://stackoverflow.com/users/11994542/orange"><i class="fab fa-stack-overflow"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="E-mail" href="mailto:XXX@XXX.com"><i class="fa-solid fa-envelope"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目次</h3><ul class="menu-list"><li><a class="level is-mobile" href="#本記事について"><span class="level-left"><span class="level-item">1</span><span class="level-item">本記事について</span></span></a></li><li><a class="level is-mobile" href="#S3"><span class="level-left"><span class="level-item">2</span><span class="level-item">S3</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#如何配合Java项目使用？比如存储图片，音频，文字之类的需求"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">如何配合Java项目使用？比如存储图片，音频，文字之类的需求</span></span></a></li><li><a class="level is-mobile" href="#S3在对象上传时触发Lambda函数。应该如何设置"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">S3在对象上传时触发Lambda函数。应该如何设置</span></span></a></li><li><a class="level is-mobile" href="#"><span class="level-left"><span class="level-item">2.3</span><span class="level-item"> </span></span></a></li></ul></li><li><a class="level is-mobile" href="#ECS"><span class="level-left"><span class="level-item">3</span><span class="level-item">ECS</span></span></a></li><li><a class="level is-mobile" href="#CLB"><span class="level-left"><span class="level-item">4</span><span class="level-item">CLB</span></span></a></li><li><a class="level is-mobile" href="#CloudFormation"><span class="level-left"><span class="level-item">5</span><span class="level-item">CloudFormation</span></span></a></li><li><a class="level is-mobile" href="#Lambda"><span class="level-left"><span class="level-item">6</span><span class="level-item">Lambda</span></span></a></li><li><a class="level is-mobile" href="#早わかりAWS-Lambda-2022-9-3-C-7"><span class="level-left"><span class="level-item">7</span><span class="level-item">早わかりAWS Lambda 2022-9-3 C-7</span></span></a></li><li><a class="level is-mobile" href="#HSM"><span class="level-left"><span class="level-item">8</span><span class="level-item">HSM</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#AWS中的HSM在实际开发的时候如何使用"><span class="level-left"><span class="level-item">8.1</span><span class="level-item">AWS中的HSM在实际开发的时候如何使用</span></span></a></li></ul></li><li><a class="level is-mobile" href="#如何配合Java项目使用？"><span class="level-left"><span class="level-item">9</span><span class="level-item">如何配合Java项目使用？</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">カテゴリ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/YouTube%E5%AD%A6%E7%BF%92/"><span class="level-start"><span class="level-item">YouTube学習</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/YouTube%E5%AD%A6%E7%BF%92/%E6%9C%AC%E3%81%AE%E8%A6%81%E7%B4%84/"><span class="level-start"><span class="level-item">本の要約</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/YouTube%E5%AD%A6%E7%BF%92/%E9%9D%A2%E6%8E%A5%E7%9F%A5%E8%AD%98/"><span class="level-start"><span class="level-item">面接知識</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E3%83%86%E3%82%AF%E3%83%8E%E3%83%AD%E3%82%B8%E3%83%BC/"><span class="level-start"><span class="level-item">テクノロジー</span></span><span class="level-end"><span class="level-item tag">7</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E3%83%86%E3%82%AF%E3%83%8E%E3%83%AD%E3%82%B8%E3%83%BC/%E8%A8%AD%E8%A8%88/"><span class="level-start"><span class="level-item">設計</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/"><span class="level-start"><span class="level-item">プログラミング</span></span><span class="level-end"><span class="level-item tag">11</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/DB/"><span class="level-start"><span class="level-item">DB</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/Infra/"><span class="level-start"><span class="level-item">Infra</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/%E3%83%84%E3%83%BC%E3%83%AB/"><span class="level-start"><span class="level-item">ツール</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E4%BD%9C%E6%A5%AD/"><span class="level-start"><span class="level-item">作業</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E4%BD%9C%E6%A5%AD/%E4%BB%95%E4%BA%8B%E3%83%8E%E3%83%BC%E3%83%88/"><span class="level-start"><span class="level-item">仕事ノート</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E4%BD%9C%E6%A5%AD/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/"><span class="level-start"><span class="level-item">作業メモ</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%9D%A2%E6%8E%A5/"><span class="level-start"><span class="level-item">面接</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最近の記事</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-04-18T10:55:43.000Z">2024-04-18</time></p><p class="title"><a href="/MVCh%E5%92%8CMVVM%E7%9A%84%E5%8C%BA%E5%88%AB">MVCh和MVVM的区别</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-04-18T10:43:51.000Z">2024-04-18</time></p><p class="title"><a href="/MyBatis">MyBatis</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-04-08T10:47:21.000Z">2024-04-08</time></p><p class="title"><a href="/%E5%A6%82%E4%BD%95%E5%9C%A8Java%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8AWS-S3">如何在Java项目中使用AWS-S3</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-04-07T15:10:00.000Z">2024-04-08</time></p><p class="title"><a href="/RestFul-API%E8%A8%AD%E8%A8%88%E8%A8%98%E4%BA%8B">RestFul-API設計記事</a></p><p class="categories"><a href="/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-04-07T14:55:12.000Z">2024-04-07</time></p><p class="title"><a href="/review-point">レビュー観点</a></p><p class="categories"><a href="/categories/%E3%83%86%E3%82%AF%E3%83%8E%E3%83%AD%E3%82%B8%E3%83%BC/">テクノロジー</a> / <a href="/categories/%E3%83%86%E3%82%AF%E3%83%8E%E3%83%AD%E3%82%B8%E3%83%BC/%E8%A8%AD%E8%A8%88/">設計</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">アーカイブ</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/04/"><span class="level-start"><span class="level-item">April 2024</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">February 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">January 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">December 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">November 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">June 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/05/"><span class="level-start"><span class="level-item">May 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">March 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">January 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">November 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">October 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">September 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/04/"><span class="level-start"><span class="level-item">April 2022</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/03/"><span class="level-start"><span class="level-item">March 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/11/"><span class="level-start"><span class="level-item">November 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/10/"><span class="level-start"><span class="level-item">October 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">July 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">タグ</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/API/"><span class="tag">API</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/AWS/"><span class="tag">AWS</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Backend/"><span class="tag">Backend</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CI-CD/"><span class="tag">CI-CD</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CN/"><span class="tag">CN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Excel/"><span class="tag">Excel</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Git/"><span class="tag">Git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Infra/"><span class="tag">Infra</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JP/"><span class="tag">JP</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Java/"><span class="tag">Java</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MVC/"><span class="tag">MVC</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MVVM/"><span class="tag">MVVM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Mockito/"><span class="tag">Mockito</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MyBatis/"><span class="tag">MyBatis</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Optimization/"><span class="tag">Optimization</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/S3/"><span class="tag">S3</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SQL/"><span class="tag">SQL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Spring/"><span class="tag">Spring</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SpringMVC/"><span class="tag">SpringMVC</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/TODO/"><span class="tag">TODO</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Test/"><span class="tag">Test</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tool/"><span class="tag">Tool</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WBS/"><span class="tag">WBS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/YouTube/"><span class="tag">YouTube</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/blog/"><span class="tag">blog</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/jp-memo/"><span class="tag">jp-memo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/markdown/"><span class="tag">markdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/reading/"><span class="tag">reading</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A9%E3%83%BC%E3%83%AB/"><span class="tag">ウォーターフォール</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E7%9F%A5%E8%AD%98/"><span class="tag">エンジニア知識</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%82%AF%E3%82%A4%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF/"><span class="tag">クイックチェック</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%83%86%E3%82%B9%E3%83%88/"><span class="tag">テスト</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9/"><span class="tag">リリース</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC/"><span class="tag">レビュー</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/"><span class="tag">作業メモ</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8D%98%E8%AA%9E/"><span class="tag">単語</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8F%A5%E8%AA%AD%E7%82%B9/"><span class="tag">句読点</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%A4%96%E5%9B%BD%E4%BA%BA/"><span class="tag">外国人</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%97%A5%E6%9C%AC%E4%BB%95%E4%BA%8B/"><span class="tag">日本仕事</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%83%A1%E3%83%A2/"><span class="tag">日本語メモ</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%A8%AD%E8%A8%88/"><span class="tag">設計</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%96%8B%E7%99%BA%E3%83%A1%E3%83%A2/"><span class="tag">開発メモ</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%9D%A2%E6%8E%A5/"><span class="tag">面接</span><span class="tag">5</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/orange.png" alt="OrangeNoteBlog" height="28"></a><p class="is-size-7"><span>&copy; 2024 orange</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2018</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-nc"></i> <i class="fab fa-creative-commons-sa"></i> </a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("jp");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="トップに戻る" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "このウェブサイトはあなたの経験を改善するためにCookieを使用しています。",
+          dismiss: "了解しました",
+          allow: "Cookiesを許可する",
+          deny: "拒否する",
+          link: "もっと詳しく知る",
+          policy: "Cookieポリシー",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/night.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="何かを入力してください..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"何かを入力してください...","untitled":"(無題)","posts":"投稿","pages":"ページ","categories":"カテゴリ","tags":"タグ"});
+        });</script></body></html>

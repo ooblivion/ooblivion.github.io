@@ -6,7 +6,7 @@
   <link href="https://ooblivion.github.io/atom.xml" rel="self"/>
   
   <link href="https://ooblivion.github.io/"/>
-  <updated>2024-04-07T15:10:00.000Z</updated>
+  <updated>2024-04-18T10:55:43.000Z</updated>
   <id>https://ooblivion.github.io/</id>
   
   <author>
@@ -15,6 +15,67 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MVCh和MVVM的区别</title>
+    <link href="https://ooblivion.github.io/MVCh%E5%92%8CMVVM%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://ooblivion.github.io/MVCh%E5%92%8CMVVM%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2024-04-18T10:55:43.000Z</published>
+    <updated>2024-04-18T10:55:43.000Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    
+    <category term="MVC" scheme="https://ooblivion.github.io/tags/MVC/"/>
+    
+    <category term="MVVM" scheme="https://ooblivion.github.io/tags/MVVM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MyBatis</title>
+    <link href="https://ooblivion.github.io/MyBatis/"/>
+    <id>https://ooblivion.github.io/MyBatis/</id>
+    <published>2024-04-18T10:43:51.000Z</published>
+    <updated>2024-04-18T10:43:51.000Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    
+    <category term="Java" scheme="https://ooblivion.github.io/tags/Java/"/>
+    
+    <category term="MyBatis" scheme="https://ooblivion.github.io/tags/MyBatis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何在Java项目中使用AWS-S3</title>
+    <link href="https://ooblivion.github.io/%E5%A6%82%E4%BD%95%E5%9C%A8Java%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8AWS-S3/"/>
+    <id>https://ooblivion.github.io/%E5%A6%82%E4%BD%95%E5%9C%A8Java%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8AWS-S3/</id>
+    <published>2024-04-08T10:47:21.000Z</published>
+    <updated>2024-04-18T10:54:55.628Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    
+    <category term="AWS" scheme="https://ooblivion.github.io/tags/AWS/"/>
+    
+    <category term="Spring" scheme="https://ooblivion.github.io/tags/Spring/"/>
+    
+    <category term="Java" scheme="https://ooblivion.github.io/tags/Java/"/>
+    
+    <category term="S3" scheme="https://ooblivion.github.io/tags/S3/"/>
+    
+  </entry>
   
   <entry>
     <title>RestFul-API設計記事</title>
@@ -381,50 +442,9 @@
     
     
     
-  </entry>
-  
-  <entry>
-    <title>議事録作り方</title>
-    <link href="https://ooblivion.github.io/%E8%AD%B0%E4%BA%8B%E9%8C%B2%E4%BD%9C%E3%82%8A%E6%96%B9/"/>
-    <id>https://ooblivion.github.io/%E8%AD%B0%E4%BA%8B%E9%8C%B2%E4%BD%9C%E3%82%8A%E6%96%B9/</id>
-    <published>2024-04-04T16:25:06.000Z</published>
-    <updated>2024-04-04T16:25:06.000Z</updated>
+    <category term="エンジニア知識" scheme="https://ooblivion.github.io/tags/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E7%9F%A5%E8%AD%98/"/>
     
-    
-    <summary type="html">この記事は...</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>エンジニア職種と契約種類の紹介</title>
-    <link href="https://ooblivion.github.io/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E8%81%B7%E7%A8%AE%E3%81%A8%E5%A5%91%E7%B4%84%E7%A8%AE%E9%A1%9E%E3%81%AE%E7%B4%B9%E4%BB%8B/"/>
-    <id>https://ooblivion.github.io/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E8%81%B7%E7%A8%AE%E3%81%A8%E5%A5%91%E7%B4%84%E7%A8%AE%E9%A1%9E%E3%81%AE%E7%B4%B9%E4%BB%8B/</id>
-    <published>2024-04-04T16:18:03.000Z</published>
-    <updated>2024-04-04T16:18:03.000Z</updated>
-    
-    
-    <summary type="html">この記事は...</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>全体像を把握する方法</title>
-    <link href="https://ooblivion.github.io/%E5%85%A8%E4%BD%93%E5%83%8F%E3%82%92%E6%8A%8A%E6%8F%A1%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/"/>
-    <id>https://ooblivion.github.io/%E5%85%A8%E4%BD%93%E5%83%8F%E3%82%92%E6%8A%8A%E6%8F%A1%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/</id>
-    <published>2024-04-04T16:15:34.000Z</published>
-    <updated>2024-04-04T16:15:34.000Z</updated>
-    
-    
-    <summary type="html">この記事は...</summary>
-    
-    
-    
+    <category term="WBS" scheme="https://ooblivion.github.io/tags/WBS/"/>
     
   </entry>
   
