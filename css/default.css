@@ -10833,7 +10833,7 @@ article.article .content h3 {
   font-size: 1.25em;
   padding: 0.25em 0.5em;
   background: transparent;
-  border-left: solid 5px rgba(0,94,128,0.18);
+  border-left: solid 5px rgba(110,110,110,0.18);
   font-weight: bold;
 }
 article.article .content h4 {
