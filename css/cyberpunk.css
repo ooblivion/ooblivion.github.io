@@ -10825,7 +10825,7 @@ article.article .content h1 {
 }
 article.article .content h2 {
   font-size: 1.5em;
-  background: rgba(132,224,255,0.441);
+  background: rgba(171,206,241,0.3);
   padding: 10px 10px;
   text-align: left;
   border-radius: 5px;
@@ -10836,12 +10836,12 @@ article.article .content h3 {
   font-size: 1.25em;
   padding: 0.25em 0.5em;
   background: transparent;
-  border-left: solid 5px rgba(171,197,241,0.5);
+  border-left: solid 5px rgba(171,206,241,0.7);
   font-weight: bold;
 }
 article.article .content h4 {
   font-size: 1.125em;
-  border-bottom: solid 3px rgba(0,128,0,0.18);
+  border-bottom: solid 3px rgba(171,206,241,0.9);
   display: inline-block;
   padding-bottom: 3px;
 }
