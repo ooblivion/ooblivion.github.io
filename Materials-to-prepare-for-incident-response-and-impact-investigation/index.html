@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="jp"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>障害対応および影響調査の際に準備すべき資料 - OrangeBlog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="OrangeBlog"><meta name="msapplication-TileImage" content="/img/orange-facicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="OrangeBlog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="障害対応や影響調査を行う際、必要な資料を的確に準備することが重要です。これにより、障害が発生した際に迅速かつ効果的に対応でき、関係者への報告や再発防止策を立案するための基盤が築かれます。"><meta property="og:type" content="blog"><meta property="og:title" content="障害対応および影響調査の際に準備すべき資料"><meta property="og:url" content="https://ooblivion.github.io/Materials-to-prepare-for-incident-response-and-impact-investigation/"><meta property="og:site_name" content="OrangeBlog"><meta property="og:description" content="障害対応や影響調査を行う際、必要な資料を的確に準備することが重要です。これにより、障害が発生した際に迅速かつ効果的に対応でき、関係者への報告や再発防止策を立案するための基盤が築かれます。"><meta property="og:locale" content="jp"><meta property="og:image" content="https://ooblivion.github.io/img/og_image.png"><meta property="article:published_time" content="2024-04-02T06:57:11.000Z"><meta property="article:modified_time" content="2024-07-22T23:56:47.000Z"><meta property="article:author" content="orange"><meta property="article:tag" content="障害対応"><meta property="article:tag" content="影響調査"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://ooblivion.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://ooblivion.github.io/Materials-to-prepare-for-incident-response-and-impact-investigation/"},"headline":"障害対応および影響調査の際に準備すべき資料","image":["https://ooblivion.github.io/img/og_image.png"],"datePublished":"2024-04-02T06:57:11.000Z","dateModified":"2024-07-22T23:56:47.000Z","author":{"@type":"Person","name":"orange"},"publisher":{"@type":"Organization","name":"OrangeBlog","logo":{"@type":"ImageObject","url":"https://ooblivion.github.io/img/orange.png"}},"description":"障害対応や影響調査を行う際、必要な資料を的確に準備することが重要です。これにより、障害が発生した際に迅速かつ効果的に対応でき、関係者への報告や再発防止策を立案するための基盤が築かれます。"}</script><link rel="canonical" href="https://ooblivion.github.io/Materials-to-prepare-for-incident-response-and-impact-investigation/"><link rel="icon" href="/img/orange-facicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?G-TQZ0DMPY0S";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="OrangeBlog" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/orange.png" alt="OrangeBlog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">ホームページ</a><a class="navbar-item" href="/about">自己紹介</a><a class="navbar-item" href="/contact">問い合わせ・案件のご紹介</a><a class="navbar-item" href="/development">開発実績</a><a class="navbar-item" href="/archives">アーカイブ</a><a class="navbar-item" href="/categories">カテゴリ</a><a class="navbar-item" href="/tags">タグ</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-lightbulb" id="night-icon"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ooblivion"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目次" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="検索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-04-02T06:57:11.000Z" title="2024/4/2 15:57:11">2024-04-02</time>に投稿</span><span class="level-item"><time dateTime="2024-07-22T23:56:47.000Z" title="2024/7/23 8:56:47">2024-07-23</time>に更新</span><span class="level-item"><a class="link-muted" href="/categories/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E7%AE%A1%E7%90%86/">プロジェクト管理</a></span><span class="level-item">12 minutesで読む (約1835語)</span></div></div><h1 class="title is-3 is-size-4-mobile">障害対応および影響調査の際に準備すべき資料</h1><div class="content"><p>障害対応や影響調査を行う際、必要な資料を的確に準備することは非常に重要です。これにより、障害発生時に迅速かつ効果的に対応でき、関係者への報告や再発防止策を立案するための基盤が築かれます。以下に、障害対応および影響調査において準備すべき資料を示します。これにより、障害発生から復旧までの過程が明確になり、再発防止策の立案に役立ちます。</p>
+<!-- more -->
+<h3 id="1-障害の詳細説明">1. <strong>障害の詳細説明</strong></h3>
+<p>障害の詳細を正確に記載することは、原因の特定とその後の対応において最も重要なステップです。具体的には以下の内容を含める必要があります：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>障害のタイプ</strong>：ハードウェア故障、ソフトウェアバグ、ネットワーク問題、セキュリティ侵害など、障害がどのようなタイプであるかを明確にします。</p>
+</li>
+<li class="lvl-2">
+<p><strong>発生日時と発生状況</strong>：障害が発生した日時、発生の前後の状況、例えばシステムの負荷やエラーの兆候なども記録します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>影響範囲</strong>：障害によって影響を受けたシステムやサービス、ユーザーグループ、部門などを記載します。これにより、障害の重要性を客観的に評価することができます。</p>
+</li>
+</ul>
+<h3 id="2-影響分析報告">2. <strong>影響分析報告</strong></h3>
+<p>影響分析は、障害が業務に与えた影響を評価し、今後の対応策を考える上で欠かせない資料です。具体的な内容は以下の通りです：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>影響の程度</strong>：障害がどの程度の影響を業務やサービスに与えたかを評価します。例えば、サービス停止時間、業務遅延、顧客への影響などを考慮します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>影響を受けたシステム・プロセス</strong>：障害によってどのシステムや業務プロセスが影響を受けたのかを特定します。これにより、障害の範囲を把握し、今後の予防策を講じるためのデータを収集します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>関係者の影響</strong>：影響を受けたユーザーや部門、顧客などの関係者を特定し、それらの対応策を記載します。また、顧客や取引先にどのような影響があったかを整理し、必要な対応を行います。</p>
+</li>
+</ul>
+<h3 id="3-根本原因分析">3. <strong>根本原因分析</strong></h3>
+<p>障害の根本原因を特定するための詳細な分析が必要です。これにより、同様の問題を再発させないための根本的な対策を講じることができます。以下の点を分析します：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>直接的な原因</strong>：例えば、ソフトウェアのバグ、ハードウェアの故障、設定ミスなど、問題の直接的な原因を明確にします。</p>
+</li>
+<li class="lvl-2">
+<p><strong>間接的な原因</strong>：例えば、プロジェクトマネジメントの不備、テスト不足、人的ミスなど、障害を引き起こした背景やシステムの脆弱性なども考慮します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>原因特定方法</strong>：ログ解析、システム監視ツール、障害再現テストなどを使用して、根本的な原因を突き止めます。</p>
+</li>
+</ul>
+<h3 id="4-対応措置">4. <strong>対応措置</strong></h3>
+<p>障害発生後に講じた対応策を詳細に記録します。この段階では、以下の内容が含まれます：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>短期的な対応策</strong>：障害発生後の緊急対応として、システムの一時的修正、再起動、パッチの適用など、迅速に行った対応策を記録します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>長期的な対応策</strong>：障害の再発防止やシステム改善のための根本的な対策を記録します。例えば、システムの構造変更、運用プロセスの改善、監視体制の強化などが考えられます。</p>
+</li>
+</ul>
+<h3 id="5-復旧状況と進捗">5. <strong>復旧状況と進捗</strong></h3>
+<p>復旧作業の進捗を詳細に記録することも重要です。これにより、復旧までの過程を追跡し、必要に応じて追加のリソースを投入することができます。以下の情報を記載します：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>復旧の開始時期</strong>：障害発生後、復旧作業をいつ開始したかを記録します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>進捗状況</strong>：復旧作業がどの程度進んでいるか、現状の進捗を報告します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>完全復旧の達成状況</strong>：復旧作業が完了したか、新たな問題が発生したかどうかも記載します。</p>
+</li>
+</ul>
+<h3 id="6-リスク評価">6. <strong>リスク評価</strong></h3>
+<p>同様の障害が再発するリスクを評価し、その予防策を提案します。以下の要素を評価します：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>再発リスク</strong>：障害がどの程度再発する可能性があるか、過去の障害と比較してリスクの高い点を分析します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>予防策</strong>：再発を防ぐための技術的な対策、運用上の改善策、人的なトレーニングの強化など、具体的な予防策を提案します。</p>
+</li>
+</ul>
+<h3 id="7-コミュニケーション記録">7. <strong>コミュニケーション記録</strong></h3>
+<p>障害が顧客や重要な関係者に影響を与えた場合、適切なコミュニケーションが求められます。以下の内容が含まれます：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>通知の記録</strong>：顧客への通知や、社内への報告など、障害発生時の通知の内容を記録します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>報告書の提出</strong>：進捗報告や最終報告書を作成し、関係者に適切に提供します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>コミュニケーション内容</strong>：関係者との会話やメール、会議の内容なども記録します。これにより、後の対応策を振り返ることができます。</p>
+</li>
+</ul>
+<hr>
+<p>これらの資料を適切に準備することで、障害発生時の迅速な対応と、影響を最小限に抑えることができます。さらに、再発防止策を講じるための貴重なデータとなり、企業全体の信頼性向上に貢献します。</p>
+</div><hr style="height:1px;margin:1rem 0"><div class="level is-mobile is-flex"><div class="article-tags is-size-7 is-uppercase"><i class="fas fa-tags has-text-grey"></i> <a class="link-muted" rel="tag" href="/tags/%E9%9A%9C%E5%AE%B3%E5%AF%BE%E5%BF%9C/">障害対応, </a><a class="link-muted" rel="tag" href="/tags/%E5%BD%B1%E9%9F%BF%E8%AA%BF%E6%9F%BB/">影響調査 </a></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/WBS-management-task-assignment-progress/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">WBSの管理方法、タスクの割り当て、進捗報告の方法</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/The-difference-between-JUnit-4-and-JUnit-5/"><span class="level-item">JUnit 4とJUnit 5の違い</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/doctor.png" alt="ゴ"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">ゴ</p><p class="is-size-6 is-block">やる気があれば道は開ける</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>東京都 北区</span></p></div></div></nav><nav class="level is-mobile"><a class="level-item has-text-centered is-marginless" href="/categories"><div><p class="heading">投稿</p><div><p class="title">7</p></div></div></a><div class="level-item has-text-centered is-marginless"><div><p class="heading">カテゴリ</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">タグ</p><a href="/tags"><p class="title">15</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ooblivion"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Certificate" href="https://www.credly.com/users/wentao-wu.2fb450f4"><i class="fas fa-certificate"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Instagram" href="https://www.instagram.com/mika.ku.re/"><i class="fab fa-instagram"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="E-mail" href="mailto:gojapanmail@gmail.com"><i class="fa-solid fa-envelope"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目次</h3><ul class="menu-list"><li><a class="level is-mobile" href="#1-障害の詳細説明"><span class="level-left"><span class="level-item">1</span><span class="level-item">1. 障害の詳細説明</span></span></a></li><li><a class="level is-mobile" href="#2-影響分析報告"><span class="level-left"><span class="level-item">2</span><span class="level-item">2. 影響分析報告</span></span></a></li><li><a class="level is-mobile" href="#3-根本原因分析"><span class="level-left"><span class="level-item">3</span><span class="level-item">3. 根本原因分析</span></span></a></li><li><a class="level is-mobile" href="#4-対応措置"><span class="level-left"><span class="level-item">4</span><span class="level-item">4. 対応措置</span></span></a></li><li><a class="level is-mobile" href="#5-復旧状況と進捗"><span class="level-left"><span class="level-item">5</span><span class="level-item">5. 復旧状況と進捗</span></span></a></li><li><a class="level is-mobile" href="#6-リスク評価"><span class="level-left"><span class="level-item">6</span><span class="level-item">6. リスク評価</span></span></a></li><li><a class="level is-mobile" href="#7-コミュニケーション記録"><span class="level-left"><span class="level-item">7</span><span class="level-item">7. コミュニケーション記録</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/orange.png" alt="OrangeBlog" height="28"></a><p class="is-size-7"><span>&copy; 2025 orange</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2018</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-nc"></i> <i class="fab fa-creative-commons-sa"></i> </a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("jp");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="トップに戻る" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "このウェブサイトはあなたの経験を改善するためにCookieを使用しています。",
+          dismiss: "了解しました",
+          allow: "Cookiesを許可する",
+          deny: "拒否する",
+          link: "もっと詳しく知る",
+          policy: "Cookieポリシー",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/night.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="何かを入力してください..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"何かを入力してください...","untitled":"(無題)","posts":"投稿","pages":"ページ","categories":"カテゴリ","tags":"タグ"});
+        });</script></body></html>

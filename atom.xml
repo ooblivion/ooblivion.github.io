@@ -6,7 +6,7 @@
   <link href="https://ooblivion.github.io/atom.xml" rel="self"/>
   
   <link href="https://ooblivion.github.io/"/>
-  <updated>2025-03-07T17:44:41.000Z</updated>
+  <updated>2025-03-14T14:56:41.841Z</updated>
   <id>https://ooblivion.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>プロジェクトが遅延している場合の対応策</title>
+    <link href="https://ooblivion.github.io/Measures-for-handling-project-delay/"/>
+    <id>https://ooblivion.github.io/Measures-for-handling-project-delay/</id>
+    <published>2025-03-14T14:39:41.798Z</published>
+    <updated>2025-03-14T14:56:41.841Z</updated>
+    
+    
+    <summary type="html">プロジェクトの遅延時、原因分析、チームとのコミュニケーション強化、計画見直しが重要です。是正措置を講じ、遅延を最小限に抑え、関係者と調整し、次回に向けた改善策を検討します。</summary>
+    
+    
+    
+    <category term="プロジェクト管理" scheme="https://ooblivion.github.io/categories/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E7%AE%A1%E7%90%86/"/>
+    
+    
+    <category term="進捗管理" scheme="https://ooblivion.github.io/tags/%E9%80%B2%E6%8D%97%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="障害対応" scheme="https://ooblivion.github.io/tags/%E9%9A%9C%E5%AE%B3%E5%AF%BE%E5%BF%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>ウォーターフォールモデル各段階の成果物</title>
@@ -41,8 +62,8 @@
   
   <entry>
     <title>WBSの管理方法、タスクの割り当て、進捗報告の方法</title>
-    <link href="https://ooblivion.github.io/null/"/>
-    <id>https://ooblivion.github.io/null/</id>
+    <link href="https://ooblivion.github.io/WBS-management-task-assignment-progress/"/>
+    <id>https://ooblivion.github.io/WBS-management-task-assignment-progress/</id>
     <published>2024-11-03T12:29:57.000Z</published>
     <updated>2024-12-17T16:16:33.000Z</updated>
     
@@ -57,6 +78,27 @@
     <category term="WBS" scheme="https://ooblivion.github.io/tags/WBS/"/>
     
     <category term="進捗管理" scheme="https://ooblivion.github.io/tags/%E9%80%B2%E6%8D%97%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>障害対応および影響調査の際に準備すべき資料</title>
+    <link href="https://ooblivion.github.io/Materials-to-prepare-for-incident-response-and-impact-investigation/"/>
+    <id>https://ooblivion.github.io/Materials-to-prepare-for-incident-response-and-impact-investigation/</id>
+    <published>2024-04-02T06:57:11.000Z</published>
+    <updated>2024-07-22T23:56:47.000Z</updated>
+    
+    
+    <summary type="html">障害対応や影響調査を行う際、必要な資料を的確に準備することが重要です。これにより、障害が発生した際に迅速かつ効果的に対応でき、関係者への報告や再発防止策を立案するための基盤が築かれます。</summary>
+    
+    
+    
+    <category term="プロジェクト管理" scheme="https://ooblivion.github.io/categories/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E7%AE%A1%E7%90%86/"/>
+    
+    
+    <category term="障害対応" scheme="https://ooblivion.github.io/tags/%E9%9A%9C%E5%AE%B3%E5%AF%BE%E5%BF%9C/"/>
+    
+    <category term="影響調査" scheme="https://ooblivion.github.io/tags/%E5%BD%B1%E9%9F%BF%E8%AA%BF%E6%9F%BB/"/>
     
   </entry>
   
@@ -111,7 +153,7 @@
   </entry>
   
   <entry>
-    <title>Javaプロジェクトにおける前後端データの伝達方法</title>
+    <title>Javaプロジェクトにおける前後端データの交換方法</title>
     <link href="https://ooblivion.github.io/Methods-of-Data-Transfer-Between-Frontend-and-Backend-in-Java-Projects/"/>
     <id>https://ooblivion.github.io/Methods-of-Data-Transfer-Between-Frontend-and-Backend-in-Java-Projects/</id>
     <published>2023-02-11T23:21:18.000Z</published>
