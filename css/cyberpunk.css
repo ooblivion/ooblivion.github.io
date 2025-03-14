@@ -10818,23 +10818,25 @@ article.article .article-meta {
 article.article .content {
   word-wrap: break-word;
   font-size: 1.1rem;
+  letter-spacing: 0.08rem;
 }
 article.article .content h1 {
   font-weight: bold;
 }
 article.article .content h2 {
   font-size: 1.5em;
-  background: rgba(110,110,110,0.18);
+  background: rgba(132,224,255,0.441);
   padding: 10px 10px;
   text-align: left;
   border-radius: 5px;
   font-weight: bold;
 }
+article.article .content a,
 article.article .content h3 {
   font-size: 1.25em;
   padding: 0.25em 0.5em;
   background: transparent;
-  border-left: solid 5px rgba(110,110,110,0.18);
+  border-left: solid 5px rgba(171,197,241,0.5);
   font-weight: bold;
 }
 article.article .content h4 {

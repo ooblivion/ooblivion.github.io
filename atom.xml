@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>OrangeNoteBlog</title>
+  <title>OrangeBlog</title>
   
   
   <link href="https://ooblivion.github.io/atom.xml" rel="self"/>
@@ -118,21 +118,6 @@
     <category term="MVC" scheme="https://ooblivion.github.io/tags/MVC/"/>
     
     <category term="MVVM" scheme="https://ooblivion.github.io/tags/MVVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JSP に取って代わられたテクノロジーは何ですか</title>
-    <link href="https://ooblivion.github.io/What-technology-has-replaced-JSP/"/>
-    <id>https://ooblivion.github.io/What-technology-has-replaced-JSP/</id>
-    <published>2024-04-08T11:49:04.000Z</published>
-    <updated>2025-03-07T18:30:49.249Z</updated>
-    
-    
-    <summary type="html">この記事は...</summary>
-    
-    
-    
     
   </entry>
   
@@ -341,9 +326,9 @@
     <category term="面接知識" scheme="https://ooblivion.github.io/categories/YouTube%E5%AD%A6%E7%BF%92/%E9%9D%A2%E6%8E%A5%E7%9F%A5%E8%AD%98/"/>
     
     
-    <category term="面接" scheme="https://ooblivion.github.io/tags/%E9%9D%A2%E6%8E%A5/"/>
-    
     <category term="YouTube" scheme="https://ooblivion.github.io/tags/YouTube/"/>
+    
+    <category term="面接" scheme="https://ooblivion.github.io/tags/%E9%9D%A2%E6%8E%A5/"/>
     
   </entry>
   
@@ -364,9 +349,9 @@
     <category term="面接知識" scheme="https://ooblivion.github.io/categories/YouTube%E5%AD%A6%E7%BF%92/%E9%9D%A2%E6%8E%A5%E7%9F%A5%E8%AD%98/"/>
     
     
-    <category term="面接" scheme="https://ooblivion.github.io/tags/%E9%9D%A2%E6%8E%A5/"/>
-    
     <category term="YouTube" scheme="https://ooblivion.github.io/tags/YouTube/"/>
+    
+    <category term="面接" scheme="https://ooblivion.github.io/tags/%E9%9D%A2%E6%8E%A5/"/>
     
   </entry>
   
@@ -387,9 +372,9 @@
     <category term="面接知識" scheme="https://ooblivion.github.io/categories/YouTube%E5%AD%A6%E7%BF%92/%E9%9D%A2%E6%8E%A5%E7%9F%A5%E8%AD%98/"/>
     
     
-    <category term="面接" scheme="https://ooblivion.github.io/tags/%E9%9D%A2%E6%8E%A5/"/>
-    
     <category term="YouTube" scheme="https://ooblivion.github.io/tags/YouTube/"/>
+    
+    <category term="面接" scheme="https://ooblivion.github.io/tags/%E9%9D%A2%E6%8E%A5/"/>
     
   </entry>
   
@@ -439,6 +424,21 @@
     <id>https://ooblivion.github.io/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88%E3%81%AE%E4%BB%95%E4%BA%8B%E5%89%B2%E3%82%8A%E6%8C%AF%E3%82%8A%E6%96%B9%E6%B3%95/</id>
     <published>2024-04-04T16:26:39.000Z</published>
     <updated>2024-04-04T16:26:39.000Z</updated>
+    
+    
+    <summary type="html">この記事は...</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>プロジェクト成功する方法</title>
+    <link href="https://ooblivion.github.io/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%88%90%E5%8A%9F%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/"/>
+    <id>https://ooblivion.github.io/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%88%90%E5%8A%9F%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/</id>
+    <published>2024-04-04T16:25:57.000Z</published>
+    <updated>2024-04-04T16:25:57.000Z</updated>
     
     
     <summary type="html">この記事は...</summary>
