@@ -36,22 +36,22 @@
       window.addEventListener('hashchange', switchTab, false);
   })();
   </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="OrangeBlog" type="application/atom+xml">
-</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/orange.png" alt="OrangeBlog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">ホームページ</a><a class="navbar-item" href="/about">自己紹介</a><a class="navbar-item" href="/Contact">問い合わせ・案件のご紹介</a><a class="navbar-item" href="/Development">開発実績</a><a class="navbar-item" href="/archives">アーカイブ</a><a class="navbar-item" href="/categories">カテゴリ</a><a class="navbar-item" href="/tags">タグ</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-lightbulb" id="night-icon"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ooblivion"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目次" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="検索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-01-02T09:35:10.000Z" title="2025/1/2 18:35:10">2025-01-02</time>に投稿</span><span class="level-item"><time dateTime="2025-03-07T17:44:41.000Z" title="2025/3/8 2:44:41">2025-03-08</time>に更新</span><span class="level-item"><a class="link-muted" href="/categories/%E9%96%8B%E7%99%BA%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%83%A2%E3%83%87%E3%83%AB/">開発プロセスモデル</a></span><span class="level-item">33 minutesで読む (約4915語)</span></div></div><h1 class="title is-3 is-size-4-mobile">ウォーターフォールモデル各段階の成果物</h1><div class="content"><p>ウォーターフォールモデルは、ソフトウェア開発において各工程を順番に進める開発モデルです。このモデルでは、各段階ごとに明確な成果物（ドキュメントやシステム成果）を作成し、次の工程へと引き継ぎます。本記事では、ウォーターフォールモデルの主要な段階と、それぞれの成果物について概説します。</p>
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/orange.png" alt="OrangeBlog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">ホームページ</a><a class="navbar-item" href="/about">自己紹介</a><a class="navbar-item" href="/Contact">問い合わせ・案件のご紹介</a><a class="navbar-item" href="/Development">開発実績</a><a class="navbar-item" href="/archives">アーカイブ</a><a class="navbar-item" href="/categories">カテゴリ</a><a class="navbar-item" href="/tags">タグ</a><a class="navbar-item" href="/Test">Test</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-lightbulb" id="night-icon"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ooblivion"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目次" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="検索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-01-02T09:35:10.000Z" title="2025/1/2 18:35:10">2025-01-02</time>に投稿</span><span class="level-item"><time dateTime="2025-03-07T17:44:41.000Z" title="2025/3/8 2:44:41">2025-03-08</time>に更新</span><span class="level-item"><a class="link-muted" href="/categories/%E9%96%8B%E7%99%BA%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%83%A2%E3%83%87%E3%83%AB/">開発プロセスモデル</a></span><span class="level-item">33 minutesで読む (約4915語)</span></div></div><h1 class="title is-3 is-size-4-mobile">ウォーターフォールモデル各段階の成果物</h1><div class="content"><p>ウォーターフォールモデルは、ソフトウェア開発において各工程を順番に進める開発モデルです。このモデルでは、各段階ごとに明確な成果物（ドキュメントやシステム成果）を作成し、次の工程へと引き継ぎます。本記事では、ウォーターフォールモデルの主要な段階と、それぞれの成果物について概説します。</p>
 <!-- more -->
 <p>日本の大型プロジェクトの開発におけるウォーターフォールモデルでは、通常、厳密な段階的なプロセスに従って進行します。</p>
 <p>「要件定義」、「基本設計」、「詳細設計」、「単体テスト」、「結合テスト」に加えて、以下のような段階もあります：</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><strong>システム統合テスト（System Integration Testing）：この段階では、すべてのモジュールやサブシステムが統合され、システム全体の機能や性能がテストされます。コンポーネント間の連携がスムーズに行われるか確認します。</strong></p>
+<p>システム統合テスト（System Integration Testing）：この段階では、すべてのモジュールやサブシステムが統合され、システム全体の機能や性能がテストされます。コンポーネント間の連携がスムーズに行われるか確認します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>受け入れテスト（Acceptance Testing）：顧客やユーザーがプロジェクトの要求に基づいて、ソフトウェアが機能や性能の要件を満たしているかを検証します。納品が顧客の要求に適合していることを確認する段階です。</strong></p>
+<p>受け入れテスト（Acceptance Testing）：顧客やユーザーがプロジェクトの要求に基づいて、ソフトウェアが機能や性能の要件を満たしているかを検証します。納品が顧客の要求に適合していることを確認する段階です。</p>
 </li>
 <li class="lvl-2">
-<p><strong>デプロイ（Deployment）：開発が完了したソフトウェアを本番環境にデプロイし、最終的なセットアップ作業を行い、必要な環境設定を実施します。</strong></p>
+<p>デプロイ（Deployment）：開発が完了したソフトウェアを本番環境にデプロイし、最終的なセットアップ作業を行い、必要な環境設定を実施します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>保守（Maintenance）：ソフトウェアが納品された後、保守段階に入ります。この段階では、バグの修正、パフォーマンスの最適化、新たな要求への対応などが行われます。</strong></p>
+<p>保守（Maintenance）：ソフトウェアが納品された後、保守段階に入ります。この段階では、バグの修正、パフォーマンスの最適化、新たな要求への対応などが行われます。</p>
 </li>
 </ul>
 <p>これらの段階は通常、順番に実行され、各段階の結果が次の段階に影響を与えることになります。</p>
@@ -60,43 +60,43 @@
 <p><strong>入力資料（Input）：</strong></p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><strong>顧客の要求：顧客が求めるソフトウェアの機能、性能、インターフェース、操作方法などの基本的な要求。</strong></p>
+<p>顧客の要求：顧客が求めるソフトウェアの機能、性能、インターフェース、操作方法などの基本的な要求。</p>
 </li>
 <li class="lvl-2">
-<p><strong>既存システムの文書：既存システムの改善や拡張の場合、既存システムの文書やアーキテクチャ設計が参考資料となります。</strong></p>
+<p>既存システムの文書：既存システムの改善や拡張の場合、既存システムの文書やアーキテクチャ設計が参考資料となります。</p>
 </li>
 <li class="lvl-2">
-<p><strong>業務フローやルール：システムがサポートする業務フローや規則、規範に関する情報。各業務の具体的な操作を理解する必要があります。</strong></p>
+<p>業務フローやルール：システムがサポートする業務フローや規則、規範に関する情報。各業務の具体的な操作を理解する必要があります。</p>
 </li>
 <li class="lvl-2">
-<p><strong>法令や業界標準：プロジェクトが関わる業界における関連法令や規制、標準に準拠する必要がある場合、それらを考慮する必要があります。</strong></p>
+<p>法令や業界標準：プロジェクトが関わる業界における関連法令や規制、標準に準拠する必要がある場合、それらを考慮する必要があります。</p>
 </li>
 <li class="lvl-2">
-<p><strong>市場分析：プロジェクトが属する市場環境や競合製品など、市場ニーズや方向性を把握するための分析資料。</strong></p>
+<p>市場分析：プロジェクトが属する市場環境や競合製品など、市場ニーズや方向性を把握するための分析資料。</p>
 </li>
 <li class="lvl-2">
-<p><strong>関係者（stakeholder）の意見：プロジェクトマネージャー、開発チーム、テストチームなど、関係者からの意見やアドバイス。</strong></p>
+<p>関係者（stakeholder）の意見：プロジェクトマネージャー、開発チーム、テストチームなど、関係者からの意見やアドバイス。</p>
 </li>
 <li class="lvl-2">
-<p><strong>技術的な要求と制約：使用する技術基盤、プラットフォーム、ツール、技術的な制約や特殊な要件に関する資料。</strong></p>
+<p>技術的な要求と制約：使用する技術基盤、プラットフォーム、ツール、技術的な制約や特殊な要件に関する資料。</p>
 </li>
 </ul>
 <p><strong>成果物（Deliverables）：</strong></p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><strong>要件定義書：顧客とユーザーの要求を明確に、詳細に記述したドキュメントで、システムが備えるべき機能や性能について説明されます。後の設計や開発の基礎となります。</strong></p>
+<p>要件定義書：顧客とユーザーの要求を明確に、詳細に記述したドキュメントで、システムが備えるべき機能や性能について説明されます。後の設計や開発の基礎となります。</p>
 </li>
 <li class="lvl-2">
-<p><strong>ユースケース図：システムとユーザー間のインタラクションを示すユースケース図。システムの動作の流れを視覚的に表現します。</strong></p>
+<p>ユースケース図：システムとユーザー間のインタラクションを示すユースケース図。システムの動作の流れを視覚的に表現します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>機能要件文書：システムが実現する必要がある機能を詳細に列挙し、入力、出力、動作などを記述します。</strong></p>
+<p>機能要件文書：システムが実現する必要がある機能を詳細に列挙し、入力、出力、動作などを記述します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>優先度リスト：各要件の優先度を整理し、開発時に重要度や緊急度に基づいて処理する順序を決定します。</strong></p>
+<p>優先度リスト：各要件の優先度を整理し、開発時に重要度や緊急度に基づいて処理する順序を決定します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>非機能要件文書：性能、セキュリティ、信頼性、保守性など、システムの非機能的な要求を文書化したもの。</strong></p>
+<p>非機能要件文書：性能、セキュリティ、信頼性、保守性など、システムの非機能的な要求を文書化したもの。</p>
 </li>
 </ul>
 <p>これらの成果物は、次の段階の設計や開発に向けた基盤となり、チーム全体が同じ目標に向かって進むための重要な指針となります。</p>
@@ -105,43 +105,43 @@
 <p><strong>入力資料（Input）：</strong></p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><strong>要件定義書：基本設計段階の中心的な入力資料で、機能要件、非機能要件、優先度などの詳細情報が含まれ、これが後の設計作業の基盤となります。</strong></p>
+<p>要件定義書：基本設計段階の中心的な入力資料で、機能要件、非機能要件、優先度などの詳細情報が含まれ、これが後の設計作業の基盤となります。</p>
 </li>
 <li class="lvl-2">
-<p><strong>業務フロー文書：業務プロセスや規則を記載した文書で、設計者がシステムの実際の運用シナリオやフローを理解するために役立ちます。</strong></p>
+<p>業務フロー文書：業務プロセスや規則を記載した文書で、設計者がシステムの実際の運用シナリオやフローを理解するために役立ちます。</p>
 </li>
 <li class="lvl-2">
-<p><strong>既存システムのアーキテクチャ文書：既存システムの改修や拡張がある場合、既存システムのアーキテクチャ設計文書が重要で、システムの構造や制約を理解するために必要です。</strong></p>
+<p>既存システムのアーキテクチャ文書：既存システムの改修や拡張がある場合、既存システムのアーキテクチャ設計文書が重要で、システムの構造や制約を理解するために必要です。</p>
 </li>
 <li class="lvl-2">
-<p><strong>技術的要求文書：システムの性能、プラットフォーム、ツール選定などの技術的な制約や要求が記載されており、基本設計に影響を与えます。</strong></p>
+<p>技術的要求文書：システムの性能、プラットフォーム、ツール選定などの技術的な制約や要求が記載されており、基本設計に影響を与えます。</p>
 </li>
 <li class="lvl-2">
-<p><strong>法令や規制に関する要求：プロジェクトに関連する法令や業界規格、安全要件などが、設計に影響を与える場合があります。</strong></p>
+<p>法令や規制に関する要求：プロジェクトに関連する法令や業界規格、安全要件などが、設計に影響を与える場合があります。</p>
 </li>
 <li class="lvl-2">
-<p><strong>開発チームおよび関係者のフィードバック：開発チーム、テストチーム、運用チームなどからの意見や提案が、設計の実現可能性と保守性を高めるために重要です。</strong></p>
+<p>開発チームおよび関係者のフィードバック：開発チーム、テストチーム、運用チームなどからの意見や提案が、設計の実現可能性と保守性を高めるために重要です。</p>
 </li>
 </ul>
 <p><strong>成果物（Deliverables）：</strong></p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><strong>システムアーキテクチャ設計書：システム全体のアーキテクチャを記述し、モジュールの分割、サブシステム間のインタラクション、データフロー、機能の割り当てなどを定義します。</strong></p>
+<p>システムアーキテクチャ設計書：システム全体のアーキテクチャを記述し、モジュールの分割、サブシステム間のインタラクション、データフロー、機能の割り当てなどを定義します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>インターフェース設計書：システムの各モジュール間のインターフェース規格を詳細に定義し、入力・出力フォーマット、データ交換方法、プロトコルなどを明記します。</strong></p>
+<p>インターフェース設計書：システムの各モジュール間のインターフェース規格を詳細に定義し、入力・出力フォーマット、データ交換方法、プロトコルなどを明記します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>データベース設計書：システムにデータベースが関わる場合、基本設計段階でデータベースの初期設計を行い、テーブル、データ関係、インデックスなどを定義します。</strong></p>
+<p>データベース設計書：システムにデータベースが関わる場合、基本設計段階でデータベースの初期設計を行い、テーブル、データ関係、インデックスなどを定義します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>高レベルの技術的アーキテクチャ案：システムの技術選定、開発プラットフォーム、フレームワークなどに関する高レベルな設計案を提供します。</strong></p>
+<p>高レベルの技術的アーキテクチャ案：システムの技術選定、開発プラットフォーム、フレームワークなどに関する高レベルな設計案を提供します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>システムフローチャートやユースケース図：システムの処理フローやユーザーとシステム間のインタラクションを示す図で、開発チームにシステムの動作理解を助けます。</strong></p>
+<p>システムフローチャートやユースケース図：システムの処理フローやユーザーとシステム間のインタラクションを示す図で、開発チームにシステムの動作理解を助けます。</p>
 </li>
 <li class="lvl-2">
-<p><strong>非機能要件の設計文書：システムの性能、安全性、信頼性など、非機能的な要求に対する設計案をまとめます。</strong></p>
+<p>非機能要件の設計文書：システムの性能、安全性、信頼性など、非機能的な要求に対する設計案をまとめます。</p>
 </li>
 </ul>
 <p>これらの成果物は、詳細設計段階の基礎となり、システムのアーキテクチャや設計案が実際の開発に進むための指針を提供します。</p>
@@ -150,49 +150,49 @@
 <p><strong>入力資料（Input）：</strong></p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><strong>基本設計書：システムのアーキテクチャ設計、モジュール分割、インターフェース定義などが記載された基本設計書を基に、詳細設計を進めます。</strong></p>
+<p>基本設計書：システムのアーキテクチャ設計、モジュール分割、インターフェース定義などが記載された基本設計書を基に、詳細設計を進めます。</p>
 </li>
 <li class="lvl-2">
-<p><strong>要件定義書：詳細設計段階では、すべての機能要件と非機能要件を満たすように設計を進めるため、要件定義書が重要な入力資料となります。</strong></p>
+<p>要件定義書：詳細設計段階では、すべての機能要件と非機能要件を満たすように設計を進めるため、要件定義書が重要な入力資料となります。</p>
 </li>
 <li class="lvl-2">
-<p><strong>インターフェース設計書：システム内外のモジュール間のインターフェース設計を詳細化し、データ形式やパラメータ、返却値、エラーハンドリングの仕様を定義します。</strong></p>
+<p>インターフェース設計書：システム内外のモジュール間のインターフェース設計を詳細化し、データ形式やパラメータ、返却値、エラーハンドリングの仕様を定義します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>データベース設計書：プロジェクトでデータベースを使用する場合、データベースの詳細設計（テーブル構造、インデックス、データ関係など）が詳細設計の入力資料になります。</strong></p>
+<p>データベース設計書：プロジェクトでデータベースを使用する場合、データベースの詳細設計（テーブル構造、インデックス、データ関係など）が詳細設計の入力資料になります。</p>
 </li>
 <li class="lvl-2">
-<p><strong>技術アーキテクチャ設計書：システムアーキテクチャにおいて選定された技術スタックやプラットフォームを基に、詳細設計を進めます。</strong></p>
+<p>技術アーキテクチャ設計書：システムアーキテクチャにおいて選定された技術スタックやプラットフォームを基に、詳細設計を進めます。</p>
 </li>
 <li class="lvl-2">
-<p><strong>セキュリティおよびパフォーマンス要件文書：システムのパフォーマンスや拡張性、セキュリティ要件に対応するため、これらの非機能的な要件が詳細設計に影響を与えます。</strong></p>
+<p>セキュリティおよびパフォーマンス要件文書：システムのパフォーマンスや拡張性、セキュリティ要件に対応するため、これらの非機能的な要件が詳細設計に影響を与えます。</p>
 </li>
 <li class="lvl-2">
-<p><strong>開発ツールやフレームワークの文書：使用する開発ツールやフレームワークに関する文書が必要で、詳細設計の段階でそれらに適した設計を行います。</strong></p>
+<p>開発ツールやフレームワークの文書：使用する開発ツールやフレームワークに関する文書が必要で、詳細設計の段階でそれらに適した設計を行います。</p>
 </li>
 </ul>
 <p><strong>成果物（Deliverables）：</strong></p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><strong>モジュール設計書：各モジュールの詳細な設計を記述し、クラス図、オブジェクト図、データフロー、アルゴリズム、データ構造などを含めます。これが開発者の実装基盤となります。</strong></p>
+<p>モジュール設計書：各モジュールの詳細な設計を記述し、クラス図、オブジェクト図、データフロー、アルゴリズム、データ構造などを含めます。これが開発者の実装基盤となります。</p>
 </li>
 <li class="lvl-2">
-<p><strong>データベース設計書：データベースのテーブル構造、フィールド定義、データ間の関係、外部キー制約、インデックス設計などを詳細に記述します。</strong></p>
+<p>データベース設計書：データベースのテーブル構造、フィールド定義、データ間の関係、外部キー制約、インデックス設計などを詳細に記述します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>インターフェース設計書：モジュール間のインターフェース詳細設計を行い、入力・出力フォーマット、プロトコル、エラーコード、処理方法などを定義します。</strong></p>
+<p>インターフェース設計書：モジュール間のインターフェース詳細設計を行い、入力・出力フォーマット、プロトコル、エラーコード、処理方法などを定義します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>技術設計書：各モジュールの実装技術、選定したプログラミング言語、フレームワーク、ツールの使用方法などを記載した技術的な設計書です。</strong></p>
+<p>技術設計書：各モジュールの実装技術、選定したプログラミング言語、フレームワーク、ツールの使用方法などを記載した技術的な設計書です。</p>
 </li>
 <li class="lvl-2">
-<p><strong>テストケース文書：詳細設計に基づいて、各機能のテストケースを作成し、設計が正しく実装されることを確認します。</strong></p>
+<p>テストケース文書：詳細設計に基づいて、各機能のテストケースを作成し、設計が正しく実装されることを確認します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>パフォーマンス要件設計書：システムのレスポンスタイム、スループット、同時処理能力などのパフォーマンス要件に対応した設計を行います。</strong></p>
+<p>パフォーマンス要件設計書：システムのレスポンスタイム、スループット、同時処理能力などのパフォーマンス要件に対応した設計を行います。</p>
 </li>
 <li class="lvl-2">
-<p><strong>セキュリティ設計書：システムの認証、認可、暗号化、データセキュリティなど、セキュリティ要件を満たすための設計書です。</strong></p>
+<p>セキュリティ設計書：システムの認証、認可、暗号化、データセキュリティなど、セキュリティ要件を満たすための設計書です。</p>
 </li>
 </ul>
 <p>これらの成果物は、システムの実装に向けた詳細な情報を開発者に提供し、テストチームにとっては設計が正しく実装されていることを確認するための基盤となります。</p>
@@ -202,81 +202,81 @@
 <p>テスト仕様書には通常、以下の情報が含まれます。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><strong>テストケースID（Test Case ID）：各テストケースに一意の番号を付与し、管理しやすくします。</strong></p>
+<p>テストケースID（Test Case ID）：各テストケースに一意の番号を付与し、管理しやすくします。</p>
 </li>
 <li class="lvl-2">
-<p><strong>テストケース名（Test Case Name）：テストの目的や機能を簡潔に示した名前。</strong></p>
+<p>テストケース名（Test Case Name）：テストの目的や機能を簡潔に示した名前。</p>
 </li>
 <li class="lvl-2">
-<p><strong>テストの説明（Test Description）：テストケースの目的と検証内容の概要。</strong></p>
+<p>テストの説明（Test Description）：テストケースの目的と検証内容の概要。</p>
 </li>
 <li class="lvl-2">
-<p><strong>前提条件（Pre-conditions）：テストを実行する前に満たすべき条件やシステムの状態。</strong></p>
+<p>前提条件（Pre-conditions）：テストを実行する前に満たすべき条件やシステムの状態。</p>
 </li>
 <li class="lvl-2">
-<p><strong>テスト手順（Test Steps）：テスト実行のための詳細な手順。</strong></p>
+<p>テスト手順（Test Steps）：テスト実行のための詳細な手順。</p>
 </li>
 <li class="lvl-2">
-<p><strong>期待結果（Expected Results）：テスト実行後に期待される結果。</strong></p>
+<p>期待結果（Expected Results）：テスト実行後に期待される結果。</p>
 </li>
 <li class="lvl-2">
-<p><strong>実際の結果（Actual Results）：テスト実行後に得られた実際の結果（通常はテスト実行時に記入）。</strong></p>
+<p>実際の結果（Actual Results）：テスト実行後に得られた実際の結果（通常はテスト実行時に記入）。</p>
 </li>
 <li class="lvl-2">
-<p><strong>テストデータ（Test Data）：テスト中に使用される入力データやテスト環境の設定。</strong></p>
+<p>テストデータ（Test Data）：テスト中に使用される入力データやテスト環境の設定。</p>
 </li>
 <li class="lvl-2">
-<p><strong>テスト環境（Test Environment）：テストに必要なハードウェア、OS、ソフトウェアバージョンなどの環境設定。</strong></p>
+<p>テスト環境（Test Environment）：テストに必要なハードウェア、OS、ソフトウェアバージョンなどの環境設定。</p>
 </li>
 <li class="lvl-2">
-<p><strong>優先度（Priority）：テストケースの重要度や不具合の影響度に基づいて設定。</strong></p>
+<p>優先度（Priority）：テストケースの重要度や不具合の影響度に基づいて設定。</p>
 </li>
 <li class="lvl-2">
-<p><strong>ステータス（Status）：テストケースの実行状態（例：「成功」「失敗」「ブロック中」など）。</strong></p>
+<p>ステータス（Status）：テストケースの実行状態（例：「成功」「失敗」「ブロック中」など）。</p>
 </li>
 </ul>
 <h3 id="メソッド単位でのテストか、クラス全体単位でのテストか？"><strong>メソッド単位でのテストか、クラス全体単位でのテストか？</strong></h3>
 <p>テストはプロジェクトの要求に応じて、メソッド単位やクラス全体単位で行います。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><strong>メソッド単位のユニットテスト：通常、開発者は各メソッド単位でテストを行い、関数やメソッドが期待通りに動作するかを確認します。ユニットテストは、JUnitやTestNGなどのツールを使用して自動化できます。</strong></p>
+<p>メソッド単位のユニットテスト：通常、開発者は各メソッド単位でテストを行い、関数やメソッドが期待通りに動作するかを確認します。ユニットテストは、JUnitやTestNGなどのツールを使用して自動化できます。</p>
 </li>
 <li class="lvl-2">
-<p><strong>クラス単位の統合テスト：メソッド単位のテストが完了したら、次はクラスやモジュール単位で統合テストを行い、複数のメソッドが協調して動作することを確認します。</strong></p>
+<p>クラス単位の統合テスト：メソッド単位のテストが完了したら、次はクラスやモジュール単位で統合テストを行い、複数のメソッドが協調して動作することを確認します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>システム全体テスト：システム全体またはサブシステムの機能テストは、ユーザー視点でシステム全体の動作を確認することに焦点を当てます。</strong></p>
+<p>システム全体テスト：システム全体またはサブシステムの機能テストは、ユーザー視点でシステム全体の動作を確認することに焦点を当てます。</p>
 </li>
 </ul>
 <p><strong>テストの網羅性をどう確保するか？</strong></p>
 <p>テストの網羅性を確保するためには、以下のアプローチが有効です。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><strong>カバレッジ分析：コードカバレッジツール（JaCoCo、Coberturaなど）を使用して、テストがコードの重要な部分や分岐点を網羅していることを確認します。</strong></p>
+<p>カバレッジ分析：コードカバレッジツール（JaCoCo、Coberturaなど）を使用して、テストがコードの重要な部分や分岐点を網羅していることを確認します。</p>
 <ul class="lvl-2">
-<li class="lvl-6"><strong>機能テストと非機能テストの組み合わせ：</strong></li>
-<li class="lvl-6"><strong>機能テスト</strong>：システムが基本的な機能やビジネス要件を満たしているかを検証します。</li>
+<li class="lvl-6">機能テストと非機能テストの組み合わせ：</li>
+<li class="lvl-6">機能テスト：システムが基本的な機能やビジネス要件を満たしているかを検証します。</li>
 </ul>
 </li>
 <li class="lvl-2">
-<p><strong>非機能テスト</strong>：性能、安全性、可用性などの非機能要件が満たされているかを確認します。</p>
+<p>非機能テスト：性能、安全性、可用性などの非機能要件が満たされているかを確認します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>テスト設計手法：</strong></p>
+<p>テスト設計手法：</p>
 <ul class="lvl-2">
-<li class="lvl-6"><strong>境界値分析</strong>：入力データの境界値をテストし、システムが極端なケースに適切に対応するかを確認します。</li>
-<li class="lvl-6"><strong>同値クラステスト</strong>：入力データを同値クラスに分け、それぞれの代表値をテストします。</li>
-<li class="lvl-6"><strong>状態遷移テスト</strong>：システムが状態遷移を伴う場合、状態遷移図を使って各状態の動作をテストします。</li>
+<li class="lvl-6">境界値分析：入力データの境界値をテストし、システムが極端なケースに適切に対応するかを確認します。</li>
+<li class="lvl-6">同値クラステスト：入力データを同値クラスに分け、それぞれの代表値をテストします。</li>
+<li class="lvl-6">状態遷移テスト：システムが状態遷移を伴う場合、状態遷移図を使って各状態の動作をテストします。</li>
 </ul>
 </li>
 <li class="lvl-2">
-<p><strong>自動化テスト：Selenium、JUnit、Appiumなどのツールを使用して、テストの効率を向上させ、多くのテストケースをカバーできます。</strong></p>
+<p>自動化テスト：Selenium、JUnit、Appiumなどのツールを使用して、テストの効率を向上させ、多くのテストケースをカバーできます。</p>
 </li>
 <li class="lvl-2">
-<p><strong>回帰テスト：コードの変更や更新に対して、回帰テストを行い、新たなバグが発生していないかを確認します。</strong></p>
+<p>回帰テスト：コードの変更や更新に対して、回帰テストを行い、新たなバグが発生していないかを確認します。</p>
 </li>
 <li class="lvl-2">
-<p><strong>ユーザー受け入れテスト（UAT）：最終ユーザーによる受け入れテストを実施し、システムがユーザーの期待に応えているかを確認します。</strong></p>
+<p>ユーザー受け入れテスト（UAT）：最終ユーザーによる受け入れテストを実施し、システムがユーザーの期待に応えているかを確認します。</p>
 </li>
 </ul>
 <p>これらの方法を組み合わせて使用することで、テストの網羅性を確保し、システムの品質を高めることができます。</p>
