@@ -6,7 +6,7 @@
   <link href="https://ooblivion.github.io/atom.xml" rel="self"/>
   
   <link href="https://ooblivion.github.io/"/>
-  <updated>2025-03-14T14:56:41.841Z</updated>
+  <updated>2025-03-07T17:44:41.000Z</updated>
   <id>https://ooblivion.github.io/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>プロジェクトが遅延している場合の対応策</title>
-    <link href="https://ooblivion.github.io/Measures-for-handling-project-delay/"/>
-    <id>https://ooblivion.github.io/Measures-for-handling-project-delay/</id>
-    <published>2025-03-14T14:39:41.798Z</published>
-    <updated>2025-03-14T14:56:41.841Z</updated>
-    
-    
-    <summary type="html">プロジェクトの遅延時、原因分析、チームとのコミュニケーション強化、計画見直しが重要です。是正措置を講じ、遅延を最小限に抑え、関係者と調整し、次回に向けた改善策を検討します。</summary>
-    
-    
-    
-    <category term="プロジェクト管理" scheme="https://ooblivion.github.io/categories/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E7%AE%A1%E7%90%86/"/>
-    
-    
-    <category term="進捗管理" scheme="https://ooblivion.github.io/tags/%E9%80%B2%E6%8D%97%E7%AE%A1%E7%90%86/"/>
-    
-    <category term="障害対応" scheme="https://ooblivion.github.io/tags/%E9%9A%9C%E5%AE%B3%E5%AF%BE%E5%BF%9C/"/>
-    
-  </entry>
   
   <entry>
     <title>ウォーターフォールモデル各段階の成果物</title>
@@ -78,6 +57,27 @@
     <category term="WBS" scheme="https://ooblivion.github.io/tags/WBS/"/>
     
     <category term="進捗管理" scheme="https://ooblivion.github.io/tags/%E9%80%B2%E6%8D%97%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>プロジェクトが遅延している場合の対応策</title>
+    <link href="https://ooblivion.github.io/Measures-for-handling-project-delay/"/>
+    <id>https://ooblivion.github.io/Measures-for-handling-project-delay/</id>
+    <published>2024-07-07T11:54:34.000Z</published>
+    <updated>2024-08-07T01:07:01.000Z</updated>
+    
+    
+    <summary type="html">プロジェクトの遅延時、原因分析、チームとのコミュニケーション強化、計画見直しが重要です。是正措置を講じ、遅延を最小限に抑え、関係者と調整し、次回に向けた改善策を検討します。</summary>
+    
+    
+    
+    <category term="プロジェクト管理" scheme="https://ooblivion.github.io/categories/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E7%AE%A1%E7%90%86/"/>
+    
+    
+    <category term="進捗管理" scheme="https://ooblivion.github.io/tags/%E9%80%B2%E6%8D%97%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="障害対応" scheme="https://ooblivion.github.io/tags/%E9%9A%9C%E5%AE%B3%E5%AF%BE%E5%BF%9C/"/>
     
   </entry>
   

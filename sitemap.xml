@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ooblivion.github.io/Measures-for-handling-project-delay/</loc>
-    
-    <lastmod>2025-03-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://ooblivion.github.io/contact/index.html</loc>
     
     <lastmod>2025-03-14</lastmod>
@@ -59,6 +50,15 @@
     <loc>https://ooblivion.github.io/WBS-management-task-assignment-progress/</loc>
     
     <lastmod>2024-12-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ooblivion.github.io/Measures-for-handling-project-delay/</loc>
+    
+    <lastmod>2024-08-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
