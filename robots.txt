@@ -9,6 +9,4 @@ Allow: /archives/
 Allow: /categories/
 Allow: /tags/
 Allow: /about/
-Allow: /Contact/
-Allow: /Development/
 Sitemap: https://ooblivion.github.io/sitemap.xml
