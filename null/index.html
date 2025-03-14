@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="jp"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>WBSの管理方法、タスクの割り当て、進捗報告の方法 - OrangeBlog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="OrangeBlog"><meta name="msapplication-TileImage" content="/img/orange-facicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="OrangeBlog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="この文章では、WBSの管理方法、タスクの割り当て、進捗報告について解説しています。特に、3〜5人のSubleaderとして小規模なプロジェクトを担当する際に、効率的な進捗管理の方法やタスクの分解、優先順位設定の重要性について具体的なアドバイスを提供します。チームの進捗を正確に把握し、プロジェクトの成功に導くためのポイントが紹介されています。"><meta property="og:type" content="blog"><meta property="og:title" content="WBSの管理方法、タスクの割り当て、進捗報告の方法"><meta property="og:url" content="https://ooblivion.github.io/null/"><meta property="og:site_name" content="OrangeBlog"><meta property="og:description" content="この文章では、WBSの管理方法、タスクの割り当て、進捗報告について解説しています。特に、3〜5人のSubleaderとして小規模なプロジェクトを担当する際に、効率的な進捗管理の方法やタスクの分解、優先順位設定の重要性について具体的なアドバイスを提供します。チームの進捗を正確に把握し、プロジェクトの成功に導くためのポイントが紹介されています。"><meta property="og:locale" content="jp"><meta property="og:image" content="https://ooblivion.github.io/img/og_image.png"><meta property="article:published_time" content="2024-11-03T12:29:57.000Z"><meta property="article:modified_time" content="2024-12-17T16:16:33.000Z"><meta property="article:author" content="orange"><meta property="article:tag" content="WBS"><meta property="article:tag" content="進捗管理"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://ooblivion.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://ooblivion.github.io/null/"},"headline":"WBSの管理方法、タスクの割り当て、進捗報告の方法","image":["https://ooblivion.github.io/img/og_image.png"],"datePublished":"2024-11-03T12:29:57.000Z","dateModified":"2024-12-17T16:16:33.000Z","author":{"@type":"Person","name":"orange"},"publisher":{"@type":"Organization","name":"OrangeBlog","logo":{"@type":"ImageObject","url":"https://ooblivion.github.io/img/orange.png"}},"description":"この文章では、WBSの管理方法、タスクの割り当て、進捗報告について解説しています。特に、3〜5人のSubleaderとして小規模なプロジェクトを担当する際に、効率的な進捗管理の方法やタスクの分解、優先順位設定の重要性について具体的なアドバイスを提供します。チームの進捗を正確に把握し、プロジェクトの成功に導くためのポイントが紹介されています。"}</script><link rel="canonical" href="https://ooblivion.github.io/null/"><link rel="icon" href="/img/orange-facicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?G-TQZ0DMPY0S";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="OrangeBlog" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/orange.png" alt="OrangeBlog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">ホームページ</a><a class="navbar-item" href="/about">自己紹介</a><a class="navbar-item" href="/contact">問い合わせ・案件のご紹介</a><a class="navbar-item" href="/development">開発実績</a><a class="navbar-item" href="/archives">アーカイブ</a><a class="navbar-item" href="/categories">カテゴリ</a><a class="navbar-item" href="/tags">タグ</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-lightbulb" id="night-icon"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ooblivion"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目次" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="検索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-03T12:29:57.000Z" title="2024/11/3 21:29:57">2024-11-03</time>に投稿</span><span class="level-item"><time dateTime="2024-12-17T16:16:33.000Z" title="2024/12/18 1:16:33">2024-12-18</time>に更新</span><span class="level-item"><a class="link-muted" href="/categories/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E7%AE%A1%E7%90%86/">プロジェクト管理</a></span><span class="level-item">23 minutesで読む (約3498語)</span></div></div><h1 class="title is-3 is-size-4-mobile">WBSの管理方法、タスクの割り当て、進捗報告の方法</h1><div class="content"><p>この文章では、WBSの管理方法、タスクの割り当て、進捗報告について解説しています。特に、3〜5人のSubleaderとして小規模なプロジェクトを担当する際に、効率的な進捗管理の方法やタスクの分解、優先順位設定の重要性について具体的なアドバイスを提供します。チームの進捗を正確に把握し、プロジェクトの成功に導くためのポイントが紹介されています。</p>
+<!-- more -->
+<h1>WBSの管理方法、タスクの割り当て、進捗報告の方法</h1>
+<p>WBSの管理方法、タスクの割り当て、進捗報告について、3〜5人のSubleaderとして、いくつかの小さな案件やプロジェクトを担当する場合、進捗を把握することが重要です。</p>
+<h2 id="管理の方法">管理の方法</h2>
+<h3 id="1-明確なWBSを作成する">1. 明確なWBSを作成する</h3>
+<ul class="lvl-0">
+<li class="lvl-5">
+<p><strong>タスクの分解</strong>：まず、プロジェクトを小さなタスクに分解し、各タスクに明確な目標と納品物を設定します。WBSはプロジェクト全体の構造を把握するのに役立ち、詳細な管理が可能になります。</p>
+</li>
+<li class="lvl-5">
+<p><strong>タスクの優先順位と依存関係</strong>：各タスクに優先順位を設定し、タスク間の依存関係を明確にします。これにより、チームメンバーは優先順位に従って作業を進め、リソースの無駄を避けることができます。</p>
+</li>
+</ul>
+<h3 id="2-タスクの割り当て">2. タスクの割り当て</h3>
+<ul class="lvl-0">
+<li class="lvl-5">
+<p><strong>作業負荷のバランス</strong>：チームメンバーのスキルや経験に基づいて、タスクを適切に割り当てます。タスクの難易度や複雑さに応じて、負担が均等になるように配慮します。</p>
+</li>
+<li class="lvl-5">
+<p><strong>責任の明確化</strong>：各タスクには責任者と期限を設定し、責任が曖昧にならないようにします。これにより、タスクの進捗が遅れるリスクを減らせます。</p>
+</li>
+</ul>
+<h3 id="3-進捗報告">3. 進捗報告</h3>
+<ul class="lvl-0">
+<li class="lvl-5">
+<p><strong>定期的な進捗更新</strong>：毎日または毎週の進捗会議を設定し、各メンバーの作業状況を確認します。進捗が遅れている場合には早期に問題を発見できます。</p>
+</li>
+<li class="lvl-5">
+<p><strong>進捗管理ツールの利用</strong>：JiraやTrello、Excelなどのツールを使用してタスクの進捗を追跡します。これにより、タスクの現在の状況を視覚的に把握できます。</p>
+</li>
+<li class="lvl-5">
+<p><strong>適時調整</strong>：遅延やボトルネックが発生した場合、速やかにチームメンバーと連携し、実際の状況に応じて調整します。リソースの再配分や作業フローの最適化を行うことが必要です。</p>
+</li>
+</ul>
+<h3 id="4-リスク管理と問題解決">4. リスク管理と問題解決</h3>
+<ul class="lvl-0">
+<li class="lvl-5">
+<p><strong>リスクの事前特定</strong>：プロジェクトの初期段階で、進捗に影響を与える可能性のあるリスク（技術的な問題、チーム内の協力不足など）を特定し、それに対する対策を準備します。</p>
+</li>
+<li class="lvl-5">
+<p><strong>問題の早期解決</strong>：タスク実行中に問題が発生した場合、すぐに介入して解決します。例えば、技術的な課題や調整の問題が発生した場合、早期に対応することで問題の拡大を防げます。</p>
+</li>
+</ul>
+<h3 id="5-モチベーションとコミュニケーション">5. モチベーションとコミュニケーション</h3>
+<ul class="lvl-0">
+<li class="lvl-5">
+<p><strong>チーム内のコミュニケーション</strong>：チームメンバーとの良好なコミュニケーションを維持し、進捗状況を定期的に確認して調整を行います。</p>
+</li>
+<li class="lvl-5">
+<p><strong>適切なモチベーション</strong>：良い成果を上げたメンバーには適切な評価とフィードバックを行い、チームの士気を高め、協力関係を強化します。</p>
+</li>
+</ul>
+<h3 id="6-振り返りと改善">6. 振り返りと改善</h3>
+<ul class="lvl-0">
+<li class="lvl-5">
+<p><strong>プロジェクト後の振り返り</strong>：プロジェクト完了後に振り返りを行い、良かった点や改善点をまとめます。経験を積むことで、次回のプロジェクトに生かすことができます。</p>
+</li>
+</ul>
+<h2 id="WBS-作成">WBS 作成</h2>
+<p>Excelを使ってWBSを作成する場合、以下の手順に従って作業を進めることができます。</p>
+<h3 id="1：プロジェクト構造の決定">1：プロジェクト構造の決定</h3>
+<p>まず、プロジェクトの主要なフェーズやタスクを特定し、プロジェクトを複数のタスクに分解します。各タスクは、納品物や成果物が明確で、タスク間には依存関係がある場合があります。</p>
+<h3 id="2：WBS用のExcel表の作成">2：WBS用のExcel表の作成</h3>
+<p>ExcelでWBSを作成するためには、以下のカラムを設定します：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>タスク番号</strong>（Task ID）：各タスクやサブタスクには一意の番号を付けます。</p>
+</li>
+<li class="lvl-2">
+<p><strong>タスク名</strong>（Task Name）：タスクの簡単な説明や名前。</p>
+</li>
+<li class="lvl-2">
+<p><strong>タスクレベル</strong>（Level）：タスクがWBS内でどのレベルにあるか（例：1はメインタスク、2はサブタスクなど）。</p>
+</li>
+<li class="lvl-2">
+<p><strong>担当者</strong>（Owner）：そのタスクを担当する人物。</p>
+</li>
+<li class="lvl-2">
+<p><strong>開始日</strong>（Start Date）：タスクの開始日。</p>
+</li>
+<li class="lvl-2">
+<p><strong>終了日</strong>（End Date）：タスクの終了日。</p>
+</li>
+<li class="lvl-2">
+<p><strong>ステータス</strong>（Status）：タスクの進行状況（未開始、進行中、完了など）。</p>
+</li>
+<li class="lvl-2">
+<p><strong>依存関係</strong>（Dependencies）：前のタスク番号や名前を記入し、タスクの順番を明確にします。</p>
+</li>
+</ul>
+<h3 id="3：タスク情報を入力">3：タスク情報を入力</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>タスク番号の設定</strong>：プロジェクトの分解に基づいて、各タスクに番号を付けます。メインタスクには「1」、サブタスクには「1.1」「1.2」などの番号を付けます。</p>
+</li>
+<li class="lvl-3">
+<p><strong>タスク名の入力</strong>：各タスクの名前を簡潔に記入します。</p>
+</li>
+<li class="lvl-3">
+<p><strong>レベルの設定</strong>：タスクの階層を番号で示します。例えば、メインタスクは「1」、サブタスクは「1.1」「1.1.1」などと設定します。</p>
+</li>
+<li class="lvl-3">
+<p><strong>担当者の割り当て</strong>：各タスクの担当者を指定します。</p>
+</li>
+<li class="lvl-3">
+<p><strong>日付とステータスの入力</strong>：各タスクの開始日と終了日を記入し、進行状況を「未開始」「進行中」「完了」などで管理します。</p>
+</li>
+<li class="lvl-3">
+<p><strong>依存関係の記入</strong>：タスク間の依存関係をリストにしておくことで、タスクの順番を確認できます。</p>
+</li>
+</ol>
+<h3 id="4：Excelの機能を活用する">4：Excelの機能を活用する</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>セルの結合</strong>：親タスクとサブタスクの関係を視覚的に区別するために、セルを結合して階層を表現できます。</p>
+</li>
+<li class="lvl-3">
+<p><strong>色分け</strong>：タスクの進行状況に応じて色を変更します。例えば、「進行中」は黄色、「完了」は緑色、「遅延」は赤色などで設定できます。</p>
+</li>
+<li class="lvl-3">
+<p><strong>自動計算</strong>：期間や作業時間を自動で計算するための数式を設定できます。例えば、終了日から開始日を引いてタスクの所要日数を計算することができます。</p>
+</li>
+<li class="lvl-3">
+<p><strong>ガントチャートの作成</strong>：Excelには、条件付き書式を使って簡単にガントチャートを作成する機能があります。これにより、タスクの進捗が一目でわかるようになります。</p>
+</li>
+</ol>
+<h3 id="サンプルWBS表">サンプルWBS表</h3>
+<table>
+<thead>
+<tr>
+<th>タスク番号</th>
+<th>タスク名</th>
+<th>レベル</th>
+<th>担当者</th>
+<th>開始日</th>
+<th>終了日</th>
+<th>ステータス</th>
+<th>依存関係</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>プロジェクト開始</td>
+<td>1</td>
+<td>山田太郎</td>
+<td>2025/03/01</td>
+<td>2025/03/03</td>
+<td>進行中</td>
+<td></td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>要件定義</td>
+<td>2</td>
+<td>鈴木花子</td>
+<td>2025/03/02</td>
+<td>2025/03/07</td>
+<td>進行中</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1.1.1</td>
+<td>要件収集</td>
+<td>3</td>
+<td>佐藤次郎</td>
+<td>2025/03/02</td>
+<td>2025/03/04</td>
+<td>完了</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>1.1.2</td>
+<td>要件仕様書作成</td>
+<td>3</td>
+<td>高橋一郎</td>
+<td>2025/03/05</td>
+<td>2025/03/07</td>
+<td>未開始</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>1.2</td>
+<td>設計フェーズ</td>
+<td>2</td>
+<td>中村大輔</td>
+<td>2025/03/08</td>
+<td>2025/03/14</td>
+<td>未開始</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>1.2.1</td>
+<td>システム設計</td>
+<td>3</td>
+<td>加藤健</td>
+<td>2025/03/08</td>
+<td>2025/03/10</td>
+<td>未開始</td>
+<td>1.2</td>
+</tr>
+<tr>
+<td>1.2.2</td>
+<td>データベース設計</td>
+<td>3</td>
+<td>小林正</td>
+<td>2025/03/11</td>
+<td>2025/03/14</td>
+<td>未開始</td>
+<td>1.2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ステップ-5：進捗の追跡">ステップ 5：進捗の追跡</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>進捗バーの作成</strong>：Excelで進捗を視覚的に示すために、条件付き書式を使って進捗バーを作成できます。</p>
+</li>
+<li class="lvl-3">
+<p><strong>動的な更新</strong>：Excelファイルをチームで共有し、各メンバーが進捗を更新できるようにすることで、プロジェクトの進行状況をリアルタイムで確認できます。</p>
+</li>
+</ol>
+<hr>
+<h3 id="小技：">小技：</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>データ検証</strong>：ステータス列に「未開始」「進行中」「完了」などの項目を設定し、データの統一性を保ちます。</p>
+</li>
+<li class="lvl-2">
+<p><strong>コメントの追加</strong>：タスクの詳細や問題点をExcelのセルにコメントとして追加し、後から参照できるようにします。</p>
+</li>
+</ul>
+<p>Excelは専用のプロジェクト管理ツールではありませんが、適切に設定すれば、WBSの管理に十分活用できます。プロジェクトが小規模な場合や柔軟な管理が求められる場合に非常に有効なツールです。</p>
+<h2 id="WBS管理ツール">WBS管理ツール</h2>
+<p>プロジェクト管理において、WBS（作業分解構造）を管理するためのソフトウェアは多数あります。以下は、WBS管理に役立つ一般的なツールです：</p>
+<ol>
+<li class="lvl-3">
+<p>Microsoft Project</p>
+<ul class="lvl-2">
+<li class="lvl-5">Microsoft Projectは、非常に強力なプロジェクト管理ソフトウェアで、WBSの作成と管理をサポートしています。グラフィカルなインターフェースでタスク分解、依存関係の設定、リソースの割り当てが可能です。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>Trello</p>
+<ul class="lvl-2">
+<li class="lvl-5">Trelloは、看板ベースのプロジェクト管理ツールで、主にタスク管理に特化していますが、複数のボードとリストを作成することでWBSを実現することができます。チームとのコラボレーションにも非常に便利です。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>Jira</p>
+<ul class="lvl-2">
+<li class="lvl-5">Jiraは、アジャイル開発向けのプロジェクト管理ツールで、WBSを作成してタスクの進捗を追跡する機能があります。強力な問題追跡機能があり、開発チームに適しています。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>Asana</p>
+<ul class="lvl-2">
+<li class="lvl-5">Asanaは、タスクとプロジェクト管理ツールで、タスク、サブタスク、プロジェクトの作成によりWBS管理をサポートします。シンプルで使いやすく、チームでの協力作業に適しています。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>Smartsheet</p>
+<ul class="lvl-2">
+<li class="lvl-5">Smartheetは、Excelに似たインターフェースを持つプロジェクト管理ツールで、タスクのドラッグ＆ドロップによりWBSを作成できます。依存関係や優先順位の設定が簡単で、WBSの管理に便利です。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>Wrike</p>
+<ul class="lvl-2">
+<li class="lvl-5">Wrikeは、チーム協力とプロジェクト管理をサポートするプラットフォームで、WBSビュー機能を提供しています。タスクを分解し、リソースを割り当てて進捗を追跡できます。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>ClickUp</p>
+<ul class="lvl-2">
+<li class="lvl-5">ClickUpは、多機能なプロジェクト管理ツールで、タスク管理、目標設定、WBSの作成が可能です。豊富な機能を提供し、さまざまな規模のチームに適しています。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><a target="_blank" rel="noopener" href="http://Monday.com">Monday.com</a></p>
+<ul class="lvl-2">
+<li class="lvl-5">Monday.comは、非常に直感的で使いやすいプロジェクト管理ツールで、WBSの作成と管理をサポートします。カスタマイズ可能なビューを使用して、プロジェクトタスクを整理し、進捗を追跡できます。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>TeamGantt</p>
+<ul class="lvl-2">
+<li class="lvl-5">TeamGanttは、オンラインGanttチャートツールで、WBS機能をサポートしています。タスクを分解し、Ganttチャートで直感的に進捗を表示することができます。</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p>Basecamp</p>
+<ul class="lvl-2">
+<li class="lvl-6">Basecampは、チーム協力ツールで、中小規模のチームに最適です。専用のWBS機能はありませんが、タスクリストやディスカッションを使ってタスク管理を行い、間接的にWBSを管理できます。</li>
+</ul>
+</li>
+</ol>
+</div><hr style="height:1px;margin:1rem 0"><div class="level is-mobile is-flex"><div class="article-tags is-size-7 is-uppercase"><i class="fas fa-tags has-text-grey"></i> <a class="link-muted" rel="tag" href="/tags/WBS/">WBS, </a><a class="link-muted" rel="tag" href="/tags/%E9%80%B2%E6%8D%97%E7%AE%A1%E7%90%86/">進捗管理 </a></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/Deliverables-of-each-stage-of-the-waterfall-model/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">ウォーターフォールモデル各段階の成果物</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/The-difference-between-JUnit-4-and-JUnit-5/"><span class="level-item">JUnit 4とJUnit 5の違い</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/doctor.png" alt="ゴ"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">ゴ</p><p class="is-size-6 is-block">やる気があれば道は開ける</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>東京都 北区</span></p></div></div></nav><nav class="level is-mobile"><a class="level-item has-text-centered is-marginless" href="/categories"><div><p class="heading">投稿</p><div><p class="title">5</p></div></div></a><div class="level-item has-text-centered is-marginless"><div><p class="heading">カテゴリ</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">タグ</p><a href="/tags"><p class="title">13</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ooblivion"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Certificate" href="https://www.credly.com/users/wentao-wu.2fb450f4"><i class="fas fa-certificate"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Instagram" href="https://www.instagram.com/mika.ku.re/"><i class="fab fa-instagram"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="E-mail" href="mailto:gojapanmail@gmail.com"><i class="fa-solid fa-envelope"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目次</h3><ul class="menu-list"><li><a class="level is-mobile" href="#"><span class="level-left"><span class="level-item">1</span><span class="level-item">WBSの管理方法、タスクの割り当て、進捗報告の方法</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#管理の方法"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">管理の方法</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1-明確なWBSを作成する"><span class="level-left"><span class="level-item">1.1.1</span><span class="level-item">1. 明確なWBSを作成する</span></span></a></li><li><a class="level is-mobile" href="#2-タスクの割り当て"><span class="level-left"><span class="level-item">1.1.2</span><span class="level-item">2. タスクの割り当て</span></span></a></li><li><a class="level is-mobile" href="#3-進捗報告"><span class="level-left"><span class="level-item">1.1.3</span><span class="level-item">3. 進捗報告</span></span></a></li><li><a class="level is-mobile" href="#4-リスク管理と問題解決"><span class="level-left"><span class="level-item">1.1.4</span><span class="level-item">4. リスク管理と問題解決</span></span></a></li><li><a class="level is-mobile" href="#5-モチベーションとコミュニケーション"><span class="level-left"><span class="level-item">1.1.5</span><span class="level-item">5. モチベーションとコミュニケーション</span></span></a></li><li><a class="level is-mobile" href="#6-振り返りと改善"><span class="level-left"><span class="level-item">1.1.6</span><span class="level-item">6. 振り返りと改善</span></span></a></li></ul></li><li><a class="level is-mobile" href="#WBS-作成"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">WBS 作成</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1：プロジェクト構造の決定"><span class="level-left"><span class="level-item">1.2.1</span><span class="level-item">1：プロジェクト構造の決定</span></span></a></li><li><a class="level is-mobile" href="#2：WBS用のExcel表の作成"><span class="level-left"><span class="level-item">1.2.2</span><span class="level-item">2：WBS用のExcel表の作成</span></span></a></li><li><a class="level is-mobile" href="#3：タスク情報を入力"><span class="level-left"><span class="level-item">1.2.3</span><span class="level-item">3：タスク情報を入力</span></span></a></li><li><a class="level is-mobile" href="#4：Excelの機能を活用する"><span class="level-left"><span class="level-item">1.2.4</span><span class="level-item">4：Excelの機能を活用する</span></span></a></li><li><a class="level is-mobile" href="#サンプルWBS表"><span class="level-left"><span class="level-item">1.2.5</span><span class="level-item">サンプルWBS表</span></span></a></li><li><a class="level is-mobile" href="#ステップ-5：進捗の追跡"><span class="level-left"><span class="level-item">1.2.6</span><span class="level-item">ステップ 5：進捗の追跡</span></span></a></li><li><a class="level is-mobile" href="#小技："><span class="level-left"><span class="level-item">1.2.7</span><span class="level-item">小技：</span></span></a></li></ul></li><li><a class="level is-mobile" href="#WBS管理ツール"><span class="level-left"><span class="level-item">1.3</span><span class="level-item">WBS管理ツール</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/orange.png" alt="OrangeBlog" height="28"></a><p class="is-size-7"><span>&copy; 2025 orange</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2018</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-nc"></i> <i class="fab fa-creative-commons-sa"></i> </a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("jp");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="トップに戻る" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "このウェブサイトはあなたの経験を改善するためにCookieを使用しています。",
+          dismiss: "了解しました",
+          allow: "Cookiesを許可する",
+          deny: "拒否する",
+          link: "もっと詳しく知る",
+          policy: "Cookieポリシー",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/night.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="何かを入力してください..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"何かを入力してください...","untitled":"(無題)","posts":"投稿","pages":"ページ","categories":"カテゴリ","tags":"タグ"});
+        });</script></body></html>
