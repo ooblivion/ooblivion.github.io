@@ -92,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://ooblivion.github.io/What-technology-has-replaced-JSP/</loc>
+    <loc>https://ooblivion.github.io/Methods-of-Data-Transfer-Between-Frontend-and-Backend-in-Java-Projects/</loc>
     
     <lastmod>2024-01-08</lastmod>
     
@@ -101,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://ooblivion.github.io/Methods-of-Data-Transfer-Between-Frontend-and-Backend-in-Java-Projects/</loc>
+    <loc>https://ooblivion.github.io/What-technology-has-replaced-JSP/</loc>
     
     <lastmod>2024-01-08</lastmod>
     
@@ -129,6 +129,27 @@
   
   <url>
     <loc>https://ooblivion.github.io/tags/Java/</loc>
+    <lastmod>2025-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ooblivion.github.io/tags/Ajax/</loc>
+    <lastmod>2025-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ooblivion.github.io/tags/Axios/</loc>
+    <lastmod>2025-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ooblivion.github.io/tags/XMLHttpRequest/</loc>
     <lastmod>2025-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -163,28 +184,7 @@
   </url>
   
   <url>
-    <loc>https://ooblivion.github.io/tags/Ajax/</loc>
-    <lastmod>2025-03-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://ooblivion.github.io/tags/fetch/</loc>
-    <lastmod>2025-03-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ooblivion.github.io/tags/Axios/</loc>
-    <lastmod>2025-03-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ooblivion.github.io/tags/XMLHttpRequest/</loc>
     <lastmod>2025-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -256,14 +256,14 @@
 
   
   <url>
-    <loc>https://ooblivion.github.io/categories/%E6%8A%80%E8%A1%93%E6%A6%82%E8%A6%81/</loc>
+    <loc>https://ooblivion.github.io/categories/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%83%90%E3%83%83%E3%82%AF%E9%80%9A%E4%BF%A1/</loc>
     <lastmod>2025-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ooblivion.github.io/categories/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%83%90%E3%83%83%E3%82%AF%E9%80%9A%E4%BF%A1/</loc>
+    <loc>https://ooblivion.github.io/categories/%E6%8A%80%E8%A1%93%E6%A6%82%E8%A6%81/</loc>
     <lastmod>2025-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
