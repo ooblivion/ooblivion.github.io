@@ -6,7 +6,7 @@
   <link href="https://ooblivion.github.io/atom.xml" rel="self"/>
   
   <link href="https://ooblivion.github.io/"/>
-  <updated>2025-03-14T19:23:27.584Z</updated>
+  <updated>2025-03-07T17:44:41.000Z</updated>
   <id>https://ooblivion.github.io/</id>
   
   <author>
@@ -15,32 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://ooblivion.github.io/undefined/"/>
-    <id>https://ooblivion.github.io/undefined/</id>
-    <published>2025-03-14T19:23:19.378Z</published>
-    <updated>2025-03-14T19:23:27.584Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://ooblivion.github.io/undefined/"/>
-    <id>https://ooblivion.github.io/undefined/</id>
-    <published>2025-03-14T19:19:23.117Z</published>
-    <updated>2025-03-14T19:23:43.321Z</updated>
-    
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>ウォーターフォールモデル各段階の成果物</title>
@@ -66,6 +40,27 @@
   </entry>
   
   <entry>
+    <title>静的ブログをAWSにデプロイ</title>
+    <link href="https://ooblivion.github.io/Deploying-Static-Blog-to-AWS/"/>
+    <id>https://ooblivion.github.io/Deploying-Static-Blog-to-AWS/</id>
+    <published>2024-11-12T08:26:08.000Z</published>
+    <updated>2024-12-13T17:31:34.000Z</updated>
+    
+    
+    <summary type="html">静的ブログ（Hexo, Hugo, Jekyll など）を AWS にデプロイする方法はいくつかあります。ここでは代表的な AWS Amplify, S3 + CloudFront, EC2 の 3 つの方法を紹介します。</summary>
+    
+    
+    
+    <category term="クラウド" scheme="https://ooblivion.github.io/categories/%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89/"/>
+    
+    
+    <category term="AWS" scheme="https://ooblivion.github.io/tags/AWS/"/>
+    
+    <category term="Hexo" scheme="https://ooblivion.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>WBSの管理方法、タスクの割り当て、進捗報告の方法</title>
     <link href="https://ooblivion.github.io/WBS-management-task-assignment-progress/"/>
     <id>https://ooblivion.github.io/WBS-management-task-assignment-progress/</id>
@@ -87,6 +82,25 @@
   </entry>
   
   <entry>
+    <title>Git-Rebaseの使用方法</title>
+    <link href="https://ooblivion.github.io/How-To-Use-GitRebase/"/>
+    <id>https://ooblivion.github.io/How-To-Use-GitRebase/</id>
+    <published>2024-10-14T03:11:08.000Z</published>
+    <updated>2024-12-21T16:36:34.000Z</updated>
+    
+    
+    <summary type="html">git rebase は、Gitの履歴を変更するための強力なコマンドで、主にブランチの変更を統合するために使用されます。rebase を使うと、履歴がきれいになり、複雑なマージコミットを減らすことができます。</summary>
+    
+    
+    
+    <category term="バージョン管理" scheme="https://ooblivion.github.io/categories/%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%AE%A1%E7%90%86/"/>
+    
+    
+    <category term="Git" scheme="https://ooblivion.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>プロジェクトが遅延している場合の対応策</title>
     <link href="https://ooblivion.github.io/Measures-for-handling-project-delay/"/>
     <id>https://ooblivion.github.io/Measures-for-handling-project-delay/</id>
@@ -101,9 +115,9 @@
     <category term="プロジェクト管理" scheme="https://ooblivion.github.io/categories/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E7%AE%A1%E7%90%86/"/>
     
     
-    <category term="障害対応" scheme="https://ooblivion.github.io/tags/%E9%9A%9C%E5%AE%B3%E5%AF%BE%E5%BF%9C/"/>
-    
     <category term="進捗管理" scheme="https://ooblivion.github.io/tags/%E9%80%B2%E6%8D%97%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="障害対応" scheme="https://ooblivion.github.io/tags/%E9%9A%9C%E5%AE%B3%E5%AF%BE%E5%BF%9C/"/>
     
   </entry>
   
