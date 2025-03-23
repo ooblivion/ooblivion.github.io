@@ -182,11 +182,11 @@
     
     <category term="Java" scheme="https://ooblivion.github.io/tags/Java/"/>
     
-    <category term="Ajax" scheme="https://ooblivion.github.io/tags/Ajax/"/>
-    
     <category term="JSP" scheme="https://ooblivion.github.io/tags/JSP/"/>
     
     <category term="Thymeleaf" scheme="https://ooblivion.github.io/tags/Thymeleaf/"/>
+    
+    <category term="Ajax" scheme="https://ooblivion.github.io/tags/Ajax/"/>
     
     <category term="fetch" scheme="https://ooblivion.github.io/tags/fetch/"/>
     
