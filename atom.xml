@@ -115,9 +115,9 @@
     <category term="プロジェクト管理" scheme="https://ooblivion.github.io/categories/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E7%AE%A1%E7%90%86/"/>
     
     
-    <category term="障害対応" scheme="https://ooblivion.github.io/tags/%E9%9A%9C%E5%AE%B3%E5%AF%BE%E5%BF%9C/"/>
-    
     <category term="進捗管理" scheme="https://ooblivion.github.io/tags/%E9%80%B2%E6%8D%97%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="障害対応" scheme="https://ooblivion.github.io/tags/%E9%9A%9C%E5%AE%B3%E5%AF%BE%E5%BF%9C/"/>
     
   </entry>
   
@@ -182,11 +182,11 @@
     
     <category term="Java" scheme="https://ooblivion.github.io/tags/Java/"/>
     
+    <category term="Ajax" scheme="https://ooblivion.github.io/tags/Ajax/"/>
+    
     <category term="JSP" scheme="https://ooblivion.github.io/tags/JSP/"/>
     
     <category term="Thymeleaf" scheme="https://ooblivion.github.io/tags/Thymeleaf/"/>
-    
-    <category term="Ajax" scheme="https://ooblivion.github.io/tags/Ajax/"/>
     
     <category term="fetch" scheme="https://ooblivion.github.io/tags/fetch/"/>
     
