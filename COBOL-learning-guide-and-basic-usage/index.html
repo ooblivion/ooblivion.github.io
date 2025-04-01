@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="jp"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>COBOL 学习记录与基本使用 - OrangeBlog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="OrangeBlog"><meta name="msapplication-TileImage" content="/img/orange-facicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="OrangeBlog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="本記事では、COBOLの基本的な使い方について学習した内容を記録します。COBOLの歴史的背景や特徴を簡単に紹介した後、基本的なプログラムの書き方や実行方法について説明します。また、COBOLを学習する際のポイントや気づいたことについてもまとめます。"><meta property="og:type" content="blog"><meta property="og:title" content="COBOL 学习记录与基本使用"><meta property="og:url" content="https://ooblivion.github.io/COBOL-learning-guide-and-basic-usage/"><meta property="og:site_name" content="OrangeBlog"><meta property="og:description" content="本記事では、COBOLの基本的な使い方について学習した内容を記録します。COBOLの歴史的背景や特徴を簡単に紹介した後、基本的なプログラムの書き方や実行方法について説明します。また、COBOLを学習する際のポイントや気づいたことについてもまとめます。"><meta property="og:locale" content="jp"><meta property="og:image" content="https://ooblivion.github.io/img/og_image.png"><meta property="article:published_time" content="2024-09-29T17:56:48.000Z"><meta property="article:modified_time" content="2024-12-06T02:22:33.000Z"><meta property="article:author" content="orange"><meta property="article:tag" content="COBOL"><meta property="article:tag" content="学習記録"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://ooblivion.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://ooblivion.github.io/COBOL-learning-guide-and-basic-usage/"},"headline":"COBOL 学习记录与基本使用","image":["https://ooblivion.github.io/img/og_image.png"],"datePublished":"2024-09-29T17:56:48.000Z","dateModified":"2024-12-06T02:22:33.000Z","author":{"@type":"Person","name":"orange"},"publisher":{"@type":"Organization","name":"OrangeBlog","logo":{"@type":"ImageObject","url":"https://ooblivion.github.io/img/orange.png"}},"description":"本記事では、COBOLの基本的な使い方について学習した内容を記録します。COBOLの歴史的背景や特徴を簡単に紹介した後、基本的なプログラムの書き方や実行方法について説明します。また、COBOLを学習する際のポイントや気づいたことについてもまとめます。"}</script><link rel="canonical" href="https://ooblivion.github.io/COBOL-learning-guide-and-basic-usage/"><link rel="icon" href="/img/orange-facicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?G-TQZ0DMPY0S";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="OrangeBlog" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/orange.png" alt="OrangeBlog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">ホームページ</a><a class="navbar-item" href="/about">自己紹介</a><a class="navbar-item" href="/Contact">問い合わせ・案件のご紹介</a><a class="navbar-item" href="/Development">開発実績</a><a class="navbar-item" href="/archives">アーカイブ</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-lightbulb" id="night-icon"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目次" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="検索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-09-29T17:56:48.000Z" title="2024/9/30 2:56:48">2024-09-30</time>に投稿</span><span class="level-item"><time dateTime="2024-12-06T02:22:33.000Z" title="2024/12/6 11:22:33">2024-12-06</time>に更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E8%A1%93%E6%A6%82%E8%A6%81/">技術概要</a></span><span class="level-item">17 minutesで読む (約2532語)</span></div></div><h1 class="title is-3 is-size-4-mobile">COBOL 学习记录与基本使用</h1><div class="content"><p>**COBOL（Common Business-Oriented Language）からJavaなどの現代的なプログラミング言語への移行を行いたい場合、COBOLの基本的な知識を理解することが非常に重要です。以下はCOBOLの基本的な知識と関連する概念、および移行プロジェクトの準備方法について説明します。</p>
+<!-- more -->
+<h2 id="1-COBOLの基本概念：">1. <strong>COBOLの基本概念：</strong></h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>COBOLの紹介</strong>：COBOLは1960年代後半に開発されたプログラミング言語で、特にビジネス、金融、行政システムの開発に適しています。その設計目標は理解しやすさと保守のしやすさであり、非プログラマでも扱いやすいように作られています。</p>
+</li>
+<li class="lvl-2">
+<p><strong>COBOLの特徴</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>英語風の構文</strong>：COBOLの構文は英語に近いため、コードが理解しやすいです。例えば、<code>ADD A TO B GIVING C</code>というような文です。</li>
+<li class="lvl-6"><strong>構造化プログラミング</strong>：COBOLは構造化プログラミングをサポートしており、明確な段落（段落はコードブロックのようなもの）を使用します。</li>
+<li class="lvl-6"><strong>データ処理</strong>：COBOLは大量のデータやトランザクションの処理に特化しており、銀行、保険、小売業などの業界のコアシステムで広く使用されています。</li>
+<li class="lvl-6"><strong>古いシステムの基盤</strong>：多くの大企業や政府機関は依然としてCOBOLで書かれた遺産システムを使用しており、これらのシステムは通常、膨大なデータと複雑なビジネスロジックを持っています。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-COBOLプログラムの構成：">2. <strong>COBOLプログラムの構成：</strong></h2>
+<p>COBOLプログラムは通常、以下の4つの部分に分かれています：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Identification Division（識別部）</strong>：プログラムの名前、作成者、日付などのメタ情報を定義します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Environment Division（環境部）</strong>：プログラムの実行に必要なハードウェアやソフトウェアの環境を指定します。通常はファイルやデバイスの処理に関連しています。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Data Division（データ部）</strong>：プログラム内で使用されるすべてのデータ構造や変数を定義します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Procedure Division（手続き部）</strong>：プログラムの実行ロジックが含まれており、COBOLプログラムの主要な部分です。</p>
+</li>
+</ul>
+<h2 id="3-一般的なCOBOLデータ型：">3. <strong>一般的なCOBOLデータ型：</strong></h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>PIC（Picture）</strong>：COBOLは「PIC」を使ってデータ型とフォーマットを定義します。例えば、<code>PIC 9(5)</code>は5桁の数字型、<code>PIC X(10)</code>は10文字の文字列を表します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>数値と文字データ</strong>：COBOLは数値型と文字型を区別し、固定長の文字列や浮動小数点数などをサポートします。</p>
+</li>
+<li class="lvl-2">
+<p><strong>テーブル（配列）</strong>：COBOLはテーブルを使って複数のデータ項目を格納でき、テーブルのサイズはコンパイル時に定義されます。</p>
+</li>
+</ul>
+<h2 id="4-COBOLプログラムの実行フロー：">4. <strong>COBOLプログラムの実行フロー：</strong></h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>順次実行</strong>：COBOLプログラムは通常、順番に実行され、制御構造（条件文、ループなど）が現れるまで実行が続きます。</p>
+</li>
+<li class="lvl-2">
+<p><strong>条件文</strong>：COBOLでは <code>IF...ELSE</code> や <code>EVALUATE</code> を使って条件ロジックを処理します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>ループ構造</strong>：<code>PERFORM</code> 文を使って繰り返し処理を実行します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>ファイル処理</strong>：COBOLは強力なファイル処理機能を持ち、大規模なデータファイルの読み書きに広く使用され、順次ファイルやインデックスファイルなどをサポートします。</p>
+</li>
+</ul>
+<h2 id="5-COBOLプログラムでよく使われるコマンド：">5. <strong>COBOLプログラムでよく使われるコマンド：</strong></h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>ADD、SUBTRACT、MULTIPLY、DIVIDE</strong>：数値計算に使用されます。</p>
+</li>
+<li class="lvl-2">
+<p><strong>MOVE</strong>：データを一つの変数から別の変数に代入します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>OPEN、READ、WRITE、CLOSE</strong>：ファイル操作に使用されます。</p>
+</li>
+<li class="lvl-2">
+<p><strong>DISPLAY</strong>：データを出力します。</p>
+</li>
+<li class="lvl-2">
+<p><strong>IF、ELSE、END-IF</strong>：条件文、論理判定に使用されます。</p>
+</li>
+<li class="lvl-2">
+<p><strong>PERFORM</strong>：処理やループの実行。</p>
+</li>
+<li class="lvl-2">
+<p><strong>EVALUATE</strong>：複数分岐の <code>switch</code> 文に似ており、複雑な条件判定でよく使用されます。</p>
+</li>
+</ul>
+<h2 id="6-COBOLからJavaへの移行の重要ポイント：">6. <strong>COBOLからJavaへの移行の重要ポイント：</strong></h2>
+<p>COBOLからJavaに移行する準備をする際、以下のステップと考慮すべき点があります：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>既存システムのロジックを理解する</strong>：COBOLコードは非常に大きく複雑なことが多いため、既存システムのロジックやデータフローを理解することが重要です。移行過程で重要な機能を漏らさないようにしましょう。</p>
+</li>
+<li class="lvl-2">
+<p><strong>データモデルの移行</strong>：COBOLプログラムではファイルによるデータ処理が多いため、COBOLのファイル処理（順次ファイル、インデックスファイルなど）をJavaのデータベース（MySQL、PostgreSQLなど）や現代的なストレージ方法（Hadoop、NoSQL）に移行する方法を検討する必要があります。</p>
+</li>
+<li class="lvl-2">
+<p><strong>適切なJavaフレームワークの選定</strong>：Java開発には、ビジネスロジック、データベースインタラクション、トランザクション管理を実現するためにSpringやHibernateなどのフレームワークを使う必要があるかもしれません。</p>
+</li>
+<li class="lvl-2">
+<p><strong>パフォーマンス最適化</strong>：COBOLシステムは通常、大量のデータ処理に最適化されているため、Javaシステムでも同様の負荷に耐えられるように、パフォーマンス調整（データベースの最適化、メモリ管理、並列処理など）を行う必要があります。</p>
+</li>
+<li class="lvl-2">
+<p><strong>自動化テストと回帰テスト</strong>：移行後、新しいシステムに新たな問題が発生しないことを確認するため、十分な自動回帰テストを行います。</p>
+</li>
+<li class="lvl-2">
+<p><strong>段階的な移行</strong>：COBOLシステムは通常非常に大規模なので、段階的に移行を行う方法を取ると良いでしょう。各モジュールや機能を少しずつJavaに移行し、古いシステムを置き換えていきます。</p>
+</li>
+</ul>
+<h2 id="7-COBOLからJavaへの移行ツールと方法：">7. <strong>COBOLからJavaへの移行ツールと方法：</strong></h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>手動移行</strong>：COBOLの各モジュールを逐次的に分析し、移行する方法です。時間はかかりますが、各モジュールの機能をよく理解できます。</p>
+</li>
+<li class="lvl-2">
+<p><strong>自動化移行ツール</strong>：市場には自動化移行ツール（Micro Focus、Heirloom Computingなど）があり、COBOLコードをJavaコードに自動変換することができます。これらのツールは移行を加速しますが、後の調整と最適化が必要になる場合があります。</p>
+</li>
+<li class="lvl-2">
+<p><strong>リファクタリングとモダナイゼーション</strong>：古いCOBOLシステムをマイクロサービスアーキテクチャや分散システムなどの現代的なアーキテクチャに再設計し、システムの保守性と拡張性を高めます。</p>
+</li>
+</ul>
+<h2 id="まとめ：">まとめ：</h2>
+<p>COBOLプログラムは大企業や政府機関のコアシステムに存在しており、特に大量のデータとトランザクションの処理に適しています。COBOLからJavaへの移行を行う場合、COBOLの基本的な構文、データ処理方法、プログラム構造を理解することが重要です。また、データ移行、システムのパフォーマンス、テストなどの重要な問題にも注意を払いましょう。移行過程では、適切なツールや方法を選択することが非常に重要であり、プロジェクトの規模や複雑さに応じて、手動移行または自動化ツールの使用を検討することができます。**</p>
+<h2 id="はじめに-–-COBOLを学ぶ理由と目的">はじめに – COBOLを学ぶ理由と目的</h2>
+<h2 id="COBOLとは？-–-歴史、特徴、使用されている分野">COBOLとは？ – 歴史、特徴、使用されている分野</h2>
+<h2 id="開発環境の構築-–-COBOLを実行するための環境セットアップ">開発環境の構築 – COBOLを実行するための環境セットアップ</h2>
+<h2 id="基本的な構文とプログラムの書き方">基本的な構文とプログラムの書き方</h2>
+<h2 id="COBOLのプログラム構成">COBOLのプログラム構成</h2>
+<h2 id="データの定義">データの定義</h2>
+<h2 id="基本的な処理（四則演算、条件分岐、ループ）">基本的な処理（四則演算、条件分岐、ループ）</h2>
+<h2 id="実際のプログラム例-–-簡単なサンプルコードを解説">実際のプログラム例 – 簡単なサンプルコードを解説</h2>
+<h2 id="学習のポイントと注意点-–-効率的な学習方法とよくあるミス">学習のポイントと注意点 – 効率的な学習方法とよくあるミス</h2>
+<h2 id="まとめ-–-学習の振り返りと今後の課題">まとめ – 学習の振り返りと今後の課題</h2>
+</div><hr style="height:1px;margin:1rem 0"><div class="level is-mobile is-flex"><div class="article-tags is-size-7 is-uppercase"><i class="fas fa-tags has-text-grey"></i> <a class="link-muted" rel="tag" href="/tags/COBOL/">COBOL, </a><a class="link-muted" rel="tag" href="/tags/%E5%AD%A6%E7%BF%92%E8%A8%98%E9%8C%B2/">学習記録 </a></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/How-To-Use-GitRebase/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Git-Rebaseの使用方法</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Measures-for-handling-project-delay/"><span class="level-item">プロジェクトが遅延している場合の対応策</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/doctor.png" alt="ゴ"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">ゴ</p><p class="is-size-6 is-block">やる気があれば道は開ける</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>東京都 北区</span></p></div></div></nav><nav class="level is-mobile"><a class="level-item has-text-centered is-marginless" href="/categories"><div><p class="heading">投稿</p><div><p class="title">10</p></div></div></a><div class="level-item has-text-centered is-marginless"><div><p class="heading">カテゴリ</p><a href="/categories"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">タグ</p><a href="/tags"><p class="title">20</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ooblivion"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Certificate" href="https://www.credly.com/users/wentao-wu.2fb450f4"><i class="fas fa-certificate"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Instagram" href="https://www.instagram.com/mika.ku.re/"><i class="fab fa-instagram"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="E-mail" href="/Contact"><i class="fa-solid fa-envelope"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目次</h3><ul class="menu-list"><li><a class="level is-mobile" href="#1-COBOLの基本概念："><span class="level-left"><span class="level-item">1</span><span class="level-item">1. COBOLの基本概念：</span></span></a></li><li><a class="level is-mobile" href="#2-COBOLプログラムの構成："><span class="level-left"><span class="level-item">2</span><span class="level-item">2. COBOLプログラムの構成：</span></span></a></li><li><a class="level is-mobile" href="#3-一般的なCOBOLデータ型："><span class="level-left"><span class="level-item">3</span><span class="level-item">3. 一般的なCOBOLデータ型：</span></span></a></li><li><a class="level is-mobile" href="#4-COBOLプログラムの実行フロー："><span class="level-left"><span class="level-item">4</span><span class="level-item">4. COBOLプログラムの実行フロー：</span></span></a></li><li><a class="level is-mobile" href="#5-COBOLプログラムでよく使われるコマンド："><span class="level-left"><span class="level-item">5</span><span class="level-item">5. COBOLプログラムでよく使われるコマンド：</span></span></a></li><li><a class="level is-mobile" href="#6-COBOLからJavaへの移行の重要ポイント："><span class="level-left"><span class="level-item">6</span><span class="level-item">6. COBOLからJavaへの移行の重要ポイント：</span></span></a></li><li><a class="level is-mobile" href="#7-COBOLからJavaへの移行ツールと方法："><span class="level-left"><span class="level-item">7</span><span class="level-item">7. COBOLからJavaへの移行ツールと方法：</span></span></a></li><li><a class="level is-mobile" href="#まとめ："><span class="level-left"><span class="level-item">8</span><span class="level-item">まとめ：</span></span></a></li><li><a class="level is-mobile" href="#はじめに-–-COBOLを学ぶ理由と目的"><span class="level-left"><span class="level-item">9</span><span class="level-item">はじめに – COBOLを学ぶ理由と目的</span></span></a></li><li><a class="level is-mobile" href="#COBOLとは？-–-歴史、特徴、使用されている分野"><span class="level-left"><span class="level-item">10</span><span class="level-item">COBOLとは？ – 歴史、特徴、使用されている分野</span></span></a></li><li><a class="level is-mobile" href="#開発環境の構築-–-COBOLを実行するための環境セットアップ"><span class="level-left"><span class="level-item">11</span><span class="level-item">開発環境の構築 – COBOLを実行するための環境セットアップ</span></span></a></li><li><a class="level is-mobile" href="#基本的な構文とプログラムの書き方"><span class="level-left"><span class="level-item">12</span><span class="level-item">基本的な構文とプログラムの書き方</span></span></a></li><li><a class="level is-mobile" href="#COBOLのプログラム構成"><span class="level-left"><span class="level-item">13</span><span class="level-item">COBOLのプログラム構成</span></span></a></li><li><a class="level is-mobile" href="#データの定義"><span class="level-left"><span class="level-item">14</span><span class="level-item">データの定義</span></span></a></li><li><a class="level is-mobile" href="#基本的な処理（四則演算、条件分岐、ループ）"><span class="level-left"><span class="level-item">15</span><span class="level-item">基本的な処理（四則演算、条件分岐、ループ）</span></span></a></li><li><a class="level is-mobile" href="#実際のプログラム例-–-簡単なサンプルコードを解説"><span class="level-left"><span class="level-item">16</span><span class="level-item">実際のプログラム例 – 簡単なサンプルコードを解説</span></span></a></li><li><a class="level is-mobile" href="#学習のポイントと注意点-–-効率的な学習方法とよくあるミス"><span class="level-left"><span class="level-item">17</span><span class="level-item">学習のポイントと注意点 – 効率的な学習方法とよくあるミス</span></span></a></li><li><a class="level is-mobile" href="#まとめ-–-学習の振り返りと今後の課題"><span class="level-left"><span class="level-item">18</span><span class="level-item">まとめ – 学習の振り返りと今後の課題</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/orange.png" alt="OrangeBlog" height="28"></a><p class="is-size-7"><span>&copy; 2025 orange</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2018</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-nc"></i> <i class="fab fa-creative-commons-sa"></i> </a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("jp");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="トップに戻る" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "このウェブサイトはあなたの経験を改善するためにCookieを使用しています。",
+          dismiss: "了解しました",
+          allow: "Cookiesを許可する",
+          deny: "拒否する",
+          link: "もっと詳しく知る",
+          policy: "Cookieポリシー",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/night.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="何かを入力してください..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"何かを入力してください...","untitled":"(無題)","posts":"投稿","pages":"ページ","categories":"カテゴリ","tags":"タグ"});
+        });</script></body></html>

@@ -101,6 +101,27 @@
   </entry>
   
   <entry>
+    <title>COBOL 学习记录与基本使用</title>
+    <link href="https://ooblivion.github.io/COBOL-learning-guide-and-basic-usage/"/>
+    <id>https://ooblivion.github.io/COBOL-learning-guide-and-basic-usage/</id>
+    <published>2024-09-29T17:56:48.000Z</published>
+    <updated>2024-12-06T02:22:33.000Z</updated>
+    
+    
+    <summary type="html">本記事では、COBOLの基本的な使い方について学習した内容を記録します。COBOLの歴史的背景や特徴を簡単に紹介した後、基本的なプログラムの書き方や実行方法について説明します。また、COBOLを学習する際のポイントや気づいたことについてもまとめます。</summary>
+    
+    
+    
+    <category term="技術概要" scheme="https://ooblivion.github.io/categories/%E6%8A%80%E8%A1%93%E6%A6%82%E8%A6%81/"/>
+    
+    
+    <category term="COBOL" scheme="https://ooblivion.github.io/tags/COBOL/"/>
+    
+    <category term="学習記録" scheme="https://ooblivion.github.io/tags/%E5%AD%A6%E7%BF%92%E8%A8%98%E9%8C%B2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>プロジェクトが遅延している場合の対応策</title>
     <link href="https://ooblivion.github.io/Measures-for-handling-project-delay/"/>
     <id>https://ooblivion.github.io/Measures-for-handling-project-delay/</id>
@@ -182,11 +203,11 @@
     
     <category term="Java" scheme="https://ooblivion.github.io/tags/Java/"/>
     
-    <category term="Ajax" scheme="https://ooblivion.github.io/tags/Ajax/"/>
-    
     <category term="JSP" scheme="https://ooblivion.github.io/tags/JSP/"/>
     
     <category term="Thymeleaf" scheme="https://ooblivion.github.io/tags/Thymeleaf/"/>
+    
+    <category term="Ajax" scheme="https://ooblivion.github.io/tags/Ajax/"/>
     
     <category term="fetch" scheme="https://ooblivion.github.io/tags/fetch/"/>
     
